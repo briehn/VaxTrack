@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6BD84266263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */; };
-		6BD8426A263B7C8600CBAA12 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84269263B7C8600CBAA12 /* Appointment.swift */; };
+		6BD84275263DDF0F00CBAA12 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD8426E263DDF0F00CBAA12 /* Appointment.swift */; };
+		6BD84276263DDF0F00CBAA12 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD8426F263DDF0F00CBAA12 /* HomeModel.swift */; };
+		6BD84277263DDF0F00CBAA12 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84270263DDF0F00CBAA12 /* Provider.swift */; };
+		6BD84278263DDF0F00CBAA12 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84271263DDF0F00CBAA12 /* LoginModel.swift */; };
+		6BD84279263DDF0F00CBAA12 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84272263DDF0F00CBAA12 /* Patient.swift */; };
+		6BD8427A263DDF0F00CBAA12 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84273263DDF0F00CBAA12 /* Record.swift */; };
+		6BD8427B263DDF0F00CBAA12 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84274263DDF0F00CBAA12 /* PatientModel.swift */; };
 		744FA301262759A900FA5B00 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744FA300262759A900FA5B00 /* Login.storyboard */; };
 		7486C09F2636E6F4002E9A92 /* addNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C09E2636E6F4002E9A92 /* addNewCell.swift */; };
 		7486C0A22636E781002E9A92 /* recordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0A12636E781002E9A92 /* recordCell.swift */; };
-		7486C0A6263911E6002E9A92 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0A5263911E6002E9A92 /* Record.swift */; };
 		7486C0A926391F42002E9A92 /* providerRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0A826391F42002E9A92 /* providerRecordCell.swift */; };
 		7486C0AD263920B2002E9A92 /* ProviderVaccineRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0AC263920B2002E9A92 /* ProviderVaccineRecordViewController.swift */; };
 		7486C0B1263924D6002E9A92 /* appointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0B0263924D6002E9A92 /* appointmentCell.swift */; };
@@ -22,7 +27,6 @@
 		7486C0C326395AB4002E9A92 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0C226395AB4002E9A92 /* Database.swift */; };
 		7486C0CA263967A6002E9A92 /* VaccineRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */; };
 		7486C0DA263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */; };
-		7486C0E6263AA912002E9A92 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0E5263AA912002E9A92 /* Provider.swift */; };
 		7486C0F2263B1FA6002E9A92 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0F1263B1FA6002E9A92 /* DateUtil.swift */; };
 		C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */; };
 		C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */; };
@@ -40,16 +44,20 @@
 		C7B40550261103FE005C4EA0 /* TestResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B4054F261103FE005C4EA0 /* TestResultsViewController.swift */; };
 		C7B4055326110412005C4EA0 /* FindProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B4055226110412005C4EA0 /* FindProviderViewController.swift */; };
 		C7B405562611041F005C4EA0 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B405552611041F005C4EA0 /* FAQViewController.swift */; };
-		C7B4055926110578005C4EA0 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B4055826110578005C4EA0 /* Patient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecordAddNewViewController.swift; sourceTree = "<group>"; };
-		6BD84269263B7C8600CBAA12 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		6BD8426E263DDF0F00CBAA12 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Appointment.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/Appointment.swift"; sourceTree = "<group>"; };
+		6BD8426F263DDF0F00CBAA12 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeModel.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/HomeModel.swift"; sourceTree = "<group>"; };
+		6BD84270263DDF0F00CBAA12 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/Provider.swift"; sourceTree = "<group>"; };
+		6BD84271263DDF0F00CBAA12 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/LoginModel.swift"; sourceTree = "<group>"; };
+		6BD84272263DDF0F00CBAA12 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Patient.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/Patient.swift"; sourceTree = "<group>"; };
+		6BD84273263DDF0F00CBAA12 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Record.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/Record.swift"; sourceTree = "<group>"; };
+		6BD84274263DDF0F00CBAA12 /* PatientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PatientModel.swift; path = "../../../Vaccination-Immunization-Tracking-Management-iOS-OKAYDOKAY/Capstone Project iOS/Models/PatientModel.swift"; sourceTree = "<group>"; };
 		744FA300262759A900FA5B00 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7486C09E2636E6F4002E9A92 /* addNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewCell.swift; sourceTree = "<group>"; };
 		7486C0A12636E781002E9A92 /* recordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordCell.swift; sourceTree = "<group>"; };
-		7486C0A5263911E6002E9A92 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7486C0A826391F42002E9A92 /* providerRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = providerRecordCell.swift; sourceTree = "<group>"; };
 		7486C0AC263920B2002E9A92 /* ProviderVaccineRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderVaccineRecordViewController.swift; sourceTree = "<group>"; };
 		7486C0B0263924D6002E9A92 /* appointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appointmentCell.swift; sourceTree = "<group>"; };
@@ -59,7 +67,6 @@
 		7486C0C226395AB4002E9A92 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineRecordDetailViewController.swift; sourceTree = "<group>"; };
 		7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderVaccineRecordUploadViewController.swift; sourceTree = "<group>"; };
-		7486C0E5263AA912002E9A92 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		7486C0F1263B1FA6002E9A92 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		C76CD9082608F7A800D4DEEB /* VaxTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaxTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +86,6 @@
 		C7B4054F261103FE005C4EA0 /* TestResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsViewController.swift; sourceTree = "<group>"; };
 		C7B4055226110412005C4EA0 /* FindProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProviderViewController.swift; sourceTree = "<group>"; };
 		C7B405552611041F005C4EA0 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
-		C7B4055826110578005C4EA0 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +139,13 @@
 		C7B4052F2611012E005C4EA0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6BD84269263B7C8600CBAA12 /* Appointment.swift */,
-				7486C0A5263911E6002E9A92 /* Record.swift */,
-				C7B4055826110578005C4EA0 /* Patient.swift */,
-				7486C0E5263AA912002E9A92 /* Provider.swift */,
+				6BD8426E263DDF0F00CBAA12 /* Appointment.swift */,
+				6BD8426F263DDF0F00CBAA12 /* HomeModel.swift */,
+				6BD84271263DDF0F00CBAA12 /* LoginModel.swift */,
+				6BD84272263DDF0F00CBAA12 /* Patient.swift */,
+				6BD84274263DDF0F00CBAA12 /* PatientModel.swift */,
+				6BD84270263DDF0F00CBAA12 /* Provider.swift */,
+				6BD84273263DDF0F00CBAA12 /* Record.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,12 +297,16 @@
 			files = (
 				7486C0DA263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift in Sources */,
 				7486C0BE26394097002E9A92 /* AppointmentAvailableTimeCell.swift in Sources */,
+				6BD8427A263DDF0F00CBAA12 /* Record.swift in Sources */,
 				C7B4054326110354005C4EA0 /* LoginViewController.swift in Sources */,
 				C7B4053A261101ED005C4EA0 /* NotificationsViewController.swift in Sources */,
+				6BD84279263DDF0F00CBAA12 /* Patient.swift in Sources */,
+				6BD84276263DDF0F00CBAA12 /* HomeModel.swift in Sources */,
 				C7B4054726110369005C4EA0 /* RegistrationViewController.swift in Sources */,
 				7486C0B82639294E002E9A92 /* providerInfoCell.swift in Sources */,
-				C7B4055926110578005C4EA0 /* Patient.swift in Sources */,
+				6BD84277263DDF0F00CBAA12 /* Provider.swift in Sources */,
 				7486C0C326395AB4002E9A92 /* Database.swift in Sources */,
+				6BD8427B263DDF0F00CBAA12 /* PatientModel.swift in Sources */,
 				C7B40537261101BE005C4EA0 /* DataViewController.swift in Sources */,
 				C7B405562611041F005C4EA0 /* FAQViewController.swift in Sources */,
 				C7B4054D261103D2005C4EA0 /* AppointmentsViewController.swift in Sources */,
@@ -303,18 +316,17 @@
 				7486C0AD263920B2002E9A92 /* ProviderVaccineRecordViewController.swift in Sources */,
 				C7B40550261103FE005C4EA0 /* TestResultsViewController.swift in Sources */,
 				7486C0BB26393FC7002E9A92 /* MakeAppointmentViewController.swift in Sources */,
-				6BD8426A263B7C8600CBAA12 /* Appointment.swift in Sources */,
+				6BD84275263DDF0F00CBAA12 /* Appointment.swift in Sources */,
 				7486C0A22636E781002E9A92 /* recordCell.swift in Sources */,
 				7486C0A926391F42002E9A92 /* providerRecordCell.swift in Sources */,
 				C7B4054A261103C0005C4EA0 /* VaccineRecordViewController.swift in Sources */,
 				C7B4055326110412005C4EA0 /* FindProviderViewController.swift in Sources */,
+				6BD84278263DDF0F00CBAA12 /* LoginModel.swift in Sources */,
 				7486C0F2263B1FA6002E9A92 /* DateUtil.swift in Sources */,
 				7486C0CA263967A6002E9A92 /* VaccineRecordDetailViewController.swift in Sources */,
 				C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */,
 				C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */,
-				7486C0A6263911E6002E9A92 /* Record.swift in Sources */,
 				C7B4053D26110200005C4EA0 /* SettingsViewController.swift in Sources */,
-				7486C0E6263AA912002E9A92 /* Provider.swift in Sources */,
 				7486C0B1263924D6002E9A92 /* appointmentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

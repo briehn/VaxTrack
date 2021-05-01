@@ -237,7 +237,7 @@
         <!--Home-->
         <scene sceneID="QIM-r7-ceu">
             <objects>
-                <viewController id="NP2-9S-nwU" sceneMemberID="viewController">
+                <viewController id="NP2-9S-nwU" customClass="HomeViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w7W-1X-dTy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,8 +245,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6V-CJ-kGy" userLabel="Alert">
                                 <rect key="frame" x="24" y="104" width="366" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="x8k-Gl-o5u">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x8k-Gl-o5u">
+                                        <rect key="frame" x="0.0" y="1" width="70" height="68"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covid 2nd Shot Not Scheduled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI6-ek-64r">
                                         <rect key="frame" x="80" y="0.0" width="286" height="70"/>
@@ -524,7 +525,7 @@
         <!--Vaccine Record-->
         <scene sceneID="rbN-ln-Lp1">
             <objects>
-                <viewController id="rvO-bj-rep" customClass="VaccineRecordViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rvO-bj-rep" customClass="VaccineRecordViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iXU-Vx-fMt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -540,7 +541,7 @@
                                 <rect key="frame" x="24" y="164" width="366" height="649"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="VaxTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="366" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMt-iG-3QZ" id="X5L-8G-lrK">
@@ -566,7 +567,7 @@
                                             <segue destination="MUm-ZV-MdU" kind="show" id="SMH-1X-Tex"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="VaxTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="71.5" width="366" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aad-PW-Mmt" id="yWh-kN-EV5">
@@ -667,7 +668,7 @@
         <!--Covid-19-->
         <scene sceneID="wD7-wT-C3H">
             <objects>
-                <viewController id="xbc-Vi-WT6" customClass="VaccineRecordDetailViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xbc-Vi-WT6" customClass="VaccineRecordDetailViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QMA-0K-BEA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -821,7 +822,7 @@
         <!--New Vaccine-->
         <scene sceneID="Oid-LE-phE">
             <objects>
-                <viewController id="MUm-ZV-MdU" customClass="VaccineRecordAddNewViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MUm-ZV-MdU" customClass="VaccineRecordAddNewViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Neh-21-HIG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1024,7 +1025,7 @@
         <!--Vaccine Record-->
         <scene sceneID="gw1-ng-dhR">
             <objects>
-                <viewController id="X3G-HG-YsY" customClass="ProviderVaccineRecordViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="X3G-HG-YsY" customClass="ProviderVaccineRecordViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NBr-RA-W39">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1039,7 +1040,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="E78-hL-rt8" customClass="providerRecordCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="E78-hL-rt8" customClass="providerRecordCell" customModule="VaxTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="366" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E78-hL-rt8" id="UwS-xm-Wwk">
@@ -1215,7 +1216,7 @@
         <!--New Vaccine-->
         <scene sceneID="bwo-bL-tFF">
             <objects>
-                <viewController id="eTc-5p-gwN" customClass="ProviderVaccineRecordUploadViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eTc-5p-gwN" customClass="ProviderVaccineRecordUploadViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBb-cz-K2R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1359,7 +1360,7 @@
         <!--Appointment-->
         <scene sceneID="TLZ-gN-UUk">
             <objects>
-                <viewController id="qE8-Tw-goY" customClass="AppointmentsViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qE8-Tw-goY" customClass="AppointmentsViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Led-6w-mmp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1368,7 +1369,7 @@
                                 <rect key="frame" x="24" y="88" width="366" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentCell" id="CcB-PF-69n" customClass="appointmentCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentCell" id="CcB-PF-69n" customClass="appointmentCell" customModule="VaxTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="366" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CcB-PF-69n" id="EUh-1o-6Ww">
@@ -1656,7 +1657,7 @@
         <!--Find Provider-->
         <scene sceneID="P8u-xE-Nck">
             <objects>
-                <viewController id="Emd-SL-zfL" customClass="FindProviderViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Emd-SL-zfL" customClass="FindProviderViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eTR-Rk-gFi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1665,7 +1666,7 @@
                                 <rect key="frame" x="24" y="144" width="366" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="providerInfoCell" id="77Z-yH-Eij" customClass="providerInfoCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="providerInfoCell" id="77Z-yH-Eij" customClass="providerInfoCell" customModule="VaxTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="366" height="160.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="77Z-yH-Eij" id="ZQA-Id-Fkm">
@@ -1871,7 +1872,7 @@
         <!--Make an Appointment-->
         <scene sceneID="uBl-Ot-yhU">
             <objects>
-                <viewController id="c1l-TF-sRE" customClass="MakeAppointmentViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c1l-TF-sRE" customClass="MakeAppointmentViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="69E-Mi-ill">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1949,7 +1950,7 @@
                                     <constraint firstAttribute="width" secondItem="d1o-6Z-WhR" secondAttribute="height" multiplier="122:67" id="3Ja-4h-Mb6"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentAvailableTimeCell" id="QWg-J2-ysL" customClass="AppointmentAvailableTimeCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentAvailableTimeCell" id="QWg-J2-ysL" customClass="AppointmentAvailableTimeCell" customModule="VaxTrack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="366" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWg-J2-ysL" id="Ybl-WF-04T">
@@ -2279,14 +2280,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wa5-ab-uEa"/>
+        <segue reference="nz3-IL-j6Z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="FindProvider" width="128" height="128"/>
         <image name="Records" width="64" height="64"/>
         <image name="Test" width="128" height="128"/>
-        <image name="bell" width="128" height="128"/>
         <image name="calendar" width="128" height="128"/>
+        <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="folder.fill.badge.plus" catalog="system" width="128" height="91"/>
         <image name="question" width="128" height="128"/>
         <systemColor name="linkColor">
