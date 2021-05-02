@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB828E323E3102B8930FEA3 /* Pods_VaxTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345753ECD5AF09898C1E2F80 /* Pods_VaxTrack.framework */; };
 		6BD84266263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */; };
 		744FA301262759A900FA5B00 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744FA300262759A900FA5B00 /* Login.storyboard */; };
 		7486C09F2636E6F4002E9A92 /* addNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C09E2636E6F4002E9A92 /* addNewCell.swift */; };
@@ -47,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		345753ECD5AF09898C1E2F80 /* Pods_VaxTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VaxTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VaxTrack.release.xcconfig"; path = "Target Support Files/Pods-VaxTrack/Pods-VaxTrack.release.xcconfig"; sourceTree = "<group>"; };
 		6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecordAddNewViewController.swift; sourceTree = "<group>"; };
 		744FA300262759A900FA5B00 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7486C09E2636E6F4002E9A92 /* addNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		C7B4054F261103FE005C4EA0 /* TestResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsViewController.swift; sourceTree = "<group>"; };
 		C7B4055226110412005C4EA0 /* FindProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProviderViewController.swift; sourceTree = "<group>"; };
 		C7B405552611041F005C4EA0 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VaxTrack.debug.xcconfig"; path = "Target Support Files/Pods-VaxTrack/Pods-VaxTrack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BB828E323E3102B8930FEA3 /* Pods_VaxTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,11 +113,32 @@
 			path = Utillity;
 			sourceTree = "<group>";
 		};
+		98CA57D525BACAFD1835AFA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */,
+				3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A9C33D0721700BEBD56245EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				345753ECD5AF09898C1E2F80 /* Pods_VaxTrack.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C76CD8FF2608F7A800D4DEEB = {
 			isa = PBXGroup;
 			children = (
 				C76CD90A2608F7A800D4DEEB /* VaxTrack */,
 				C76CD9092608F7A800D4DEEB /* Products */,
+				744FA300262759A900FA5B00 /* Login.storyboard */,
+				98CA57D525BACAFD1835AFA4 /* Pods */,
+				A9C33D0721700BEBD56245EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				C76CD9112608F7A800D4DEEB /* Main.storyboard */,
-				744FA300262759A900FA5B00 /* Login.storyboard */,
 				C76CD9162608F7A900D4DEEB /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -231,9 +256,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C76CD91C2608F7A900D4DEEB /* Build configuration list for PBXNativeTarget "VaxTrack" */;
 			buildPhases = (
+				CD51018941FDB326241AB263 /* [CP] Check Pods Manifest.lock */,
 				C76CD9042608F7A800D4DEEB /* Sources */,
 				C76CD9052608F7A800D4DEEB /* Frameworks */,
 				C76CD9062608F7A800D4DEEB /* Resources */,
+				4FF809FB2ACA189F4647D113 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,6 +316,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FF809FB2ACA189F4647D113 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VaxTrack/Pods-VaxTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VaxTrack/Pods-VaxTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VaxTrack/Pods-VaxTrack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD51018941FDB326241AB263 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VaxTrack-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C76CD9042608F7A800D4DEEB /* Sources */ = {
@@ -471,6 +540,7 @@
 		};
 		C76CD91D2608F7A900D4DEEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -489,6 +559,7 @@
 		};
 		C76CD91E2608F7A900D4DEEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
