@@ -26,4 +26,6 @@ class Database {
     func fetchVaccinationRecordDetails(for recordID: Int) -> Record? {
         return nil
     }
+    
+    
 }

@@ -12,7 +12,6 @@ protocol DatabaseConnectionProtocol: NSObjectProtocol {
 
 
 class DatabaseConnection: NSObject, URLSessionDataDelegate {
-    
     //properties
     
     weak var delegate: DatabaseConnectionProtocol!
