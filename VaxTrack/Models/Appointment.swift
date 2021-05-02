@@ -4,7 +4,6 @@
 //
 //  Created by Joeun Kim on 4/29/21.
 //
-
 import Foundation
 
 class Appointment {
@@ -42,5 +41,3 @@ class Appointment {
         return nil
     }
 }
-
-

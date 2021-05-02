@@ -4,7 +4,6 @@
 //
 //  Created by Joeun Kim on 4/29/21.
 //
-
 import Foundation
 
 class Provider {
@@ -27,4 +26,3 @@ class Provider {
         self.website = website
     }
 }
-

@@ -4,7 +4,6 @@
 //
 //  Created by Joeun Kim on 4/27/21.
 //
-
 import UIKit
 
 class Record {
