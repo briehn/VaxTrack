@@ -1,11 +1,12 @@
 //
 //  SettingsViewController.swift
-//  Capstone Project iOS
+//  Vaccine499
 //
-//  Created by Harp on 3/28/21.
+//  Created by Harp on 4/25/21.
 //
 
 import UIKit
+import Firebase
 
 class SettingsViewController: UIViewController {
 
@@ -14,6 +15,19 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    @IBAction func signOutButtonTapped(_ sender: Any) {
+        let auth = Auth.auth()
+        
+        do {
+            try auth.signOut()
+            self.dismiss(animated: true, completion: nil)
+        }catch let signOutError{
+            print("Error \(signOutError.localizedDescription)")
+        }
+    }
+    
     
 
     /*

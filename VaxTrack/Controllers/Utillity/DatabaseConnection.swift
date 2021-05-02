@@ -1,21 +1,21 @@
 //
-//  HomeModel.swift
+//  DatabaseConnection.swift
 //  Capstone Project iOS
 //
 //  Created by Patrick on 4/29/21.
 //
 import Foundation
 
-protocol HomeModelProtocol: NSObjectProtocol {
+protocol DatabaseConnectionProtocol: NSObjectProtocol {
     func dataDownloaded(type: String, obj: NSObject?)
 }
 
 
-class HomeModel: NSObject, URLSessionDataDelegate {
+class DatabaseConnection: NSObject, URLSessionDataDelegate {
     
     //properties
     
-    weak var delegate: HomeModelProtocol!
+    weak var delegate: DatabaseConnectionProtocol!
     
     let urlPath = "http://hftsoft.hopto.org:8341/api.php"
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,9 +22,11 @@
 		7486C0CA263967A6002E9A92 /* VaccineRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */; };
 		7486C0DA263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */; };
 		7486C0F2263B1FA6002E9A92 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0F1263B1FA6002E9A92 /* DateUtil.swift */; };
+		749ACAB7263F1FB000DD2F11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 749ACAB6263F1FB000DD2F11 /* GoogleService-Info.plist */; };
+		74F5ED0C263F224D00249830 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5ED0B263F224D00249830 /* SignUpViewController.swift */; };
 		C7229AB8263E20ED005E3DDC /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AB7263E20ED005E3DDC /* Appointment.swift */; };
 		C7229AC0263E2175005E3DDC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229ABF263E2175005E3DDC /* LoginModel.swift */; };
-		C7229AC3263E2193005E3DDC /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AC2263E2193005E3DDC /* HomeModel.swift */; };
+		C7229AC3263E2193005E3DDC /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */; };
 		C7229AC6263E21BD005E3DDC /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AC5263E21BD005E3DDC /* Patient.swift */; };
 		C7229AC9263E21E5005E3DDC /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AC8263E21E5005E3DDC /* PatientModel.swift */; };
 		C7229ACC263E220C005E3DDC /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229ACB263E220C005E3DDC /* Provider.swift */; };
@@ -64,9 +66,11 @@
 		7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineRecordDetailViewController.swift; sourceTree = "<group>"; };
 		7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderVaccineRecordUploadViewController.swift; sourceTree = "<group>"; };
 		7486C0F1263B1FA6002E9A92 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		749ACAB6263F1FB000DD2F11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74F5ED0B263F224D00249830 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C7229AB7263E20ED005E3DDC /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		C7229ABF263E2175005E3DDC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		C7229AC2263E2193005E3DDC /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
 		C7229AC5263E21BD005E3DDC /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		C7229AC8263E21E5005E3DDC /* PatientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
 		C7229ACB263E220C005E3DDC /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			children = (
 				7486C0C226395AB4002E9A92 /* Database.swift */,
 				7486C0F1263B1FA6002E9A92 /* DateUtil.swift */,
+				C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */,
 			);
 			path = Utillity;
 			sourceTree = "<group>";
@@ -119,7 +124,6 @@
 				F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */,
 				3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -136,7 +140,6 @@
 			children = (
 				C76CD90A2608F7A800D4DEEB /* VaxTrack */,
 				C76CD9092608F7A800D4DEEB /* Products */,
-				744FA300262759A900FA5B00 /* Login.storyboard */,
 				98CA57D525BACAFD1835AFA4 /* Pods */,
 				A9C33D0721700BEBD56245EF /* Frameworks */,
 			);
@@ -154,8 +157,10 @@
 			isa = PBXGroup;
 			children = (
 				C76CD9192608F7A900D4DEEB /* Info.plist */,
+				749ACAB6263F1FB000DD2F11 /* GoogleService-Info.plist */,
+				C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */,
+				C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */,
 				C7B405322611014E005C4EA0 /* Controllers */,
-				C7B4053126110146005C4EA0 /* Resources */,
 				C7B405302611013E005C4EA0 /* Views */,
 				C7B4052F2611012E005C4EA0 /* Models */,
 			);
@@ -167,7 +172,6 @@
 			children = (
 				C7229AB7263E20ED005E3DDC /* Appointment.swift */,
 				C7229ABF263E2175005E3DDC /* LoginModel.swift */,
-				C7229AC2263E2193005E3DDC /* HomeModel.swift */,
 				C7229AC5263E21BD005E3DDC /* Patient.swift */,
 				C7229AC8263E21E5005E3DDC /* PatientModel.swift */,
 				C7229ACB263E220C005E3DDC /* Provider.swift */,
@@ -183,15 +187,6 @@
 				C76CD9142608F7A900D4DEEB /* Assets.xcassets */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C7B4053126110146005C4EA0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */,
-				C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		C7B405322611014E005C4EA0 /* Controllers */ = {
@@ -224,6 +219,7 @@
 			children = (
 				C76CD9112608F7A800D4DEEB /* Main.storyboard */,
 				C76CD9162608F7A900D4DEEB /* LaunchScreen.storyboard */,
+				744FA300262759A900FA5B00 /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -245,6 +241,7 @@
 			children = (
 				C7B4054226110354005C4EA0 /* LoginViewController.swift */,
 				C7B4054626110369005C4EA0 /* RegistrationViewController.swift */,
+				74F5ED0B263F224D00249830 /* SignUpViewController.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -310,6 +307,7 @@
 			files = (
 				744FA301262759A900FA5B00 /* Login.storyboard in Resources */,
 				C76CD9182608F7A900D4DEEB /* LaunchScreen.storyboard in Resources */,
+				749ACAB7263F1FB000DD2F11 /* GoogleService-Info.plist in Resources */,
 				C76CD9152608F7A900D4DEEB /* Assets.xcassets in Resources */,
 				C76CD9132608F7A800D4DEEB /* Main.storyboard in Resources */,
 			);
@@ -366,7 +364,7 @@
 			files = (
 				7486C0DA263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift in Sources */,
 				C7229AC0263E2175005E3DDC /* LoginModel.swift in Sources */,
-				C7229AC3263E2193005E3DDC /* HomeModel.swift in Sources */,
+				C7229AC3263E2193005E3DDC /* DatabaseConnection.swift in Sources */,
 				7486C0BE26394097002E9A92 /* AppointmentAvailableTimeCell.swift in Sources */,
 				C7B4054326110354005C4EA0 /* LoginViewController.swift in Sources */,
 				C7B4053A261101ED005C4EA0 /* NotificationsViewController.swift in Sources */,
@@ -393,6 +391,7 @@
 				7486C0F2263B1FA6002E9A92 /* DateUtil.swift in Sources */,
 				7486C0CA263967A6002E9A92 /* VaccineRecordDetailViewController.swift in Sources */,
 				C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */,
+				74F5ED0C263F224D00249830 /* SignUpViewController.swift in Sources */,
 				C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */,
 				C7B4053D26110200005C4EA0 /* SettingsViewController.swift in Sources */,
 				7486C0B1263924D6002E9A92 /* appointmentCell.swift in Sources */,

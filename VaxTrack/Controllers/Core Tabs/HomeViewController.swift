@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeModelProtocol {
+class HomeViewController: UIViewController, DatabaseConnectionProtocol {
     func dataDownloaded(type: String, obj: NSObject?) {
         if (obj == nil) {
             // there must be an error about db connection or php script
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, HomeModelProtocol {
     
     // here is a demo for fetching login information and displaying uid on the notification label
     @IBOutlet weak var notificationlabel: UILabel!
-    let hm = HomeModel()
+    let hm = DatabaseConnection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
