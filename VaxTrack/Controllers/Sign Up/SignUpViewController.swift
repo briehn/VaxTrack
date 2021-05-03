@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
+//import Firebase
+//import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
@@ -46,6 +46,7 @@ class SignUpViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+/*
     func signUp(){
         // Firebase : create user with callback function
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (authResult, error) in
@@ -63,7 +64,23 @@ class SignUpViewController: UIViewController {
             
         }
     }
-    
+*/
+    func signUp(){
+        // Firebase : create user with callback function
+        let err = Database.getInstance().regPatientInfo(withEmail: emailTextField.text!, password: passwordTextField.text!)
+        if err.code != 0 {
+            print("Error \(err.msg)")
+            return
+        }
+
+        // on creation success
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = self.storyboard?.instantiateViewController(identifier: "TabBarHome")
+        vc?.modalPresentationStyle = .fullScreen
+        self.present(vc!, animated: true)
+            
+    }
+
     /*
     // MARK: - Navigation
 

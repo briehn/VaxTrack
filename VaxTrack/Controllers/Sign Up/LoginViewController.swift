@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
+//import Firebase
+//import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
         loginUser()
         
     }
-    
+    /*
     func loginUser(){
         
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
@@ -75,7 +75,27 @@ class LoginViewController: UIViewController {
         }
         
     }
+    */
+    func loginUser(){
+        let (loginInfo, error) = Database.getInstance().fetchLogin(emailTextField.text!, passwordTextField.text!)
+        if error.code != 0 || loginInfo == nil {
+            print("Error: \(error.msg)")
+        } else {
+            Database.getInstance().uid = loginInfo!.uid
+        }
+        self.checkUserInfo()
+    }
     
+    func checkUserInfo(){
+        if Database.getInstance().uid != nil{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = self.storyboard?.instantiateViewController(identifier: "tabBarHome")
+            vc?.modalPresentationStyle = .fullScreen
+            self.present(vc!, animated: true)
+        }
+        
+    }
+
     /*
     // MARK: - Navigation
 

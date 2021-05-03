@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BB828E323E3102B8930FEA3 /* Pods_VaxTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345753ECD5AF09898C1E2F80 /* Pods_VaxTrack.framework */; };
 		6BD84266263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */; };
 		744FA301262759A900FA5B00 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744FA300262759A900FA5B00 /* Login.storyboard */; };
 		7486C09F2636E6F4002E9A92 /* addNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C09E2636E6F4002E9A92 /* addNewCell.swift */; };
@@ -28,6 +27,8 @@
 		74F5ED2C263FDE5700249830 /* ProviderAppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5ED2B263FDE5700249830 /* ProviderAppointmentsViewController.swift */; };
 		74F5ED30263FDF1500249830 /* providerAppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5ED2F263FDF1500249830 /* providerAppointmentCell.swift */; };
 		74F5ED33263FF43F00249830 /* AppointmentConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5ED32263FF43F00249830 /* AppointmentConfirmationViewController.swift */; };
+		80546B92264066D800233402 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80546B91264066D800233402 /* MyError.swift */; };
+		8081AED326407D91001538F6 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081AED226407D91001538F6 /* Admin.swift */; };
 		C7229AB8263E20ED005E3DDC /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AB7263E20ED005E3DDC /* Appointment.swift */; };
 		C7229AC0263E2175005E3DDC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229ABF263E2175005E3DDC /* LoginModel.swift */; };
 		C7229AC3263E2193005E3DDC /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */; };
@@ -53,8 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		345753ECD5AF09898C1E2F80 /* Pods_VaxTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VaxTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VaxTrack.release.xcconfig"; path = "Target Support Files/Pods-VaxTrack/Pods-VaxTrack.release.xcconfig"; sourceTree = "<group>"; };
 		6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecordAddNewViewController.swift; sourceTree = "<group>"; };
 		744FA300262759A900FA5B00 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7486C09E2636E6F4002E9A92 /* addNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +74,8 @@
 		74F5ED2B263FDE5700249830 /* ProviderAppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProviderAppointmentsViewController.swift; path = VaxTrack/Controllers/ProviderAppointmentsViewController.swift; sourceTree = SOURCE_ROOT; };
 		74F5ED2F263FDF1500249830 /* providerAppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = providerAppointmentCell.swift; sourceTree = "<group>"; };
 		74F5ED32263FF43F00249830 /* AppointmentConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentConfirmationViewController.swift; path = VaxTrack/Controllers/AppointmentConfirmationViewController.swift; sourceTree = SOURCE_ROOT; };
+		80546B91264066D800233402 /* MyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		8081AED226407D91001538F6 /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		C7229AB7263E20ED005E3DDC /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		C7229ABF263E2175005E3DDC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		C7B4054F261103FE005C4EA0 /* TestResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultsViewController.swift; sourceTree = "<group>"; };
 		C7B4055226110412005C4EA0 /* FindProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProviderViewController.swift; sourceTree = "<group>"; };
 		C7B405552611041F005C4EA0 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
-		F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VaxTrack.debug.xcconfig"; path = "Target Support Files/Pods-VaxTrack/Pods-VaxTrack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BB828E323E3102B8930FEA3 /* Pods_VaxTrack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,30 +124,11 @@
 			path = Utillity;
 			sourceTree = "<group>";
 		};
-		98CA57D525BACAFD1835AFA4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */,
-				3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		A9C33D0721700BEBD56245EF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				345753ECD5AF09898C1E2F80 /* Pods_VaxTrack.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C76CD8FF2608F7A800D4DEEB = {
 			isa = PBXGroup;
 			children = (
 				C76CD90A2608F7A800D4DEEB /* VaxTrack */,
 				C76CD9092608F7A800D4DEEB /* Products */,
-				98CA57D525BACAFD1835AFA4 /* Pods */,
-				A9C33D0721700BEBD56245EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +157,8 @@
 		C7B4052F2611012E005C4EA0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8081AED226407D91001538F6 /* Admin.swift */,
+				80546B91264066D800233402 /* MyError.swift */,
 				C7229AB7263E20ED005E3DDC /* Appointment.swift */,
 				C7229ABF263E2175005E3DDC /* LoginModel.swift */,
 				C7229AC8263E21E5005E3DDC /* Patient.swift */,
@@ -262,11 +244,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C76CD91C2608F7A900D4DEEB /* Build configuration list for PBXNativeTarget "VaxTrack" */;
 			buildPhases = (
-				CD51018941FDB326241AB263 /* [CP] Check Pods Manifest.lock */,
 				C76CD9042608F7A800D4DEEB /* Sources */,
 				C76CD9052608F7A800D4DEEB /* Frameworks */,
 				C76CD9062608F7A800D4DEEB /* Resources */,
-				4FF809FB2ACA189F4647D113 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,48 +304,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4FF809FB2ACA189F4647D113 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VaxTrack/Pods-VaxTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VaxTrack/Pods-VaxTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VaxTrack/Pods-VaxTrack-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD51018941FDB326241AB263 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VaxTrack-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		C76CD9042608F7A800D4DEEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -377,6 +315,7 @@
 				7486C0BE26394097002E9A92 /* AppointmentAvailableTimeCell.swift in Sources */,
 				C7B4054326110354005C4EA0 /* LoginViewController.swift in Sources */,
 				C7B4053A261101ED005C4EA0 /* NotificationsViewController.swift in Sources */,
+				80546B92264066D800233402 /* MyError.swift in Sources */,
 				74F5ED30263FDF1500249830 /* providerAppointmentCell.swift in Sources */,
 				C7B4054726110369005C4EA0 /* RegistrationViewController.swift in Sources */,
 				7486C0B82639294E002E9A92 /* providerInfoCell.swift in Sources */,
@@ -389,6 +328,7 @@
 				C76CD9102608F7A800D4DEEB /* HomeViewController.swift in Sources */,
 				C7229AB8263E20ED005E3DDC /* Appointment.swift in Sources */,
 				74F5ED26263F86F200249830 /* JSONParser.swift in Sources */,
+				8081AED326407D91001538F6 /* Admin.swift in Sources */,
 				6BD84266263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift in Sources */,
 				C7229ACF263E2234005E3DDC /* Record.swift in Sources */,
 				7486C0AD263920B2002E9A92 /* ProviderVaccineRecordViewController.swift in Sources */,
@@ -433,7 +373,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C76CD91A2608F7A900D4DEEB /* Debug */ = {
+		8081AECC26407A0C001538F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -467,17 +407,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -485,12 +419,30 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		8081AECD26407A0C001538F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "$(SRCROOT)/VaxTrack/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HMahal.Capstone-Project-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -549,28 +501,8 @@
 			};
 			name = Release;
 		};
-		C76CD91D2608F7A900D4DEEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8B3AB2FF3CC82C992E6F9B0 /* Pods-VaxTrack.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/VaxTrack/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HMahal.Capstone-Project-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
 		C76CD91E2608F7A900D4DEEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D2AAB9443BEED7A417C9CFA /* Pods-VaxTrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -593,8 +525,8 @@
 		C76CD9032608F7A800D4DEEB /* Build configuration list for PBXProject "VaxTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C76CD91A2608F7A900D4DEEB /* Debug */,
 				C76CD91B2608F7A900D4DEEB /* Release */,
+				8081AECC26407A0C001538F6 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -602,8 +534,8 @@
 		C76CD91C2608F7A900D4DEEB /* Build configuration list for PBXNativeTarget "VaxTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C76CD91D2608F7A900D4DEEB /* Debug */,
 				C76CD91E2608F7A900D4DEEB /* Release */,
+				8081AECD26407A0C001538F6 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

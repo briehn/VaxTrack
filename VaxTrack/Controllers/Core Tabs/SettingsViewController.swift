@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 class SettingsViewController: UIViewController {
 
@@ -18,13 +18,14 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func signOutButtonTapped(_ sender: Any) {
-        let auth = Auth.auth()
+        //let auth = Auth.auth()
         
         do {
-            try auth.signOut()
+            //try auth.signOut()
+            Database.getInstance().uid = nil
             self.dismiss(animated: true, completion: nil)
-        }catch let signOutError{
-            print("Error \(signOutError.localizedDescription)")
+        //}catch let signOutError{
+        //    print("Error \(signOutError.localizedDescription)")
         }
     }
     

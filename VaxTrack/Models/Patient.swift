@@ -24,6 +24,9 @@ class Patient: NSObject {
         
     }
     
+    init(firstName: String) {
+        self.firstName = firstName
+    }
     init(uid: Int, firstName: String, lastName: String, recordIDs: [Int], appointmentIDs: [Int], dob: String) {
         
         self.uid = uid
@@ -32,7 +35,6 @@ class Patient: NSObject {
         self.recordIDs = recordIDs
         self.appointmentIDs = appointmentIDs
         self.dob = dob
-        
     }
     
     
@@ -41,6 +43,15 @@ class Patient: NSObject {
     override var description: String {
         return "UID: \(uid), FirstName: \(firstName), LastName: \(lastName), dob: \(dob)"
         
+    }
+    
+    func toDict() -> NSDictionary {
+        return [
+            "uid": uid,
+            "firstname": firstName,
+            "lastname": lastName,
+            "birthdate": dob
+        ]
     }
     
     

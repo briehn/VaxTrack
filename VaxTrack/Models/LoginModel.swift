@@ -33,6 +33,6 @@ class LoginModel: NSObject {
     //prints object's current state
     
     override var description: String {
-        return "UID: \(uid), Type: \(type)"
+        return "UID: \(uid ?? 0), Type: \(type ?? "")"
     }
 }
