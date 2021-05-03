@@ -16,7 +16,7 @@ class Database {
         return instance
     }
 
-    // Fetch open time slots on the given date from Database
+    // Fetch login result from Database. empty on failure
     func fetchLogin(_ login: String, _ password: String) -> (LoginModel?, MyError) {
         let param: NSDictionary = [
             "login": login,
@@ -77,7 +77,7 @@ class Database {
         return err
     }
     
-    // Store patient information once signed up
+    // Store patient information after edit profile
     func storePatientInfo(_ patient: Patient) -> MyError {
         let param: NSDictionary = patient.toDict()
         let (_, err) = DatabaseConnection.fetchData("u_reg", param)
@@ -108,7 +108,7 @@ class Database {
         return err
     }
     
-    // Store provider information once signed up
+    // Store provider information after edit profile
     func storeProviderInfo(_ provider: Provider) -> MyError {
         let param: NSDictionary = provider.toDict()
         let (_, err) = DatabaseConnection.fetchData("p_reg", param)
