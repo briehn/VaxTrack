@@ -9,6 +9,7 @@ import UIKit
 
 class providerInfoCell: UITableViewCell {
 
+
     @IBOutlet weak var providerName: UILabel!
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var address: UILabel!
@@ -19,7 +20,7 @@ class providerInfoCell: UITableViewCell {
     
     
     func setProvider(provider: Provider) {
-        providerName.text = provider.providerName
+        providerName.text = provider.firstName + " " + provider.lastName
         distance.text = "3.2 miles" //TODO:- create a function to calculate distance
         address.text = provider.address
         contactPhone.text = provider.contactPhone

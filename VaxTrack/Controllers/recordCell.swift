@@ -13,7 +13,7 @@ class recordCell: UITableViewCell {
     @IBOutlet weak var vaccinatedDateLabel: UILabel!
     
     func setRecord(record: Record) {
-        virusNameLabel.text = record.virusName
+        virusNameLabel.text = record.virusType
         vaccinatedDateLabel.text = record.vaccinatedDate
     }
 

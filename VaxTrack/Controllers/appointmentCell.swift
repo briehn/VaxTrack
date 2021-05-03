@@ -15,7 +15,7 @@ class appointmentCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var organization: UILabel!
-    @IBOutlet weak var provider: UILabel!
+    @IBOutlet weak var providerName: UILabel!
     @IBOutlet weak var contactPhone: UILabel!
     @IBOutlet weak var contactEmail: UILabel!
     @IBOutlet weak var website: UILabel!
@@ -27,12 +27,15 @@ class appointmentCell: UITableViewCell {
         dateHeader.text = appointment.daysRemaining()
         date.text = appointment.dateToString()
         time.text = appointment.timeToString()
-        address.text = appointment.address
-        organization.text = appointment.organizationName
-        provider.text = appointment.providerName
-        contactPhone.text = appointment.contactPhone
-        contactEmail.text = appointment.contactEmail
-        website.text = appointment.website
+    }
+    
+    func setProviderInfo(provider: Provider) {
+        address.text = provider.address
+        organization.text = provider.organizationName
+        providerName.text = provider.firstName + " " + provider.lastName
+        contactPhone.text = provider.contactPhone
+        contactEmail.text = provider.contactEmail
+        website.text = provider.website
     }
     
 }

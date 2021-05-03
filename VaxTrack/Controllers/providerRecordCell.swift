@@ -13,10 +13,10 @@ class providerRecordCell: UITableViewCell {
     @IBOutlet weak var vaccinatedDateLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     
-    func setRecord(record: Record) {
-        patientName.text = record.patientName
+    func setRecord(record: Record, patient: Patient) {
+        patientName.text = patient.lastName + ", " + patient.firstName
         vaccinatedDateLabel.text = record.vaccinatedDate
-        dobLabel.text = record.patientDob
+        dobLabel.text = patient.dob
     }
     
 }

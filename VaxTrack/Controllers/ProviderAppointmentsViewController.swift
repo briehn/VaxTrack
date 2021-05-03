@@ -1,17 +1,17 @@
 //
-//  AppointmentsViewController.swift
-//  Capstone Project iOS
+//  ProviderAppointmentsViewController.swift
+//  VaxTrack
 //
-//  Created by Harp on 3/28/21.
+//  Created by Joeun Kim on 5/3/21.
 //
 
 import UIKit
 
-class AppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var database: Database = Database()
     var appointments: [Appointment] = []
-    var providers: [Provider] = []
+    var patients: [Patient] = []
     
     var touchedCellBtnTag: Int?
     
@@ -27,21 +27,17 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func createArray() {
-        // Get all appointments set for the patient
+        // Get all appointments set for the provider
         var tempAppointmemnts: [Appointment] = []
-        tempAppointmemnts = database.fetchAppointmentListForPatient(patientID: 0001)!
-        
-//        // Test. Hard coding ver.
-//        let appointment = Appointment(appointmentID: 0001, virusType: "Covid-19", date: "2021-05-01", providerName: "Dr. Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
-//        tempAppointmemnts.append(appointment)
+        tempAppointmemnts = database.fetchAppointmentListForProvider(providerID: 0003)!
         
         self.appointments = tempAppointmemnts
         // Get provider info
-        var tempProviders: [Provider] = []
+        var tempPatients: [Patient] = []
         for appointment in appointments {
-            tempProviders.append(database.fetchProvider(providerID: appointment.providerID)!)
+            tempPatients.append(database.fetchPatient(patientID: appointment.patientID)!)
         }
-        self.providers = tempProviders
+        self.patients = tempPatients
     }
     
     // Cancel appointment
@@ -60,17 +56,16 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let appointment = appointments[indexPath.row]
-        let provider = providers[indexPath.row]
+        let patient = patients[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! appointmentCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "providerAppointmentCell", for: indexPath) as! providerAppointmentCell
         cell.setAppointment(appointment: appointment)
-        cell.setProviderInfo(provider: provider)
+        cell.setPatientInfo(patient: patient)
+        
         cell.cancelBtn.tag = indexPath.row
         
         return cell
     }
     
-
-
 
 }

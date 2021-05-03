@@ -69,7 +69,7 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     case "login":
                         obj = LoginModel.parseJSON(datas);
                     case "u_profile":
-                        obj = PatientModel.parseJSON(datas);
+                        obj = JSONParser.parsePatient(datas);
                     default:
                         print("invalid type");
                     }

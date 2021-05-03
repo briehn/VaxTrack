@@ -13,39 +13,44 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
     
     let database: Database = Database()
     var records: [Record] = []
-    
-//    var recordss: [String:String] = [:]
-//
-//    var recordType: [String] = []
-//    var recordTime: [String] = []
-
+    var providers: [Provider] = []
+    var patient: Patient? //TODO:- ???
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Test
-        records = createArray()
-        // From DB
-        if let records = database.fetchVaccinationRecords() {
-            self.records = records
-        }
 
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // From DB
+        createArray()
     }
     
-    func createArray() -> [Record] {
-        var tempRecords: [Record] = []
+    func createArray() {
+        // From DB
+        if let records = database.fetchVaccinationRecordsForCurrentUser() {
+            self.records = records
+        }
+        self.patient = database.fetchPatient(patientID: records[0].patientID)!
         
-        let record1 = Record(recordID: 0001, patientID: 0001, patientName: "Smith, James", virusNmae: "Covid-19", vaccinatedDate: "2021-04-20")
-        let record2 = Record(recordID: 0002, patientID: 0001, patientName: "Smith, James", virusNmae: "Flu", vaccinatedDate: "2020-08-21")
-        let record3 = Record(recordID: 0003, patientID: 0001, patientName: "Smith, James", virusNmae: "Chickenpox", vaccinatedDate: "2015-02-15")
+        // Get provider info
+        var tempProviders: [Provider] = []
+        for record in records {
+            tempProviders.append(database.fetchProvider(providerID: record.providerID)!)
+        }
+        self.providers = tempProviders
         
-        tempRecords.append(record1)
-        tempRecords.append(record2)
-        tempRecords.append(record3)
-        
-        return tempRecords
+
+//        // Test. Hard-coding.
+//        var tempRecords: [Record] = []
+//        let record1 = Record(recordID: 0001, patientID: 0001, patientName: "Smith, James", virusNmae: "Covid-19", vaccinatedDate: "2021-04-20")
+//        let record2 = Record(recordID: 0002, patientID: 0001, patientName: "Smith, James", virusNmae: "Flu", vaccinatedDate: "2020-08-21")
+//        let record3 = Record(recordID: 0003, patientID: 0001, patientName: "Smith, James", virusNmae: "Chickenpox", vaccinatedDate: "2015-02-15")
+//        tempRecords.append(record1)
+//        tempRecords.append(record2)
+//        tempRecords.append(record3)
+//        self.records = tempRecords
     }
 
     // MARK: - Table View Data Source
@@ -72,7 +77,6 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
         // Section for Add New Button
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addNewCell") as! addNewCell
-            
             return cell
         } else { // Section for existing Records
             let record = records[indexPath.row]
@@ -93,6 +97,7 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
             if let vc = segue.destination as? VaccineRecordDetailViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     vc.record = records[indexPath.row]
+                    vc.provider = providers[indexPath.row]
                 }
             }
         }

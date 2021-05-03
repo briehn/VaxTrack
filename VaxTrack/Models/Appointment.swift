@@ -6,35 +6,40 @@
 //
 import Foundation
 
+
 class Appointment {
     var appointmentID: Int!
     var virusType: String!
-    var date: String! // TODO:- change to Date
-    var providerName: String!
-    var organizationName: String?
-    var address: String!
-    var contactPhone: String!
-    var contactEmail: String?
-    var website: String?
+    var date: Date!
+    var patientID: Int!
+    var providerID: Int!
 
-    init(appointmentID: Int, virusType: String, date: String, providerName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String) {
+    init(appointmentID: Int, virusType: String, date: Date, patientID: Int, providerID: Int) {
         self.appointmentID = appointmentID
         self.virusType = virusType
         self.date = date
-        self.providerName = providerName
-        self.organizationName = organizationName
-        self.address = address
-        self.contactPhone = contactPhone
-        self.contactEmail = contactEmail
-        self.website = website
+        self.patientID = patientID
+        self.providerID = providerID
     }
     
     func daysRemaining() -> String! {
-        return nil
+        var components = DateComponents()
+        components.hour = 0
+        components.minute = 0
+        let today = Calendar.current.date(from: components)
+        
+        let numberOfDaysBetween = Calendar.current.dateComponents([.day], from: today!, to: self.date).day
+        
+        return String(numberOfDaysBetween!)
     }
     
+    
     func dateToString() -> String! {
-        return nil
+        print("dateToString")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter.string(from: date)
     }
     
     func timeToString() -> String! {

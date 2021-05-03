@@ -10,25 +10,39 @@ import UIKit
 class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var database: Database = Database()
     var records: [Record] = []
-    //    var records: [patientName: String, vacciatedDate: String, dob: String] = []
-//
+    var patients: [Patient] = []
+    var provider: Provider?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        records = createArray()
+        createArray()
     
     }
     
-    func createArray() -> [Record] {
-        var tempRecords: [Record] = []
+    func createArray() {
+        // From DB
+        if let records = database.fetchVaccinationRecordsForProvider(providerID: 003) {
+            self.records = records
+        }
+        self.provider = database.fetchProvider(providerID: records[0].providerID)!
         
-        let record1 = Record(recordID: 0001, patientID: 0001, providerID: 0001, patientName: "Smith, James", patientDob: "1994-05-19", virusName: "Covid-19", vaccinatedDate: "2021-04-19")
+        // Get provider info
+        var tempPatients: [Patient] = []
+        for record in records {
+            tempPatients.append(database.fetchPatient(patientID: record.patientID)!)
+        }
+        self.patients = tempPatients
         
-        tempRecords.append(record1)
         
-        return tempRecords
+//        // Test. Hard-coding.
+//        var tempRecords: [Record] = []
+//        let record1 = Record(recordID: 0001, patientID: 0001, providerID: 0001, patientName: "Smith, James", patientDob: "1994-05-19", virusName: "Covid-19", vaccinatedDate: "2021-04-19")
+//        tempRecords.append(record1)
+//        return tempRecords
     }
     
     
@@ -43,9 +57,10 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let record = records[indexPath.row]
+        let patient = patients[indexPath.row]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "providerRecordCell") as! providerRecordCell
-        cell.setRecord(record: record)
+        cell.setRecord(record: record, patient: patient)
         
         return cell
     }
@@ -57,6 +72,8 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
             if let vc = segue.destination as? ProviderVaccineRecordUploadViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     vc.record = records[indexPath.row]
+                    vc.patient = patients[indexPath.row]
+                    vc.provider = provider
                 }
             }
         }

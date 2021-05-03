@@ -11,8 +11,10 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
 
     let database = Database()
     var record : Record?
+    var patient : Patient?
+    var provider : Provider?
     
-    @IBOutlet weak var virusNameLabel: UILabel!
+    @IBOutlet weak var virusTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     
@@ -21,12 +23,23 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
     
     @IBOutlet weak var documentUploadBtn: UIButton!
     
+    @IBOutlet weak var confirmBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        virusTypeLabel.text = record?.virusType
+        dateLabel.text = record?.vaccinatedDate
+        dobLabel.text = patient?.dob
     }
     
-
+    @IBAction func ConfirmBtnTouched(_ sender: UIButton) {
+        // Store record into DB
+        var vaccineName = vaccineNameTextField.text
+        var manufacturer = manufacturerTextField.text
+        
+        confirmBtn.isHidden = true // enable to edit record for the next use
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -11,11 +11,12 @@ class VaccineRecordDetailViewController: UIViewController {
 
     let database = Database()
     var record : Record?
+    var provider : Provider?
     @IBOutlet weak var vaccine: UILabel!
     @IBOutlet weak var vaccinatedDate: UILabel!
     @IBOutlet weak var manufacturer: UILabel!
-    @IBOutlet weak var provider: UILabel!
-    @IBOutlet weak var office: UILabel!
+    @IBOutlet weak var providerName: UILabel!
+    @IBOutlet weak var organization: UILabel!
     @IBOutlet weak var expireDate: UILabel!
     @IBOutlet weak var document: UIImageView!
     
@@ -26,9 +27,14 @@ class VaccineRecordDetailViewController: UIViewController {
             // Vaccine Record Exists (from VaccineRecordViewController)
             vaccine.text = record.vaccineName
             vaccinatedDate.text = record.vaccinatedDate
+            manufacturer.text = record.manufacturer
+            providerName.text = provider!.firstName+" "+provider!.lastName
+            organization.text = provider!.organizationName
+            expireDate.text = "Never" // TODO:- create helper function
+            document.image = record.document
             
-            // Fetch Vaccination Details with Record ID
-            database.fetchVaccinationRecordDetails(for: record.recordID)
+//            // Fetch Vaccination Details with Record ID
+//            database.fetchVaccinationRecordDetails(for: record.recordID)
         }
     }
     

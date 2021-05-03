@@ -6,19 +6,19 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FindProviderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var database: Database = Database()
     var providers: [Provider] = []
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var cellDetailContainer: UIView!
-    
-    var detailContainerViewConstraint = NSLayoutConstraint() // height=0
-    var detailContainerViewHeight: CGFloat!
-    
+
     var touchedCellindex: Int?
+    var currentAddressInCoordinates: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0) // TODO:- fix
+//    var currentAddressInCoordinates: CLLocationCoordinate2D
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,28 +26,49 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
+//        createArray()
         providers = createArray()
         
     }
-    func createArray() -> [Provider] {
+    func createArray() -> [Provider]{
         var tempProviders: [Provider] = []
+//        tempProviders = database.fetchNearbyProviderListOffer(service: "")!
+//        var dictionary = Dictionary<CLLocationDistance, Array<Provider>>() // [CLLocationDistance : Provider]
+//        // Filter providers by distance. Provider with more than 100 miles away will be excluded from the array.
+//        for index in 0..<tempProviders.count {
+//            let tempDistance = currentAddressInCoordinates.distance(from: tempProviders[index].coordinates!)*0.000621371 // distance in miles
+//            if(tempDistance > 100) { // remove provider from the array
+//                tempProviders.remove(at: index)
+//            } else {
+//                if dictionary[tempDistance] != nil {
+//                    dictionary[tempDistance]?.append(tempProviders[index])
+//                } else {
+//                    dictionary[tempDistance] = [tempProviders[index]]
+//                }
+//            }
+//        }
+//
+//        let temp = Array(dictionary.keys).sorted(by: <)
+//
+//        tempProviders = temp
+//
+//        self.providers = tempProviders
         
-        let provider1 = Provider(providerID: 0001, providerName: "Dr. Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
-        let provider2 = Provider(providerID: 0002, providerName: "Dr. Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com")
-        
+        // Test. Hard-cording.
+        let provider1 = Provider(uid: 0001, firstName: "Pradeep", lastName: "Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
+        let provider2 = Provider(uid: 0002, firstName: "Joeun", lastName: "Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com")
         tempProviders.append(provider1)
         tempProviders.append(provider2)
         
         return tempProviders
     }
     
+    func sortProvidersByDistanceInASC(usortedProviders: [Provider]) {
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-//        detailContainerViewHeight = cellDetailContainer.frame.height // height of expanded view
-//        var constHeightEqualToZero: NSLayoutConstraint!
-//        cellDetailContainer.translatesAutoresizingMaskIntoConstraints = false
-//        constHeightEqualToZero = cellDetailContainer.heightAnchor.constraint(equalToConstant: 0)
-//        detailContainerViewConstraint = constHeightEqualToZero
-//        constHeightEqualToZero.isActive = true // collapse
+
     }
     
     // Make an appointment
@@ -58,26 +79,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("You tapped me!")
-//        if(cellDetailContainer.frame.height == 0) {
-//            if(detailContainerViewConstraint.constant == self.detailContainerViewHeight) {
-//                UIView.animate(withDuration: 0.35, animations: {
-//                    self.detailContainerViewConstraint.constant = 0
-//                    self.view.layoutIfNeeded()
-//                }, completion: {_ in
-//                })
-//            }
-//            UIView.animate(withDuration: 0.35, animations: {
-//                self.detailContainerViewConstraint.constant = self.detailContainerViewHeight
-//                self.view.layoutIfNeeded()
-//            }, completion: {_ in
-//            })
-//        } else {
-//            UIView.animate(withDuration: 0.35, animations: {
-//                self.detailContainerViewConstraint.constant = 0
-//                self.view.layoutIfNeeded()
-//            }, completion: {_ in
-//            })
-//        }
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
