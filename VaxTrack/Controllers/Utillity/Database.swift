@@ -16,7 +16,7 @@ class Database {
         return instance
     }
 
-    // Fetch login result from Database. empty on failure
+    // Fetch open time slots on the given date from Database
     func fetchLogin(_ login: String, _ password: String) -> (LoginModel?, MyError) {
         let param: NSDictionary = [
             "login": login,
@@ -77,14 +77,38 @@ class Database {
         return err
     }
     
-    // Store patient information after edit profile
+    // Store patient information once signed up
     func storePatientInfo(_ patient: Patient) -> MyError {
         let param: NSDictionary = patient.toDict()
         let (_, err) = DatabaseConnection.fetchData("u_reg", param)
         return err
     }
     
-    // Store provider information after edit profile
+    // Store provider information once signed up
+    func regProviderInfo(withEmail email: String, password: String, org: String) -> MyError {
+        var err:MyError, obj:NSObject?
+        let provider = Provider(firstName: email, organizationName: org)
+        var param: NSDictionary = provider.toDict()
+        (_, err) = DatabaseConnection.fetchData("p_reg", param)
+        if err.code != 0 {return err}
+        
+        param = ["firstname": email]
+        (obj, err) = DatabaseConnection.fetchData("p_query", param)
+        if err.code != 0 {return err}
+        if obj == nil {return MyError(1)}
+        let provider2 = obj as! Provider
+        let uid = provider2.uid
+        
+        param = [
+            "login": email,
+            "password": password,
+            "targetid": uid
+        ]
+        (_, err) = DatabaseConnection.fetchData("p_newlogin", param)
+        return err
+    }
+    
+    // Store provider information once signed up
     func storeProviderInfo(_ provider: Provider) -> MyError {
         let param: NSDictionary = provider.toDict()
         let (_, err) = DatabaseConnection.fetchData("p_reg", param)

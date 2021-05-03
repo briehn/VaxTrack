@@ -21,6 +21,11 @@ class Provider {
     var services: [String]!
     var coordinates: CLLocation?
 
+    init(firstName: String, organizationName: String) {
+        self.firstName = firstName
+        self.organizationName = organizationName
+    }
+    
     init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHour:String, coordinates: CLLocation) {
         self.uid = uid
         self.firstName = firstName
