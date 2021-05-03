@@ -4,6 +4,7 @@
 //
 //  Created by user195697 on 4/29/21.
 //
+
 import Foundation
 
 class LoginModel: NSObject {
@@ -33,19 +34,5 @@ class LoginModel: NSObject {
     
     override var description: String {
         return "UID: \(uid), Type: \(type)"
-        
-
-    }
-    static func parseJSON(_ datas:NSArray) -> NSObject? {
-        print(datas[0])
-        if let data = datas[0] as? NSDictionary {
-            if let type = data["type"] as? String,
-                let uid = data["targetid"] as? Int
-            {
-                let obj = LoginModel(uid:uid, type:type)
-                return obj
-            }
-        }
-        return nil
     }
 }

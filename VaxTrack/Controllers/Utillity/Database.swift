@@ -8,10 +8,19 @@
 import Foundation
 
 class Database {
+    static let instance: Database = Database()
     init() {
-        
     }
-    
+    static func getInstance() -> Database {
+        return instance
+    }
+
+    // Fetch open time slots on the given date from Database
+    func fetchLogin(_ login: String, _ password: String) -> LoginModel? {
+        let param: NSDictionary = ["login": login, "password": password]
+        return DatabaseConnection.fetchData("login", param) as? LoginModel
+    }
+
     // Store coordinates(lat, lon) into Provider - it needs in order to calculate distance used in Find Provider
     func storeCoordinates(providerID: Int) {
         
