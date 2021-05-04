@@ -8,7 +8,7 @@ import Foundation
 
 class MyError: Error {
     //properties
-    var code: Int!
+    var code: Int
     var msg: String?
 
     //empty constructor

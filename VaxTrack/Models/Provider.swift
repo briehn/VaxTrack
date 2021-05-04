@@ -7,7 +7,7 @@
 import Foundation
 import CoreLocation
 
-class Provider {
+class Provider: NSObject {
     var uid: Int!
     var firstName: String!
     var lastName: String!
@@ -17,7 +17,8 @@ class Provider {
     var contactEmail: String?
     var website: String?
     var office: String?
-    var officeHour: String?
+    var officeHourStart: String?
+    var officeHourEnd: String?
     var services: [String]!
     var coordinates: CLLocation?
 
@@ -26,7 +27,7 @@ class Provider {
         self.organizationName = organizationName
     }
     
-    init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHour:String, coordinates: CLLocation) {
+    init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHour:String, officeHourStart:String, officeHourEnd:String, coordinates: CLLocation) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
@@ -36,11 +37,12 @@ class Provider {
         self.contactEmail = contactEmail
         self.website = website
         self.office = office
-        self.officeHour = officeHour
+        self.officeHourStart = officeHourStart
+        self.officeHourEnd = officeHourEnd
         self.coordinates = coordinates
     }
     
-    init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHour:String) {
+    init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHourStart:String, officeHourEnd:String) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
@@ -50,7 +52,8 @@ class Provider {
         self.contactEmail = contactEmail
         self.website = website
         self.office = office
-        self.officeHour = officeHour
+        self.officeHourStart = officeHourStart
+        self.officeHourEnd = officeHourEnd
     }
     
     func toDict() -> NSDictionary {
@@ -64,7 +67,8 @@ class Provider {
             "email": contactEmail,
             "website": website,
             "office": office,
-            "officehour": officeHour
+            "officehourstart": officeHourStart,
+            "officehourend": officeHourEnd
         ]
     }
     

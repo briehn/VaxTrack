@@ -17,7 +17,7 @@ class Database {
     }
 
     // Fetch login result from Database. empty on failure
-    func fetchLogin(_ login: String, _ password: String) -> (LoginModel?, MyError) {
+    func fetchLogin(login: String, password: String) -> (LoginModel?, MyError) {
         let param: NSDictionary = [
             "login": login,
             "password": password
@@ -26,28 +26,28 @@ class Database {
         return (obj as? LoginModel, err)
     }
 
-    // Fetch patient profile
-    func fetchPatientInfo(_ uid: Int) -> (Patient?, MyError) {
+    // Fetch Patient Info for the passed patientID
+    func fetchPatient(patientID: Int) -> (Patient?, MyError) {
         let param: NSDictionary = [
-            "uid": uid,
+            "uid": patientID,
         ]
         let (obj, err) = DatabaseConnection.fetchData("u_profile", param)
         return (obj as? Patient, err)
     }
 
-    // Fetch provider profile
-    func fetchProviderInfo(_ uid: Int) -> (Provider?, MyError) {
+    // Fetch Provider Info with the passed providerID
+    func fetchProvider(providerID: Int) -> (Provider?, MyError) {
         let param: NSDictionary = [
-            "pid": uid,
+            "pid": providerID,
         ]
         let (obj, err) = DatabaseConnection.fetchData("p_profile", param)
         return (obj as? Provider, err)
     }
 
     // Fetch admin profile
-    func fetchAdminInfo(_ uid: Int) -> (Admin?, MyError) {
+    func fetchAdminInfo(adminID: Int) -> (Admin?, MyError) {
         let param: NSDictionary = [
-            "aid": uid,
+            "aid": adminID,
         ]
         let (obj, err) = DatabaseConnection.fetchData("a_profile", param)
         return (obj as? Admin, err)
@@ -129,60 +129,88 @@ class Database {
     // Store record made by Provider
     // argument might be Record or
     // all of the class(Record) members except recordID (which db will generate in AI)
-    func storeRecord(record: Record ) {
-        
+    func storeRecord(record: Record) -> MyError {
+        let param: NSDictionary = record.toDict()
+        let (_, err) = DatabaseConnection.fetchData("uv_done", param)
+        return err
     }
     
     // Store appointment data made by Patient
     // argument might be Appointment or
     // all of the class(Appointment) members except appointmentID (which db will generate)
-    func storeAppointment(appointment: Appointment) {
-        
+    func storeAppointment(appointment: Appointment) -> MyError {
+        let param: NSDictionary = appointment.toDict()
+        let (_, err) = DatabaseConnection.fetchData("o_new", param)
+        return err
     }
     
-    // Fetch open time slots on the given date set by passed paroviderIDfrom Database
-    func fetchOpenTimeSlotsFor(providerID: Int, date: Date) -> [Date]? {
-        return nil
+    // Fetch open time slots on the given date set by passed paroviderID from Database
+    func fetchOpenTimeSlotsFor(providerID: Int, date: Date) -> ([Date]?, MyError) {
+        ////////
+        // it's extremely hard for database to do such things...
+        // could I return a list of appointed times so that you could calculate it in the app?
+        ////////
+        return (nil, MyError())
     }
     
     // Fetch Vaccination Records for the current user
-    func fetchVaccinationRecordsForCurrentUser() -> [Record]? {
-        return nil
+    func fetchVaccinationRecordsForCurrentUser() -> ([Record]?, MyError) {
+        ////////
+        // if current user is patient then call fetchVaccinationRecordsForPatient
+        // else if current user is provider then call fetchVaccinationRecordsForProvider
+        ////////
+        return (nil, MyError())
     }
     
-    // Fetch Vaccination Records for the passed providerID
-    func fetchVaccinationRecordsForProvider(providerID: Int) -> [Record]? {
-        return nil
+    // Fetch Vaccination Records for the passed patientID
+    func fetchVaccinationRecordsForPatient(patientID: Int) -> ([Record]?, MyError) {
+        let param: NSDictionary = [
+            "uid": patientID,
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("uv_list", param)
+        return (obj as? [Record], err)
+    }
+    
+    // Fetch Vaccination Records for the passed providerID (and all patients?)
+    func fetchVaccinationRecordsForProvider(providerID: Int) -> ([Record]?, MyError) {
+        let param: NSDictionary = [
+            "pid": providerID,
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("puv_list", param)
+        return (obj as? [Record], err)
     }
     
     // Fetch Vaccination Record with Details
-    func fetchVaccinationRecordDetails(for recordID: Int) -> Record? {
-        return nil
-    }
-    
-    // Fetch Patient Info for the passed patientID
-    func fetchPatient(patientID: Int) -> Patient? {
-        return nil
-    }
-    
-    // Fetch Provider Info with the passed providerID
-    func fetchProvider(providerID: Int) -> Provider? {
-        return nil
+    func fetchVaccinationRecordDetails(for recordID: Int) -> (Record?, MyError) {
+        let param: NSDictionary = [
+            "uvid": recordID,
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("uv_detail", param)
+        return (obj as? Record, err)
     }
     
     // Fetch Providers who offer the passsed service(vaccine or test)
-    func fetchNearbyProviderListOffer(service: String) -> [Provider]?{
-        return nil
+    func fetchNearbyProviderListOffer(service: String) -> ([Provider]?, MyError) {
+        // TBD
+        return (nil, MyError())
     }
     
-    // Fetch aapointment list set to the passed patientID
-    func fetchAppointmentListForPatient(patientID: Int) -> [Appointment]? {
-        return nil
+    // Fetch apointment list set to the passed patientID
+    func fetchAppointmentListForPatient(patientID: Int) -> ([Appointment]?, MyError) {
+        let param: NSDictionary = [
+            "uid": patientID,
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("uo_list", param)
+        return (obj as? [Appointment], err)
     }
     
-    // Fetch aapointment list set to the passed providerID
-    func fetchAppointmentListForProvider(providerID: Int) -> [Appointment]? {
-        return nil
+    // Fetch apointment list set to the passed providerID
+    func fetchAppointmentListForProvider(providerID: Int) -> ([Appointment]?, MyError) {
+        let param: NSDictionary = [
+            "pid": providerID,
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("po_list", param)
+        return (obj as? [Appointment], err)
     }
     
     

@@ -45,4 +45,15 @@ class Appointment {
     func timeToString() -> String! {
         return nil
     }
+    
+    func toDict() -> NSDictionary {
+        return [
+            "oid": appointmentID,
+            "uid": patientID,
+            "pid": providerID,
+            "virustype": virusType,
+            "appointtime": date,
+        ]
+    }
+
 }

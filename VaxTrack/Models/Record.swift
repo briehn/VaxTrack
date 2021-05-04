@@ -6,20 +6,33 @@
 //
 import UIKit
 
-class Record {
+class Record: NSObject {
     var recordID: Int
     var patientID: Int
     var providerID: Int
+    var vaccineID: Int
     var virusType: String
     var vaccineName: String?
     var vaccinatedDate: String
     var manufacturer: String?
     var document: UIImage?
     
-    init(recordID: Int, patientID: Int, providerID: Int, virusName: String, vaccineName: String, vaccinatedDate: String, manufacturer: String, expireDate: String, document: UIImage) {
+    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String, vaccinatedDate: String, manufacturer: String) {
         self.recordID = recordID
         self.patientID = patientID
         self.providerID = providerID
+        self.vaccineID = vaccineID
+        self.virusType = virusName
+        self.vaccineName = vaccineName
+        self.vaccinatedDate = vaccinatedDate
+        self.manufacturer = manufacturer
+    }
+
+    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String, vaccinatedDate: String, manufacturer: String, document: UIImage) {
+        self.recordID = recordID
+        self.patientID = patientID
+        self.providerID = providerID
+        self.vaccineID = vaccineID
         self.virusType = virusName
         self.vaccineName = vaccineName
         self.vaccinatedDate = vaccinatedDate
@@ -66,7 +79,20 @@ class Record {
 //        self.vaccinatedDate = vaccinatedDate
 //    }
 
-    
+    func toDict() -> NSDictionary {
+        return [
+            "uvid": recordID,
+            "uid": patientID,
+            "pid": providerID,
+            "vid": vaccineID,
+            "virustype": virusType,
+            "name": vaccineName,
+            "applytime": vaccinatedDate,
+            "manuf": manufacturer
+            //"document": document,
+        ]
+    }
+
     
     
     

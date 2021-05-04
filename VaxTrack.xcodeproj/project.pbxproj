@@ -29,6 +29,8 @@
 		74F5ED33263FF43F00249830 /* AppointmentConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5ED32263FF43F00249830 /* AppointmentConfirmationViewController.swift */; };
 		80546B92264066D800233402 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80546B91264066D800233402 /* MyError.swift */; };
 		8081AED326407D91001538F6 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081AED226407D91001538F6 /* Admin.swift */; };
+		8081AED72640C14F001538F6 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081AED52640C14F001538F6 /* Notification.swift */; };
+		8081AED82640C14F001538F6 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081AED62640C14F001538F6 /* Vaccine.swift */; };
 		C7229AB8263E20ED005E3DDC /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AB7263E20ED005E3DDC /* Appointment.swift */; };
 		C7229AC0263E2175005E3DDC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229ABF263E2175005E3DDC /* LoginModel.swift */; };
 		C7229AC3263E2193005E3DDC /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */; };
@@ -76,6 +78,8 @@
 		74F5ED32263FF43F00249830 /* AppointmentConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppointmentConfirmationViewController.swift; path = VaxTrack/Controllers/AppointmentConfirmationViewController.swift; sourceTree = SOURCE_ROOT; };
 		80546B91264066D800233402 /* MyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		8081AED226407D91001538F6 /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		8081AED52640C14F001538F6 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		8081AED62640C14F001538F6 /* Vaccine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
 		C7229AB7263E20ED005E3DDC /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		C7229ABF263E2175005E3DDC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		C7B4052F2611012E005C4EA0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8081AED52640C14F001538F6 /* Notification.swift */,
+				8081AED62640C14F001538F6 /* Vaccine.swift */,
 				8081AED226407D91001538F6 /* Admin.swift */,
 				80546B91264066D800233402 /* MyError.swift */,
 				C7229AB7263E20ED005E3DDC /* Appointment.swift */,
@@ -315,6 +321,7 @@
 				7486C0BE26394097002E9A92 /* AppointmentAvailableTimeCell.swift in Sources */,
 				C7B4054326110354005C4EA0 /* LoginViewController.swift in Sources */,
 				C7B4053A261101ED005C4EA0 /* NotificationsViewController.swift in Sources */,
+				8081AED82640C14F001538F6 /* Vaccine.swift in Sources */,
 				80546B92264066D800233402 /* MyError.swift in Sources */,
 				74F5ED30263FDF1500249830 /* providerAppointmentCell.swift in Sources */,
 				C7B4054726110369005C4EA0 /* RegistrationViewController.swift in Sources */,
@@ -345,6 +352,7 @@
 				74F5ED33263FF43F00249830 /* AppointmentConfirmationViewController.swift in Sources */,
 				C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */,
 				74F5ED0C263F224D00249830 /* SignUpViewController.swift in Sources */,
+				8081AED72640C14F001538F6 /* Notification.swift in Sources */,
 				C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */,
 				C7B4053D26110200005C4EA0 /* SettingsViewController.swift in Sources */,
 				7486C0B1263924D6002E9A92 /* appointmentCell.swift in Sources */,

@@ -44,14 +44,16 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
 
     static func fetchData(_ type:String, _ data:NSDictionary?) -> (NSObject?, MyError) {
         var theUrl = urlPath + "?type=\(type)"
+        
         // add parameters from data for each type to the url. will be given in excel
         switch type {
+        // user accounts
         case "login":
             theUrl += "&login=\(data?["login"] ?? "")&password=\(data?["password"] ?? "")"
         case "u_reg":
             theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")&birthdate=\(data?["birthdate"] ?? "")"
         case "p_reg":
-            theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")&org=\(data?["org"] ?? "")&address=\(data?["address"] ?? "")&phone=\(data?["phone"] ?? "")&email=\(data?["email"] ?? "")&website=\(data?["website"] ?? "")&office=\(data?["office"] ?? "")&officehour=\(data?["officehour"] ?? "")"
+            theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")&org=\(data?["org"] ?? "")&address=\(data?["address"] ?? "")&phone=\(data?["phone"] ?? "")&email=\(data?["email"] ?? "")&website=\(data?["website"] ?? "")&office=\(data?["office"] ?? "")&officehourstart=\(data?["officehourstart"] ?? "")&officehourend=\(data?["officehourend"] ?? "")"
         case "a_reg":
             theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")"
         case "u_query":
@@ -70,8 +72,53 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
             theUrl += "&aid=\(data?["aid"] ?? "")"
         case "p_storecoord":
             theUrl += "&pid=\(data?["pid"] ?? "")&lat=\(data?["lat"] ?? "")&lng=\(data?["lng"] ?? "")"
+	
+        // vaccines
+        case "p_list":
+            theUrl += ""
+        case "v_list":
+            theUrl += ""
+        case "pv_list":
+            theUrl += "&pid=\(data?["pid"] ?? "")"
+        case "v_add":
+            theUrl += "&pid=\(data?["pid"] ?? "")&name=\(data?["name"] ?? "")&org=\(data?["org"] ?? "")&manuf=\(data?["manuf"] ?? "")&desc=\(data?["desc"] ?? "")&expiretime=\(data?["expiretime"] ?? "")"
+            //&qty=\(data?["qty"] ?? "")&remain=\(data?["remain"] ?? "")"
+        case "v_edit":
+            theUrl += "&vid=\(data?["vid"] ?? "")&name=\(data?["name"] ?? "")&org=\(data?["org"] ?? "")&manuf=\(data?["manuf"] ?? "")&desc=\(data?["desc"] ?? "")&expiretime=\(data?["expiretime"] ?? "")"
+            //&qty=\(data?["qty"] ?? "")&remain=\(data?["remain"] ?? "")"
+        case "v_dec":
+            theUrl += "&vid=\(data?["vid"] ?? "")"
+
+        // appointments
+        case "uo_list":
+            theUrl += "&uid=\(data?["uid"] ?? "")"
+        case "po_list":
+            theUrl += "&pid=\(data?["pid"] ?? "")"
+        case "o_new":
+            theUrl += "&uid=\(data?["uid"] ?? "")&pid=\(data?["pid"] ?? "")&appointtime=\(data?["appointtime"] ?? "")&virustype=\(data?["virustype"] ?? "")"
+        case "o_cancel":
+            theUrl += "&oid=\(data?["oid"] ?? "")"
+        case "o_approve":
+            theUrl += "&oid=\(data?["oid"] ?? "")"
+        case "o_done":
+            theUrl += "&oid=\(data?["oid"] ?? "")"
+
+        // records
+        case "uv_list":
+            theUrl += "&uid=\(data?["uid"] ?? "")"
+        case "puv_list":
+            theUrl += "&pid=\(data?["pid"] ?? "")"
+        case "uv_detail":
+            theUrl += "&uvid=\(data?["uvid"] ?? "")"
+        case "uv_done":
+            theUrl += "&uid=\(data?["uid"] ?? "")&vid=\(data?["vid"] ?? "")&applytime=\(data?["applytime"] ?? "")&dose=\(data?["dose"] ?? "")"
+
+        // misc
+        case "notification":
+            theUrl += ""
+
         default:
-            print("invalid type");
+            print("invalid type")
         }
 
         let url: URL = URL(string: theUrl)!
@@ -119,8 +166,10 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
             } else {
                 if let datas = jsonResult["data"] as? NSArray {
                     switch type {
+                    
+                    // user accounts
                     case "login":
-                        obj = JSONParser.parseLogin(datas);
+                        obj = JSONParser.parseLogin(datas)
                     case "u_reg":
                         break
                     case "u_newlogin":
@@ -134,20 +183,64 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     case "u_query":
                         fallthrough
                     case "u_profile":
-                        arr = JSONParser.parsePatients(datas) as NSArray?;
+                        arr = JSONParser.parsePatients(datas) as NSArray?
                         obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
                     case "p_query":
                         fallthrough
                     case "p_profile":
-                        arr = JSONParser.parseProviders(datas) as NSArray?;
+                        arr = JSONParser.parseProviders(datas) as NSArray?
                         obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
                     case "a_profile":
-                        arr = JSONParser.parseAdmins(datas) as NSArray?;
+                        arr = JSONParser.parseAdmins(datas) as NSArray?
                         obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
                     case "p_storecoord":
                         break
+                    
+                    // vaccines
+                    case "p_list":
+                        obj = JSONParser.parseProviders(datas) as NSArray?
+                    case "v_list":
+                        obj = JSONParser.parseVaccines(datas) as NSArray?
+                    case "pv_list":
+                        obj = JSONParser.parseVaccines(datas) as NSArray?
+                    case "v_add":
+                        break
+                    case "v_edit":
+                        break
+                    case "v_dec":
+                        break
+
+                    // appointments
+                    case "uo_list":
+                        obj = JSONParser.parseAppointments(datas) as NSArray?
+                    case "po_list":
+                        obj = JSONParser.parseAppointments(datas) as NSArray?
+                    case "o_new":
+                        break
+                    case "o_cancel":
+                        break
+                    case "o_approve":
+                        break
+                    case "o_done":
+                        break
+
+                    // records
+                    case "uv_list":
+                        obj = JSONParser.parseRecords(datas) as NSArray?
+                    case "puv_list":
+                        obj = JSONParser.parseRecords(datas) as NSArray?
+                    case "uv_detail":
+                        arr = JSONParser.parseRecords(datas) as NSArray?
+                        obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
+                    case "uv_done":
+                        break
+
+                    // misc
+                    case "notification":
+                        obj = JSONParser.parseNotifications(datas) as NSArray?
+
                     default:
-                        print("invalid type");
+                        print("invalid type")
                     }
                 }
             }

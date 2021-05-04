@@ -55,8 +55,8 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
 //        self.providers = tempProviders
         
         // Test. Hard-cording.
-        let provider1 = Provider(uid: 0001, firstName: "Pradeep", lastName: "Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com", office:"office1", officeHour: "9:00-17:00")
-        let provider2 = Provider(uid: 0002, firstName: "Joeun", lastName: "Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com", office: "office2", officeHour: "10:00-12:00")
+        let provider1 = Provider(uid: 0001, firstName: "Pradeep", lastName: "Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com", office:"office1", officeHourStart: "09:00", officeHourEnd: "17:00")
+        let provider2 = Provider(uid: 0002, firstName: "Joeun", lastName: "Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com", office: "office2", officeHourStart: "10:00", officeHourEnd: "12:00")
         tempProviders.append(provider1)
         tempProviders.append(provider2)
         

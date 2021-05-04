@@ -77,7 +77,7 @@ class LoginViewController: UIViewController {
     }
     */
     func loginUser(){
-        let (loginInfo, error) = Database.getInstance().fetchLogin(emailTextField.text!, passwordTextField.text!)
+        let (loginInfo, error) = Database.getInstance().fetchLogin(login: emailTextField.text!, password: passwordTextField.text!)
         if error.code != 0 || loginInfo == nil {
             print("Error: \(error.msg)")
         } else {

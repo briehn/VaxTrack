@@ -25,17 +25,19 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
     
     func createArray() {
         // From DB
-        if let records = database.fetchVaccinationRecordsForProvider(providerID: 003) {
-            self.records = records
-        }
-        self.provider = database.fetchProvider(providerID: records[0].providerID)!
+        let (records, error) = database.fetchVaccinationRecordsForProvider(providerID: 003)
+        if records != nil {
+            self.records = records!
+            (self.provider, _) = database.fetchProvider(providerID: records![0].providerID)
         
-        // Get provider info
-        var tempPatients: [Patient] = []
-        for record in records {
-            tempPatients.append(database.fetchPatient(patientID: record.patientID)!)
+            // Get provider info
+            var tempPatients: [Patient] = []
+            for record in records! {
+                let (patient, error) = database.fetchPatient(patientID: record.patientID)
+                tempPatients.append(patient!)
+            }
+            self.patients = tempPatients
         }
-        self.patients = tempPatients
         
         
 //        // Test. Hard-coding.

@@ -8,6 +8,7 @@
 import Foundation
 
 class DateUtil {
+    init() {}
     static func dateToString(date: Date, withFormat format: String) -> String? {
         let formatter = DateFormatter()
         if format == "" {

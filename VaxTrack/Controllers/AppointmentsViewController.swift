@@ -28,18 +28,20 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
     
     func createArray() {
         // Get all appointments set for the patient
-        var tempAppointmemnts: [Appointment] = []
-        tempAppointmemnts = database.fetchAppointmentListForPatient(patientID: 0001)!
+        var tempAppointmemnts: [Appointment]? = []
+        var error: MyError
+        (tempAppointmemnts, error) = database.fetchAppointmentListForPatient(patientID: 0001)
         
 //        // Test. Hard coding ver.
 //        let appointment = Appointment(appointmentID: 0001, virusType: "Covid-19", date: "2021-05-01", providerName: "Dr. Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
 //        tempAppointmemnts.append(appointment)
         
-        self.appointments = tempAppointmemnts
+        self.appointments = tempAppointmemnts!
         // Get provider info
         var tempProviders: [Provider] = []
         for appointment in appointments {
-            tempProviders.append(database.fetchProvider(providerID: appointment.providerID)!)
+            let (provider, error) = database.fetchProvider(providerID: appointment.providerID)
+            tempProviders.append(provider!)
         }
         self.providers = tempProviders
     }

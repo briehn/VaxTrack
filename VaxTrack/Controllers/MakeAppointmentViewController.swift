@@ -59,8 +59,9 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     // loadXXX = load data to in-app objects or etc...
     // fetchXXX = fetch data from DB or External Data Source
     func fetchAvailableTimeSlotsFor(date: Date) {
-        if let dates = database.fetchOpenTimeSlotsFor(providerID: (provider?.uid)!, date: date) {
-            for date in dates {
+        let (dates, err) = database.fetchOpenTimeSlotsFor(providerID: (provider?.uid)!, date: date)
+        if dates != nil {
+            for date in dates! {
                 if let dateStr = DateUtil.dateToString(date: date, withFormat: "hh:MM") {
                     availableTimes.append(dateStr)
                 }
