@@ -27,43 +27,60 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         
 //        createArray()
-        providers = createArray()
+        createArray()
         
     }
-    func createArray() -> [Provider]{
-        var tempProviders: [Provider] = []
-//        tempProviders = database.fetchNearbyProviderListOffer(service: "")!
-//        var dictionary = Dictionary<CLLocationDistance, Array<Provider>>() // [CLLocationDistance : Provider]
-//        // Filter providers by distance. Provider with more than 100 miles away will be excluded from the array.
-//        for index in 0..<tempProviders.count {
-//            let tempDistance = currentAddressInCoordinates.distance(from: tempProviders[index].coordinates!)*0.000621371 // distance in miles
-//            if(tempDistance > 100) { // remove provider from the array
-//                tempProviders.remove(at: index)
-//            } else {
-//                if dictionary[tempDistance] != nil {
-//                    dictionary[tempDistance]?.append(tempProviders[index])
-//                } else {
-//                    dictionary[tempDistance] = [tempProviders[index]]
-//                }
-//            }
-//        }
-//
-//        let temp = Array(dictionary.keys).sorted(by: <)
-//
-//        tempProviders = temp
-//
-//        self.providers = tempProviders
+    func createArray(){
+        var dbReturn = database.fetchNearbyProviderListOffer(service: "")
+        guard let resultProvider:[Provider] = dbReturn.0 else {
+            return
+        }
         
-        // Test. Hard-cording.
-        let provider1 = Provider(uid: 0001, firstName: "Pradeep", lastName: "Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com", office:"office1", officeHourStart: "09:00", officeHourEnd: "17:00")
-        let provider2 = Provider(uid: 0002, firstName: "Joeun", lastName: "Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com", office: "office2", officeHourStart: "10:00", officeHourEnd: "12:00")
-        tempProviders.append(provider1)
-        tempProviders.append(provider2)
+        var providersTemp = resultProvider
+
+        var dictionary = Dictionary<Int, Array<Provider>>() // Key: distance, Value: array of Provider
+        // Filter providers by distance. Provider with more than 100 miles away will be excluded from the array.
+        for index in 0..<providersTemp.count {
+            // Calculate distance by using coordinates
+            var tempDistance = currentAddressInCoordinates.distance(from: providersTemp[index].coordinates!)*0.000621371 // distance in miles
+            let distance = Int(Double(tempDistance).rounded()) // convert to Integer
+            
+            if(distance > 100) { // remove provider from the array
+                // TODO: Possible index related error
+                providersTemp.remove(at: index)
+            } else { // There might be multiple providers with same distance
+                if dictionary[distance] != nil {
+                    // Same key with different value
+                    dictionary[distance]!.append(providers[index])
+                } else {
+                    // First time key appears
+                    dictionary[distance] = [providers[index]]
+                }
+            }
+        }
+
+        let keysSorted = Array(dictionary.keys).sorted(by: <) // sort by distance in ascending order
         
-        return tempProviders
-    }
+        var tempArrToReturn: [Provider] = []
+        
+        for key in keysSorted { // assign all members of
+            if let providerValue = dictionary[key] {
+                for provider in providerValue {
+                    tempArrToReturn.append(provider)
+                }
+            }
+        }
+
+        providers = tempArrToReturn
     
-    func sortProvidersByDistanceInASC(usortedProviders: [Provider]) {
+        
+//        // Test. Hard-cording.
+//        var tempProviders: [Provoder] = []
+//        let provider1 = Provider(uid: 0001, firstName: "Pradeep", lastName: "Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com", office:"office1", officeHourStart: "09:00", officeHourEnd: "17:00")
+//        let provider2 = Provider(uid: 0002, firstName: "Joeun", lastName: "Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com", office: "office2", officeHourStart: "10:00", officeHourEnd: "12:00")
+//        tempProviders.append(provider1)
+//        tempProviders.append(provider2)
+//        providers = tempProviders
         
     }
     
