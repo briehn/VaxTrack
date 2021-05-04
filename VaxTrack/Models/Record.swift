@@ -11,13 +11,13 @@ class Record: NSObject {
     var patientID: Int
     var providerID: Int
     var vaccineID: Int
-    var virusType: String
+    var virusType: String?
     var vaccineName: String?
-    var vaccinatedDate: String
+    var vaccinatedDate: String?
     var manufacturer: String?
     var document: UIImage?
     
-    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String, vaccinatedDate: String, manufacturer: String) {
+    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String?, vaccineName: String?, vaccinatedDate: String?, manufacturer: String?) {
         self.recordID = recordID
         self.patientID = patientID
         self.providerID = providerID
@@ -28,7 +28,7 @@ class Record: NSObject {
         self.manufacturer = manufacturer
     }
 
-    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String, vaccinatedDate: String, manufacturer: String, document: UIImage) {
+    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String?, vaccineName: String?, vaccinatedDate: String?, manufacturer: String?, document: UIImage) {
         self.recordID = recordID
         self.patientID = patientID
         self.providerID = providerID
@@ -46,7 +46,7 @@ class Record: NSObject {
     
     
     // Test. Hard-coding.
-//    init(recordID: Int, patientID: Int, providerID: Int, patientName: String, patientDob: String, virusName: String, vaccineName: String, vaccinatedDate: String, manufacturer: String, provider: String, organization: String, expireDate: String, document: UIImage) {
+//    init(recordID: Int, patientID: Int, providerID: Int, patientName: String?, patientDob: String?, virusName: String?, vaccineName: String?, vaccinatedDate: String?, manufacturer: String?, provider: String?, organization: String?, expireDate: String?, document: UIImage) {
 //        self.recordID = recordID
 //        self.patientID = patientID
 //        self.providerID = providerID
@@ -61,7 +61,7 @@ class Record: NSObject {
 //        self.expireDate = expireDate
 //        self.document = document
 //    }
-//    init(recordID: Int, patientID: Int, patientName: String, virusNmae: String, vaccinatedDate: String) {
+//    init(recordID: Int, patientID: Int, patientName: String?, virusNmae: String?, vaccinatedDate: String) {
 //        self.recordID = recordID
 //        self.patientID = patientID
 //        self.patientName = patientName
@@ -69,7 +69,7 @@ class Record: NSObject {
 //        self.vaccinatedDate = vaccinatedDate
 //    }
 //
-//    init(recordID: Int, patientID: Int, providerID: Int, patientName: String, patientDob: String, virusName: String, vaccinatedDate: String) {
+//    init(recordID: Int, patientID: Int, providerID: Int, patientName: String?, patientDob: String?, virusName: String?, vaccinatedDate: String) {
 //        self.recordID = recordID
 //        self.patientID = patientID
 //        self.providerID = providerID
@@ -79,17 +79,17 @@ class Record: NSObject {
 //        self.vaccinatedDate = vaccinatedDate
 //    }
 
-    func toDict() -> NSDictionary {
+    func toDict() -> [String:String] {
         return [
-            "uvid": recordID,
-            "uid": patientID,
-            "pid": providerID,
-            "vid": vaccineID,
-            "virustype": virusType,
-            "name": vaccineName,
-            "applytime": vaccinatedDate,
-            "manuf": manufacturer
-            //"document": document,
+            "uvid": JSONParser.toString(recordID),
+            "uid": JSONParser.toString(patientID),
+            "pid": JSONParser.toString(providerID),
+            "vid": JSONParser.toString(vaccineID),
+            "virustype": JSONParser.toString(virusType),
+            "name": JSONParser.toString(vaccineName),
+            "applytime": JSONParser.toString(vaccinatedDate),
+            "manuf": JSONParser.toString(manufacturer)
+            //"document": JSONParser.toString(document),
         ]
     }
 

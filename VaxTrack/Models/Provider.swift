@@ -9,6 +9,7 @@ import CoreLocation
 
 class Provider: NSObject {
     var uid: Int!
+    var tag: String?
     var firstName: String!
     var lastName: String!
     var organizationName: String?
@@ -16,19 +17,20 @@ class Provider: NSObject {
     var contactPhone: String!
     var contactEmail: String?
     var website: String?
-    var office: String?
     var officeHourStart: String?
     var officeHourEnd: String?
     var services: [String]!
     var coordinates: CLLocation?
 
-    init(firstName: String, organizationName: String) {
+    init(tag: String?, firstName: String?, organizationName: String?) {
+        self.tag = tag
         self.firstName = firstName
         self.organizationName = organizationName
     }
     
-    init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHour:String, officeHourStart:String, officeHourEnd:String, coordinates: CLLocation) {
+    init(uid: Int, tag: String?, firstName: String?, lastName: String?, organizationName: String?, address: String?, contactPhone: String?, contactEmail: String?, website: String?, officeHour:String?, officeHourStart:String?, officeHourEnd:String?, coordinates: CLLocation) {
         self.uid = uid
+        self.tag = tag
         self.firstName = firstName
         self.lastName = lastName
         self.organizationName = organizationName
@@ -36,14 +38,14 @@ class Provider: NSObject {
         self.contactPhone = contactPhone
         self.contactEmail = contactEmail
         self.website = website
-        self.office = office
         self.officeHourStart = officeHourStart
         self.officeHourEnd = officeHourEnd
         self.coordinates = coordinates
     }
     
-    init(uid: Int, firstName: String, lastName: String, organizationName: String, address: String, contactPhone: String, contactEmail: String, website: String, office:String, officeHourStart:String, officeHourEnd:String) {
+    init(uid: Int, tag: String?, firstName: String?, lastName: String?, organizationName: String?, address: String?, contactPhone: String?, contactEmail: String?, website: String?, officeHourStart:String?, officeHourEnd:String?) {
         self.uid = uid
+        self.tag = tag
         self.firstName = firstName
         self.lastName = lastName
         self.organizationName = organizationName
@@ -51,24 +53,23 @@ class Provider: NSObject {
         self.contactPhone = contactPhone
         self.contactEmail = contactEmail
         self.website = website
-        self.office = office
         self.officeHourStart = officeHourStart
         self.officeHourEnd = officeHourEnd
     }
     
-    func toDict() -> NSDictionary {
+    func toDict() -> [String:String] {
         return [
-            "pid": uid,
-            "firstname": firstName,
-            "lastname": lastName,
-            "org": organizationName,
-            "address": address,
-            "phone": contactPhone,
-            "email": contactEmail,
-            "website": website,
-            "office": office,
-            "officehourstart": officeHourStart,
-            "officehourend": officeHourEnd
+            "pid": JSONParser.toString(uid),
+            "tag": JSONParser.toString(tag),
+            "firstname": JSONParser.toString(firstName),
+            "lastname": JSONParser.toString(lastName),
+            "org": JSONParser.toString(organizationName),
+            "address": JSONParser.toString(address),
+            "phone": JSONParser.toString(contactPhone),
+            "email": JSONParser.toString(contactEmail),
+            "website": JSONParser.toString(website),
+            "officehourstart": JSONParser.toString(officeHourStart),
+            "officehourend": JSONParser.toString(officeHourEnd)
         ]
     }
     

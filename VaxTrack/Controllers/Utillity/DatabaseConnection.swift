@@ -42,88 +42,19 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
     
     static let urlPath = "http://hftsoft.hopto.org:8341/api.php"
 
-    static func fetchData(_ type:String, _ data:NSDictionary?) -> (NSObject?, MyError) {
-        var theUrl = urlPath + "?type=\(type)"
-        
-        print(theUrl)
-        
-        // add parameters from data for each type to the url. will be given in excel
-        switch type {
-        // user accounts
-        case "login":
-            theUrl += "&login=\(data?["login"] ?? "")&password=\(data?["password"] ?? "")"
-        case "u_reg":
-            theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")&birthdate=\(data?["birthdate"] ?? "")"
-        case "p_reg":
-            theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")&org=\(data?["org"] ?? "")&address=\(data?["address"] ?? "")&phone=\(data?["phone"] ?? "")&email=\(data?["email"] ?? "")&website=\(data?["website"] ?? "")&office=\(data?["office"] ?? "")&officehourstart=\(data?["officehourstart"] ?? "")&officehourend=\(data?["officehourend"] ?? "")"
-        case "a_reg":
-            theUrl += "&firstname=\(data?["firstname"] ?? "")&lastname=\(data?["lastname"] ?? "")"
-        case "u_query":
-            theUrl += "&firstname=\(data?["firstname"] ?? "")"
-        case "p_query":
-            theUrl += "&firstname=\(data?["firstname"] ?? "")"
-        case "u_newlogin":
-            theUrl += "&login=\(data?["login"] ?? "")&password=\(data?["password"] ?? "")&targetid=\(data?["targetid"] ?? "")"
-        case "p_newlogin":
-            theUrl += "&login=\(data?["login"] ?? "")&password=\(data?["password"] ?? "")&targetid=\(data?["targetid"] ?? "")"
-        case "u_profile":
-            theUrl += "&uid=\(data?["uid"] ?? "")"
-        case "p_profile":
-            theUrl += "&pid=\(data?["pid"] ?? "")"
-        case "a_profile":
-            theUrl += "&aid=\(data?["aid"] ?? "")"
-        case "p_storecoord":
-            theUrl += "&pid=\(data?["pid"] ?? "")&lat=\(data?["lat"] ?? "")&lng=\(data?["lng"] ?? "")"
-	
-        // vaccines
-        case "p_list":
-            theUrl += ""
-        case "v_list":
-            theUrl += ""
-        case "pv_list":
-            theUrl += "&pid=\(data?["pid"] ?? "")"
-        case "v_add":
-            theUrl += "&pid=\(data?["pid"] ?? "")&name=\(data?["name"] ?? "")&org=\(data?["org"] ?? "")&manuf=\(data?["manuf"] ?? "")&desc=\(data?["desc"] ?? "")&expiretime=\(data?["expiretime"] ?? "")"
-            //&qty=\(data?["qty"] ?? "")&remain=\(data?["remain"] ?? "")"
-        case "v_edit":
-            theUrl += "&vid=\(data?["vid"] ?? "")&name=\(data?["name"] ?? "")&org=\(data?["org"] ?? "")&manuf=\(data?["manuf"] ?? "")&desc=\(data?["desc"] ?? "")&expiretime=\(data?["expiretime"] ?? "")"
-            //&qty=\(data?["qty"] ?? "")&remain=\(data?["remain"] ?? "")"
-        case "v_dec":
-            theUrl += "&vid=\(data?["vid"] ?? "")"
-
-        // appointments
-        case "uo_list":
-            theUrl += "&uid=\(data?["uid"] ?? "")"
-        case "po_list":
-            theUrl += "&pid=\(data?["pid"] ?? "")"
-        case "o_new":
-            theUrl += "&uid=\(data?["uid"] ?? "")&pid=\(data?["pid"] ?? "")&appointtime=\(data?["appointtime"] ?? "")&virustype=\(data?["virustype"] ?? "")"
-        case "o_cancel":
-            theUrl += "&oid=\(data?["oid"] ?? "")"
-        case "o_approve":
-            theUrl += "&oid=\(data?["oid"] ?? "")"
-        case "o_done":
-            theUrl += "&oid=\(data?["oid"] ?? "")"
-
-        // records
-        case "uv_list":
-            theUrl += "&uid=\(data?["uid"] ?? "")"
-        case "puv_list":
-            theUrl += "&pid=\(data?["pid"] ?? "")"
-        case "uv_detail":
-            theUrl += "&uvid=\(data?["uvid"] ?? "")"
-        case "uv_done":
-            theUrl += "&uid=\(data?["uid"] ?? "")&vid=\(data?["vid"] ?? "")&applytime=\(data?["applytime"] ?? "")&dose=\(data?["dose"] ?? "")"
-
-        // misc
-        case "notification":
-            theUrl += ""
-
-        default:
-            print("invalid type")
+    static func fetchData(_ type:String, _ data:[String:String]?) -> (NSObject?, MyError) {
+        let baseUrl = urlPath + "?type=\(type)"
+        var querystring: String = ""
+        if data != nil {
+            for (key,value) in data! {
+                querystring +=  "\(key)=\(value)&"
+            }
+            querystring = String(querystring.dropLast())
         }
+        let finalUrl = baseUrl + "&" + querystring
+        print(finalUrl)
 
-        let url: URL = URL(string: theUrl)!
+        let url: URL = URL(string: finalUrl)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         // here we use synchronous fetch
@@ -164,7 +95,7 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
             if code < 0 {
                 print("api failed")
                 error.code = code
-                error.msg = jsonResult["msg"] as? String
+                error.msg = jsonResult["msg"] as? String ?? ""
             } else {
                 if let datas = jsonResult["data"] as? NSArray {
                     switch type {

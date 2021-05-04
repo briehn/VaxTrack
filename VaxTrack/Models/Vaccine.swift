@@ -9,16 +9,16 @@ import UIKit
 class Vaccine {
     var vaccineID: Int
     var providerID: Int
-    var virusType: String
+    var virusType: String?
     var vaccineName: String?
-    var expireDate: String
+    var expireDate: String?
     var manufacturer: String?
     var description: String?
     var document: UIImage?
     var quantity: Int?
     var remain: Int?
     
-    init(vaccineID: Int, providerID: Int, virusType: String, vaccineName: String, expireDate: String, manufacturer: String, description: String) {
+    init(vaccineID: Int, providerID: Int, virusType: String?, vaccineName: String?, expireDate: String?, manufacturer: String?, description: String?) {
         self.vaccineID = vaccineID
         self.providerID = providerID
         self.virusType = virusType
@@ -28,7 +28,7 @@ class Vaccine {
         self.description = description
     }
     
-    init(vaccineID: Int, providerID: Int, virusType: String, vaccineName: String, expireDate: String, manufacturer: String, description: String, quantity: Int, remain: Int) {
+    init(vaccineID: Int, providerID: Int, virusType: String?, vaccineName: String?, expireDate: String?, manufacturer: String?, description: String?, quantity: Int?, remain: Int?) {
         self.vaccineID = vaccineID
         self.providerID = providerID
         self.virusType = virusType
@@ -40,17 +40,17 @@ class Vaccine {
         self.remain = remain
     }
     
-    func toDict() -> NSDictionary {
+    func toDict() -> [String:String] {
         return [
-            "vid": vaccineID,
-            "pid": providerID,
-            "virustype": virusType,
-            "name": vaccineName ?? "",
-            "expiredate": expireDate,
-            "manuf": manufacturer ?? "",
-            "desc": description ?? "",
-            "qty": quantity ?? 0,
-            "remain": remain ?? 0
+            "vid": JSONParser.toString(vaccineID),
+            "pid": JSONParser.toString(providerID),
+            "virustype": JSONParser.toString(virusType),
+            "name": JSONParser.toString(vaccineName),
+            "expiredate": JSONParser.toString(expireDate),
+            "manuf": JSONParser.toString(manufacturer),
+            "desc": JSONParser.toString(description),
+            "qty": JSONParser.toString(quantity),
+            "remain": JSONParser.toString(remain)
         ]
     }
 

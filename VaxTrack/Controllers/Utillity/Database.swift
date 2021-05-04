@@ -19,9 +19,9 @@ class Database {
 
     // Fetch login result from Database. empty on failure
     func fetchLogin(login: String, password: String) -> (LoginModel?, MyError) {
-        let param: NSDictionary = [
-            "login": login,
-            "password": password
+        let param = [
+            "login": JSONParser.toString(login),
+            "password": JSONParser.toString(password)
         ]
         let (obj, err) = DatabaseConnection.fetchData("login", param)
         return (obj as? LoginModel, err)
@@ -29,8 +29,8 @@ class Database {
 
     // Fetch Patient Info for the passed patientID
     func fetchPatient(patientID: Int) -> (Patient?, MyError) {
-        let param: NSDictionary = [
-            "uid": patientID,
+        let param = [
+            "uid": JSONParser.toString(patientID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("u_profile", param)
         return (obj as? Patient, err)
@@ -38,8 +38,8 @@ class Database {
 
     // Fetch Provider Info with the passed providerID
     func fetchProvider(providerID: Int) -> (Provider?, MyError) {
-        let param: NSDictionary = [
-            "pid": providerID,
+        let param = [
+            "pid": JSONParser.toString(providerID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("p_profile", param)
         return (obj as? Provider, err)
@@ -47,8 +47,8 @@ class Database {
 
     // Fetch admin profile
     func fetchAdminInfo(adminID: Int) -> (Admin?, MyError) {
-        let param: NSDictionary = [
-            "aid": adminID,
+        let param = [
+            "aid": JSONParser.toString(adminID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("a_profile", param)
         return (obj as? Admin, err)
@@ -57,12 +57,12 @@ class Database {
     // Store patient information once signed up
     func regPatientInfo(withEmail email: String, password: String) -> MyError {
         var err:MyError, obj:NSObject?
-        let patient = Patient(firstName: email)
-        var param: NSDictionary = patient.toDict()
+        let patient = Patient(tag: email, firstName: email)
+        var param = patient.toDict()
         (_, err) = DatabaseConnection.fetchData("u_reg", param)
         if err.code != 0 {return err}
         
-        param = ["firstname": email]
+        param = ["tag": email]
         (obj, err) = DatabaseConnection.fetchData("u_query", param)
         if err.code != 0 {return err}
         if obj == nil {return MyError(1)}
@@ -70,9 +70,9 @@ class Database {
         let uid = patient2.uid
         
         param = [
-            "login": email,
-            "password": password,
-            "targetid": uid
+            "login": JSONParser.toString(email),
+            "password": JSONParser.toString(password),
+            "targetid": JSONParser.toString(uid)
         ]
         (_, err) = DatabaseConnection.fetchData("u_newlogin", param)
         return err
@@ -80,7 +80,7 @@ class Database {
     
     // Store patient information after edit profile
     func storePatientInfo(_ patient: Patient) -> MyError {
-        let param: NSDictionary = patient.toDict()
+        let param = patient.toDict()
         let (_, err) = DatabaseConnection.fetchData("u_reg", param)
         return err
     }
@@ -88,12 +88,12 @@ class Database {
     // Store provider information once signed up
     func regProviderInfo(withEmail email: String, password: String, org: String) -> MyError {
         var err:MyError, obj:NSObject?
-        let provider = Provider(firstName: email, organizationName: org)
-        var param: NSDictionary = provider.toDict()
+        let provider = Provider(tag: email, firstName: email, organizationName: org)
+        var param = provider.toDict()
         (_, err) = DatabaseConnection.fetchData("p_reg", param)
         if err.code != 0 {return err}
         
-        param = ["firstname": email]
+        param = ["tag": email]
         (obj, err) = DatabaseConnection.fetchData("p_query", param)
         if err.code != 0 {return err}
         if obj == nil {return MyError(1)}
@@ -101,9 +101,9 @@ class Database {
         let uid = provider2.uid
         
         param = [
-            "login": email,
-            "password": password,
-            "targetid": uid
+            "login": JSONParser.toString(email),
+            "password": JSONParser.toString(password),
+            "targetid": JSONParser.toString(uid)
         ]
         (_, err) = DatabaseConnection.fetchData("p_newlogin", param)
         return err
@@ -111,17 +111,17 @@ class Database {
     
     // Store provider information after edit profile
     func storeProviderInfo(_ provider: Provider) -> MyError {
-        let param: NSDictionary = provider.toDict()
+        let param = provider.toDict()
         let (_, err) = DatabaseConnection.fetchData("p_reg", param)
         return err
     }
     
     // Store coordinates(lat, lon) into Provider - it needs in order to calculate distance used in Find Provider
     func storeCoordinates(providerID: Int, lat: Float32, lng: Float32) -> MyError {
-        let param: NSDictionary = [
-            "pid": providerID,
-            "lat": lat,
-            "lng": lng
+        let param = [
+            "pid": JSONParser.toString(providerID),
+            "lat": JSONParser.toString(lat),
+            "lng": JSONParser.toString(lng)
         ]
         let (_, err) = DatabaseConnection.fetchData("p_storecoord", param)
         return err
@@ -131,7 +131,7 @@ class Database {
     // argument might be Record or
     // all of the class(Record) members except recordID (which db will generate in AI)
     func storeRecord(record: Record) -> MyError {
-        let param: NSDictionary = record.toDict()
+        let param = record.toDict()
         let (_, err) = DatabaseConnection.fetchData("uv_done", param)
         return err
     }
@@ -140,7 +140,7 @@ class Database {
     // argument might be Appointment or
     // all of the class(Appointment) members except appointmentID (which db will generate)
     func storeAppointment(appointment: Appointment) -> MyError {
-        let param: NSDictionary = appointment.toDict()
+        let param = appointment.toDict()
         let (_, err) = DatabaseConnection.fetchData("o_new", param)
         return err
     }
@@ -165,8 +165,8 @@ class Database {
     
     // Fetch Vaccination Records for the passed patientID
     func fetchVaccinationRecordsForPatient(patientID: Int) -> ([Record]?, MyError) {
-        let param: NSDictionary = [
-            "uid": patientID,
+        let param = [
+            "uid": JSONParser.toString(patientID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("uv_list", param)
         return (obj as? [Record], err)
@@ -174,8 +174,8 @@ class Database {
     
     // Fetch Vaccination Records for the passed providerID (and all patients?)
     func fetchVaccinationRecordsForProvider(providerID: Int) -> ([Record]?, MyError) {
-        let param: NSDictionary = [
-            "pid": providerID,
+        let param = [
+            "pid": JSONParser.toString(providerID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("puv_list", param)
         return (obj as? [Record], err)
@@ -183,8 +183,8 @@ class Database {
     
     // Fetch Vaccination Record with Details
     func fetchVaccinationRecordDetails(for recordID: Int) -> (Record?, MyError) {
-        let param: NSDictionary = [
-            "uvid": recordID,
+        let param = [
+            "uvid": JSONParser.toString(recordID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("uv_detail", param)
         return (obj as? Record, err)
@@ -198,8 +198,8 @@ class Database {
     
     // Fetch apointment list set to the passed patientID
     func fetchAppointmentListForPatient(patientID: Int) -> ([Appointment]?, MyError) {
-        let param: NSDictionary = [
-            "uid": patientID,
+        let param = [
+            "uid": JSONParser.toString(patientID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("uo_list", param)
         return (obj as? [Appointment], err)
@@ -207,8 +207,8 @@ class Database {
     
     // Fetch apointment list set to the passed providerID
     func fetchAppointmentListForProvider(providerID: Int) -> ([Appointment]?, MyError) {
-        let param: NSDictionary = [
-            "pid": providerID,
+        let param = [
+            "pid": JSONParser.toString(providerID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("po_list", param)
         return (obj as? [Appointment], err)

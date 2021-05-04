@@ -97,10 +97,10 @@ class SignUpViewController: UIViewController {
             err = Database.getInstance().regProviderInfo(withEmail: emailTextField.text!, password: passwordTextField.text!, org: companyTextField.text!)
         }
         
-        print("Reg Result Error Msg: \(err.msg!)")
+        print("Reg Result Error Msg: \(err.msg)")
         
         if err.code != 0 {
-            print("Error \(err.msg!)")
+            print("Error \(err.msg)")
             return
         }
 

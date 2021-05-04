@@ -14,7 +14,7 @@ class Appointment {
     var patientID: Int!
     var providerID: Int!
 
-    init(appointmentID: Int, virusType: String, date: Date, patientID: Int, providerID: Int) {
+    init(appointmentID: Int, virusType: String?, date: Date, patientID: Int, providerID: Int) {
         self.appointmentID = appointmentID
         self.virusType = virusType
         self.date = date
@@ -46,13 +46,13 @@ class Appointment {
         return nil
     }
     
-    func toDict() -> NSDictionary {
+    func toDict() -> [String:String] {
         return [
-            "oid": appointmentID,
-            "uid": patientID,
-            "pid": providerID,
-            "virustype": virusType,
-            "appointtime": date,
+            "oid": JSONParser.toString(appointmentID),
+            "uid": JSONParser.toString(patientID),
+            "pid": JSONParser.toString(providerID),
+            "virustype": JSONParser.toString(virusType),
+            "appointtime": JSONParser.toString(date)
         ]
     }
 

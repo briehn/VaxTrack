@@ -10,6 +10,7 @@ class Patient: NSObject {
     
     //properties
     var uid: Int!
+    var tag: String?    // for login email
     var firstName: String!
     var lastName: String!
     var recordIDs: [Int]?
@@ -24,12 +25,20 @@ class Patient: NSObject {
         
     }
     
-    init(firstName: String) {
+    init(tag: String?, firstName: String?) {
+        self.tag = tag
         self.firstName = firstName
     }
-    init(uid: Int, firstName: String, lastName: String, recordIDs: [Int], appointmentIDs: [Int], dob: String) {
-        
+    init(uid: Int, tag: String?, firstName: String?, lastName: String?, dob: String?) {
         self.uid = uid
+        self.tag = tag
+        self.firstName = firstName
+        self.lastName = lastName
+        self.dob = dob
+    }
+    init(uid: Int, tag: String?, firstName: String?, lastName: String?, recordIDs: [Int]?, appointmentIDs: [Int]?, dob: String?) {
+        self.uid = uid
+        self.tag = tag
         self.firstName = firstName
         self.lastName = lastName
         self.recordIDs = recordIDs
@@ -45,12 +54,13 @@ class Patient: NSObject {
         
     }
     
-    func toDict() -> NSDictionary {
+    func toDict() -> [String:String] {
         return [
-            "uid": uid,
-            "firstname": firstName,
-            "lastname": lastName,
-            "birthdate": dob
+            "uid": JSONParser.toString(uid),
+            "tag": JSONParser.toString(tag),
+            "firstname": JSONParser.toString(firstName),
+            "lastname": JSONParser.toString(lastName),
+            "birthdate": JSONParser.toString(dob)
         ]
     }
     

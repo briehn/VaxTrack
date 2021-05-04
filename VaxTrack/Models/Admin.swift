@@ -20,7 +20,7 @@ class Admin: NSObject {
         
     }
     
-    init(uid: Int, firstName: String, lastName: String) {
+    init(uid: Int, firstName: String?, lastName: String?) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
@@ -34,11 +34,11 @@ class Admin: NSObject {
         
     }
     
-    func toDict() -> NSDictionary {
+    func toDict() -> [String:String] {
         return [
-            "aid": uid,
-            "firstname": firstName,
-            "lastname": lastName
+            "aid": JSONParser.toString(uid),
+            "firstname": JSONParser.toString(firstName),
+            "lastname": JSONParser.toString(lastName)
         ]
     }
     
