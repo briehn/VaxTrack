@@ -45,6 +45,8 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
     static func fetchData(_ type:String, _ data:NSDictionary?) -> (NSObject?, MyError) {
         var theUrl = urlPath + "?type=\(type)"
         
+        print(theUrl)
+        
         // add parameters from data for each type to the url. will be given in excel
         switch type {
         // user accounts

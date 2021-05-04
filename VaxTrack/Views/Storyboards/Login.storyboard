@@ -113,7 +113,7 @@
                                     <color key="titleColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpButtonPressed:" destination="UfX-1m-ChK" eventType="touchUpInside" id="kxR-lC-Wx3"/>
+                                    <action selector="userTypeBtnTouched:" destination="UfX-1m-ChK" eventType="touchUpInside" id="sqo-u0-ie8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kH-GY-psd">
@@ -137,14 +137,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-YC-t1s">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-YC-t1s">
                                 <rect key="frame" x="90" y="407" width="234" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Provider">
                                     <color key="titleColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpButtonPressed:" destination="UfX-1m-ChK" eventType="touchUpInside" id="vBa-aA-1bp"/>
+                                    <action selector="userTypeBtnTouched:" destination="UfX-1m-ChK" eventType="touchUpInside" id="f3u-QX-VmV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -172,6 +172,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lXw-vj-RPg"/>
+                    <connections>
+                        <segue destination="wJ2-uL-YAf" kind="show" identifier="SignUpSegue" id="rqI-T7-z67"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4E-nn-oDf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,7 +249,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="06H-TC-ZTt"/>
                     <connections>
-                        <outlet property="compantTextField" destination="Qkk-YC-z0g" id="Dmc-NU-8bI"/>
+                        <outlet property="companyTextField" destination="Qkk-YC-z0g" id="Dmc-NU-8bI"/>
                         <outlet property="emailTextField" destination="RoR-H9-x37" id="cnG-Ad-50E"/>
                         <outlet property="passwordTextField" destination="GiC-gA-yXl" id="jE5-vk-Q1H"/>
                     </connections>

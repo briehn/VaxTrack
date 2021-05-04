@@ -10,6 +10,7 @@ import Foundation
 class Database {
     static let instance: Database = Database()
     var uid:Int?
+    
     init() {
     }
     static func getInstance() -> Database {

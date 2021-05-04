@@ -9,22 +9,42 @@ import UIKit
 //import Firebase
 //import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+enum userType {
+    case patient
+    case provider
+}
 
+class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var compantTextField: UITextField!
+    @IBOutlet weak var companyTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var signUpUserType: userType = .patient
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if (signUpUserType == .patient) {
+            if let tf = companyTextField {
+                tf.isHidden = true
+            }
+        }
     }
+
     
+    @IBAction func userTypeBtnTouched(_ sender: UIButton) {
+        if (sender.tag == 0) { // patient
+            signUpUserType = .patient
+        } else if (sender.tag == 1) { // provider
+            signUpUserType = .provider
+        }
+        performSegue(withIdentifier: "SignUpSegue", sender: self)
+    }
+
     @IBAction func signUpButtonPressed(_ sender: Any) {
         if(emailTextField.text?.isEmpty == true){
             print("Missing email")
@@ -66,10 +86,21 @@ class SignUpViewController: UIViewController {
     }
 */
     func signUp(){
-        // Firebase : create user with callback function
-        let err = Database.getInstance().regPatientInfo(withEmail: emailTextField.text!, password: passwordTextField.text!)
+        var err: MyError
+        // Register as a new user (provider or patient)
+        switch signUpUserType {
+        case .patient:
+            print("asdfasdf")
+            err = Database.getInstance().regPatientInfo(withEmail: emailTextField.text!, password: passwordTextField.text!)
+        case .provider:
+            print("qwerqwer")
+            err = Database.getInstance().regProviderInfo(withEmail: emailTextField.text!, password: passwordTextField.text!, org: companyTextField.text!)
+        }
+        
+        print("Reg Result Error Msg: \(err.msg!)")
+        
         if err.code != 0 {
-            print("Error \(err.msg)")
+            print("Error \(err.msg!)")
             return
         }
 
@@ -81,14 +112,13 @@ class SignUpViewController: UIViewController {
             
     }
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SignUpSegue" {
+            if let vc = segue.destination as? SignUpViewController {
+                vc.signUpUserType = self.signUpUserType
+            }
+        }
     }
-    */
-
 }
