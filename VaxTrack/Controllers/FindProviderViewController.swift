@@ -18,6 +18,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
 
     var touchedCellindex: Int?
     var currentAddressInCoordinates: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0) // TODO:- fix
+    var distances: [Int] = []
 //    var currentAddressInCoordinates: CLLocationCoordinate2D
     
     override func viewDidLoad() {
@@ -44,10 +45,11 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
             // Calculate distance by using coordinates
             var tempDistance = currentAddressInCoordinates.distance(from: providersTemp[index].coordinates!)*0.000621371 // distance in miles
             let distance = Int(Double(tempDistance).rounded()) // convert to Integer
-            
+            distances.append(distance)
             if(distance > 100) { // remove provider from the array
                 // TODO: Possible index related error
                 providersTemp.remove(at: index)
+                distances.remove(at: index)
             } else { // There might be multiple providers with same distance
                 if dictionary[distance] != nil {
                     // Same key with different value
@@ -60,7 +62,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         }
 
         let keysSorted = Array(dictionary.keys).sorted(by: <) // sort by distance in ascending order
-        
+        distances.sort(by: <)
         var tempArrToReturn: [Provider] = []
         
         for key in keysSorted { // assign all members of
@@ -109,6 +111,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "providerInfoCell", for: indexPath) as! providerInfoCell
         cell.setProvider(provider: provider)
         cell.makeAppointmentBtn.tag = indexPath.row
+        cell.distance.text = String(distances[indexPath.row]) // pass distance calculated
         
         return cell
     }
@@ -120,6 +123,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
             if let vc = segue.destination as? MakeAppointmentViewController {
                 if let index = touchedCellindex {
                     vc.provider = providers[index]
+                    
                 }
             }
         }

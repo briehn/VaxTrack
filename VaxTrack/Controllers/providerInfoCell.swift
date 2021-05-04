@@ -29,3 +29,4 @@ class providerInfoCell: UITableViewCell {
     }
     
 }
+
