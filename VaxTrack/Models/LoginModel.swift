@@ -11,18 +11,23 @@ class LoginModel: NSObject {
     
     //properties
     var uid: Int
-    var type: String
+    var type: ST_User.UserType
     
     //empty constructor
     override init()
     {
         uid = 0
-        type = "?"
+        type = .UNKNOWN
     }
     
     init(uid: Int, type: String) {
         self.uid = uid
-        self.type = type
+        switch type {
+        case "U": self.type = .PATIENT
+        case "P": self.type = .PROVIDER
+        case "A": self.type = .ADMIN
+        default: self.type = .UNKNOWN
+        }
     }
     
     //prints object's current state

@@ -9,8 +9,10 @@ import Foundation
 
 class ST_User {
     enum UserType {
+        case UNKNOWN
         case PATIENT
         case PROVIDER
+        case ADMIN
     }
     static var shared = ST_User()
     
