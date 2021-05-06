@@ -186,7 +186,7 @@ class JSONParser {
     }
     
     static func parseAppointment(_ data:NSDictionary) -> Appointment? {
-        if let appointmentID = data["vid"] as? Int {
+        if let appointmentID = data["oid"] as? Int {
             let virusType = data["virustype"] as? String
             let appointtime = data["appointtime"] as! String
             let patientID = data["uid"] as! Int
