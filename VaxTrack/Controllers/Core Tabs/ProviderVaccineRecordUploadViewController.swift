@@ -28,7 +28,7 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         virusTypeLabel.text = record?.virusType
-        dateLabel.text = record?.vaccinatedDate
+        dateLabel.text = DateUtil.dateOnlyToString(date: record!.vaccinatedDate, withFormat: "")
 //        dateLabel.text = DateUtil.dateToString(date: (record?.vaccinatedDate)!, withFormat: "")
         dobLabel.text = patient?.dob
     }

@@ -11,13 +11,13 @@ class Record: NSObject {
     var patientID: Int
     var providerID: Int
     var vaccineID: Int
-    var virusType: String?
+    var virusType: String
     var vaccineName: String?
-    var vaccinatedDate: String?
+    var vaccinatedDate: Date
     var manufacturer: String?
     var document: UIImage?
     
-    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String?, vaccineName: String?, vaccinatedDate: String?, manufacturer: String?) {
+    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String?, vaccinatedDate: Date, manufacturer: String?) {
         self.recordID = recordID
         self.patientID = patientID
         self.providerID = providerID
@@ -28,7 +28,7 @@ class Record: NSObject {
         self.manufacturer = manufacturer
     }
 
-    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String?, vaccineName: String?, vaccinatedDate: String?, manufacturer: String?, document: UIImage) {
+    init(recordID: Int, patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String?, vaccinatedDate: Date, manufacturer: String?, document: UIImage) {
         self.recordID = recordID
         self.patientID = patientID
         self.providerID = providerID
