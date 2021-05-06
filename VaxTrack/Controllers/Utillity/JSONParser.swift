@@ -137,7 +137,7 @@ class JSONParser {
             let providerID = data["pid"] as! Int
             let virusType = data["virustype"] as? String
             let vaccineName = data["name"] as? String
-            let expireDate = data["expiretime"] as? String
+            let expireDate = data["expiretime"] as? Date
             let manufacturer = data["manuf"] as? String
             let description = data["desc"] as? String
             //let document = data["docid"] as? Int
