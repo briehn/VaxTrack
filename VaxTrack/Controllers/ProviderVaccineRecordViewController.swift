@@ -25,7 +25,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
     
     func createArray() {
         // From DB
-        let (records, error) = database.fetchVaccinationRecordsForProvider(providerID: 003)
+        let (records, error) = database.fetchVaccinationRecordsForProvider(providerID: ST_User.shared.userID)
         if records != nil {
             self.records = records!
             (self.provider, _) = database.fetchProvider(providerID: records![0].providerID)

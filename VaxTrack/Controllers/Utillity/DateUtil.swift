@@ -20,6 +20,17 @@ class DateUtil {
         return formatter.string(from: date)
     }
     
+    static func dateOnlyToString(date: Date, withFormat format: String?) -> String? {
+        let formatter = DateFormatter()
+        if format == "" {
+            formatter.dateFormat = "yyyy-MM-dd"
+        } else {
+            formatter.dateFormat = format
+        }
+        
+        return formatter.string(from: date)
+    }
+    
     static func stringToDate(dateString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
