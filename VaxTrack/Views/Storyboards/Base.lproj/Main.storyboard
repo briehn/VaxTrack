@@ -561,14 +561,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMt-iG-3QZ" id="X5L-8G-lrK">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImN-Nl-Ogj">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="326" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="linkColor"/>
                                                     <nil key="highlightedColor"/>
@@ -587,7 +587,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68" width="366" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="67.5" width="366" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aad-PW-Mmt" id="yWh-kN-EV5">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="37.5"/>
@@ -1211,10 +1211,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dob" destination="frw-oV-Xuc" id="jKj-8X-jIX"/>
                                             <outlet property="dobLabel" destination="frw-oV-Xuc" id="yZ5-tc-SjW"/>
                                             <outlet property="patientName" destination="GhG-7R-BTe" id="Lh1-WS-wbl"/>
-                                            <outlet property="vaccinatedDate" destination="0tU-9f-oJv" id="HKU-Uk-5hw"/>
                                             <outlet property="vaccinatedDateLabel" destination="0tU-9f-oJv" id="czi-8G-Ye7"/>
                                             <segue destination="eTc-5p-gwN" kind="show" identifier="ProviderVaccineRecordDetail" id="dBn-I0-5Yl"/>
                                         </connections>
@@ -1980,14 +1978,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentAvailableTimeCell" id="QWg-J2-ysL" customClass="AppointmentAvailableTimeCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWg-J2-ysL" id="Ybl-WF-04T">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-NT-bFJ">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="326" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2527,14 +2525,10 @@
                                         <connections>
                                             <outlet property="cancelBtn" destination="Z43-sf-Sh6" id="dmr-7t-00R"/>
                                             <outlet property="date" destination="rMQ-Ea-r9V" id="dZm-Em-MwQ"/>
-                                            <outlet property="dateHeader" destination="AhJ-ex-Kb5" id="cak-Bv-F6S"/>
                                             <outlet property="daysRemaining" destination="AhJ-ex-Kb5" id="XjK-4J-WQb"/>
                                             <outlet property="dob" destination="47c-ah-e9J" id="gaq-g9-XtQ"/>
-                                            <outlet property="organization" destination="47c-ah-e9J" id="qoZ-3O-4Fw"/>
                                             <outlet property="patientName" destination="Jh3-0b-MgV" id="brW-XW-IkT"/>
-                                            <outlet property="providerName" destination="jZS-3f-R7V" id="301-KI-jRM"/>
                                             <outlet property="time" destination="IiT-wK-kHN" id="n0Z-4y-B4J"/>
-                                            <outlet property="virusName" destination="Jh3-0b-MgV" id="EW8-hH-cB9"/>
                                             <outlet property="virusType" destination="jZS-3f-R7V" id="SkK-oe-qQA"/>
                                         </connections>
                                     </tableViewCell>

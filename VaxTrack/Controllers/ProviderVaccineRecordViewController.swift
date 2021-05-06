@@ -27,6 +27,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
         // From DB
         let (records, error) = database.fetchVaccinationRecordsForProvider(providerID: ST_User.shared.userID)
         if records != nil {
+            print("asdasdasd")
             self.records = records!
             (self.provider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
         
@@ -54,6 +55,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("records.count=\(records.count)")
         return records.count
     }
     

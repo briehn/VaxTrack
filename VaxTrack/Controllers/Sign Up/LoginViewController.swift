@@ -82,6 +82,8 @@ class LoginViewController: UIViewController {
             print("Error: \(error.msg)")
         } else {
             Database.getInstance().uid = loginInfo!.uid
+            ST_User.shared.userID = loginInfo!.uid
+            ST_User.shared.userType = loginInfo!.type
         }
         self.checkUserInfo()
     }
@@ -92,7 +94,7 @@ class LoginViewController: UIViewController {
             if let vc = storyboard.instantiateViewController(identifier: "TabBarHome") as? UITabBarController {
                 // get user data and store
                 if let uid = Database.getInstance().uid {
-                    ST_User.shared.userID = uid
+//                    ST_User.shared.userID = uid
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true)
                 }

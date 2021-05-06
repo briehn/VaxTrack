@@ -32,48 +32,50 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     func createArray(){
-        var dbReturn = database.fetchNearbyProviderListOffer(service: "")
+        let dbReturn = database.fetchNearbyProviderListOffer(service: "Covid-19")
         guard let resultProvider:[Provider] = dbReturn.0 else {
             return
         }
         
-        var providersTemp = resultProvider
-
-        var dictionary = Dictionary<Int, Array<Provider>>() // Key: distance, Value: array of Provider
-        // Filter providers by distance. Provider with more than 100 miles away will be excluded from the array.
-        for index in 0..<providersTemp.count {
-            // Calculate distance by using coordinates
-            var tempDistance = currentAddressInCoordinates.distance(from: providersTemp[index].coordinates!)*0.000621371 // distance in miles
-            let distance = Int(Double(tempDistance).rounded()) // convert to Integer
-            distances.append(distance)
-            if(distance > 100) { // remove provider from the array
-                // TODO: Possible index related error
-                providersTemp.remove(at: index)
-                distances.remove(at: index)
-            } else { // There might be multiple providers with same distance
-                if dictionary[distance] != nil {
-                    // Same key with different value
-                    dictionary[distance]!.append(providers[index])
-                } else {
-                    // First time key appears
-                    dictionary[distance] = [providers[index]]
-                }
-            }
-        }
-
-        let keysSorted = Array(dictionary.keys).sorted(by: <) // sort by distance in ascending order
-        distances.sort(by: <)
-        var tempArrToReturn: [Provider] = []
+//        var providersTemp = resultProvider
+//
+//        var dictionary = Dictionary<Int, Array<Provider>>() // Key: distance, Value: array of Provider
+//        // Filter providers by distance. Provider with more than 100 miles away will be excluded from the array.
+//        for index in 0..<providersTemp.count {
+//            // Calculate distance by using coordinates
+//            var tempDistance = currentAddressInCoordinates.distance(from: providersTemp[index].coordinates!)*0.000621371 // distance in miles
+//            let distance = Int(Double(tempDistance).rounded()) // convert to Integer
+//            distances.append(distance)
+//            if(distance > 100) { // remove provider from the array
+//                // TODO: Possible index related error
+//                providersTemp.remove(at: index)
+//                distances.remove(at: index)
+//            } else { // There might be multiple providers with same distance
+//                if dictionary[distance] != nil {
+//                    // Same key with different value
+//                    dictionary[distance]!.append(providers[index])
+//                } else {
+//                    // First time key appears
+//                    dictionary[distance] = [providers[index]]
+//                }
+//            }
+//        }
+//
+//        let keysSorted = Array(dictionary.keys).sorted(by: <) // sort by distance in ascending order
+//        distances.sort(by: <)
+//        var tempArrToReturn: [Provider] = []
+//
+//        for key in keysSorted { // assign all members of
+//            if let providerValue = dictionary[key] {
+//                for provider in providerValue {
+//                    tempArrToReturn.append(provider)
+//                }
+//            }
+//        }
+//
+//        providers = tempArrToReturn
         
-        for key in keysSorted { // assign all members of
-            if let providerValue = dictionary[key] {
-                for provider in providerValue {
-                    tempArrToReturn.append(provider)
-                }
-            }
-        }
-
-        providers = tempArrToReturn
+        providers = dbReturn.0!
     
         
 //        // Test. Hard-cording.

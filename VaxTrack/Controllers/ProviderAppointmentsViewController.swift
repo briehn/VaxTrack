@@ -30,7 +30,7 @@ class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate,
         // Get all appointments set for the provider
         var tempAppointmemnts: [Appointment]? = []
         var error: MyError
-        (tempAppointmemnts, error) = database.fetchAppointmentListForProvider(providerID: 0003)
+        (tempAppointmemnts, error) = database.fetchAppointmentListForProvider(providerID: ST_User.shared.userID)
         
         if tempAppointmemnts != nil {
             self.appointments = tempAppointmemnts!

@@ -18,19 +18,22 @@ class HomeViewController: UIViewController {
     let database: Database = Database()
     var providers: Provider?
     var patient: Patient?
-    var userType: UserType = .PATIENT
+    var userType: ST_User.UserType = .PATIENT
     
     override func viewDidLoad() {
-        let (tmpPatient, _) = database.fetchPatient(patientID: ST_User.shared.userID)
-        let (tmpProvider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
+//        let (tmpPatient, _) = database.fetchPatient(patientID: ST_User.shared.userID)
+//        let (tmpProvider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
+//
+//        if tmpPatient != nil {
+//            userType = .PATIENT
+//        } else if tmpProvider != nil {
+//            userType = .PROVIDER
+//        } else {
+//            userType = .ADMIN
+//        }
         
-        if tmpPatient != nil {
-            userType = .PATIENT
-        } else if tmpProvider != nil {
-            userType = .PROVIDER
-        } else {
-            userType = .ADMIN
-        }
+        userType = ST_User.shared.userType
+        print("userType=\(userType)")
     }
     
     @IBAction func vaccineRecordTabTouched(_ sender: Any) {
