@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6BD84266263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */; };
+		743064FE2643958C00950846 /* ST_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743064FD2643958C00950846 /* ST_User.swift */; };
 		744FA301262759A900FA5B00 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744FA300262759A900FA5B00 /* Login.storyboard */; };
 		7486C09F2636E6F4002E9A92 /* addNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C09E2636E6F4002E9A92 /* addNewCell.swift */; };
 		7486C0A22636E781002E9A92 /* recordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0A12636E781002E9A92 /* recordCell.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecordAddNewViewController.swift; sourceTree = "<group>"; };
+		743064FD2643958C00950846 /* ST_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_User.swift; sourceTree = "<group>"; };
 		744FA300262759A900FA5B00 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7486C09E2636E6F4002E9A92 /* addNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewCell.swift; sourceTree = "<group>"; };
 		7486C0A12636E781002E9A92 /* recordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordCell.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				C7229AC8263E21E5005E3DDC /* Patient.swift */,
 				C7229ACB263E220C005E3DDC /* Provider.swift */,
 				C7229ACE263E2234005E3DDC /* Record.swift */,
+				743064FD2643958C00950846 /* ST_User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7486C0DA263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift in Sources */,
+				743064FE2643958C00950846 /* ST_User.swift in Sources */,
 				C7229AC0263E2175005E3DDC /* LoginModel.swift in Sources */,
 				C7229AC3263E2193005E3DDC /* DatabaseConnection.swift in Sources */,
 				7486C0BE26394097002E9A92 /* AppointmentAvailableTimeCell.swift in Sources */,
@@ -441,7 +445,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/VaxTrack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,6 +454,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HMahal.Capstone-Project-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -514,7 +520,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/VaxTrack/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -522,6 +529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HMahal.Capstone-Project-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

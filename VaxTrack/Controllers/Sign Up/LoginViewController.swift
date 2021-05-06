@@ -89,9 +89,14 @@ class LoginViewController: UIViewController {
     func checkUserInfo(){
         if Database.getInstance().uid != nil{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = self.storyboard?.instantiateViewController(identifier: "tabBarHome")
-            vc?.modalPresentationStyle = .fullScreen
-            self.present(vc!, animated: true)
+            if let vc = storyboard.instantiateViewController(identifier: "TabBarHome") as? UITabBarController {
+                // get user data and store
+                if let uid = Database.getInstance().uid {
+                    ST_User.shared.userID = uid
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                }
+            }
         }
         
     }

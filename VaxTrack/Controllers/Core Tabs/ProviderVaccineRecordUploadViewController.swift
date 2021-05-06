@@ -29,6 +29,7 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
         super.viewDidLoad()
         virusTypeLabel.text = record?.virusType
         dateLabel.text = record?.vaccinatedDate
+//        dateLabel.text = DateUtil.dateToString(date: (record?.vaccinatedDate)!, withFormat: "")
         dobLabel.text = patient?.dob
     }
     

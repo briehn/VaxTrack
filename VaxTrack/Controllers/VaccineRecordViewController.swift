@@ -14,7 +14,7 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
     let database: Database = Database()
     var records: [Record] = []
     var providers: [Provider] = []
-    var patient: Patient? //TODO:- ???
+    var patient: Patient?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +29,22 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
     
     func createArray() {
         // From DB
-        let (records, err) = database.fetchVaccinationRecordsForCurrentUser()
+        let (records, err) = database.fetchVaccinationRecordsForPatient(patientID: ST_User.shared.userID)
         if records != nil {
             self.records = records!
         
-            let (tmpPatient, err2) = database.fetchPatient(patientID: records![0].patientID)
+            let (tmpPatient, err2) = database.fetchPatient(patientID: ST_User.shared.userID)
             self.patient = tmpPatient
         
             // Get provider info
             var tempProviders: [Provider] = []
             for record in records! {
-                let (provider, err3) = database.fetchProvider(providerID:     record.providerID)
+                let (provider, err3) = database.fetchProvider(providerID: record.providerID)
                 tempProviders.append(provider!)
             }
             self.providers = tempProviders
         }
 
-//        // Test. Hard-coding.
-//        var tempRecords: [Record] = []
-//        let record1 = Record(recordID: 0001, patientID: 0001, patientName: "Smith, James", virusNmae: "Covid-19", vaccinatedDate: "2021-04-20")
-//        let record2 = Record(recordID: 0002, patientID: 0001, patientName: "Smith, James", virusNmae: "Flu", vaccinatedDate: "2020-08-21")
-//        let record3 = Record(recordID: 0003, patientID: 0001, patientName: "Smith, James", virusNmae: "Chickenpox", vaccinatedDate: "2015-02-15")
-//        tempRecords.append(record1)
-//        tempRecords.append(record2)
-//        tempRecords.append(record3)
-//        self.records = tempRecords
     }
 
     // MARK: - Table View Data Source
@@ -85,9 +76,6 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
             let record = records[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell") as! recordCell
             cell.setRecord(record: record)
-            
-//          cell.virusNameLabel.text = recordType[indexPath.row]
-//          cell.vaccinatedDateLabel.text = recordTime[indexPath.row]
             
             return cell
         }
