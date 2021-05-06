@@ -161,16 +161,18 @@ class JSONParser {
     }
     
     static func parseRecord(_ data:NSDictionary) -> Record? {
-        if let recordID = data["uvid"] as? Int {
-            let patientID = data["uid"] as! Int
-            let providerID = data["pid"] as! Int
-            let vaccineID = data["vid"] as! Int
-            let virusType = data["virustype"] as! String
-            let vaccineName = data["name"] as? String
-            let vaccinatedDate = data["applytime"] as! Date
-            let manufacturer = data["manuf"] as? String
-            let obj = Record(recordID: recordID, patientID: patientID, providerID: providerID, vaccineID: vaccineID, virusName: virusType, vaccineName: vaccineName, vaccinatedDate: vaccinatedDate, manufacturer: manufacturer)
-            return obj
+        if let aaaDate = DateUtil.dateFrom(dateString: data["applytime"] as! String) {
+            if let recordID = data["uvid"] as? Int {
+                let patientID = data["uid"] as! Int
+                let providerID = data["pid"] as! Int
+                let vaccineID = data["vid"] as! Int
+                let virusType = data["virustype"] as! String
+                let vaccineName = data["name"] as? String
+                let vaccinatedDate = aaaDate
+                let manufacturer = data["manuf"] as? String
+                let obj = Record(recordID: recordID, patientID: patientID, providerID: providerID, vaccineID: vaccineID, virusName: virusType, vaccineName: vaccineName, vaccinatedDate: vaccinatedDate, manufacturer: manufacturer)
+                return obj
+            }
         }
         return nil
     }
@@ -191,7 +193,7 @@ class JSONParser {
             let appointtime = data["appointtime"] as! String
             let patientID = data["uid"] as! Int
             let providerID = data["pid"] as! Int
-            let date = DateUtil.stringToDate(dateString: appointtime)
+            let date = DateUtil.dateFrom(dateString: appointtime)
             let obj = Appointment(appointmentID: appointmentID, virusType: virusType, date: date!, patientID: patientID, providerID: providerID)
             return obj
         }

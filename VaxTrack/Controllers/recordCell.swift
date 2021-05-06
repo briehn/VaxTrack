@@ -14,15 +14,12 @@ class recordCell: UITableViewCell {
     
     func setRecord(record: Record) {
         virusNameLabel.text = record.virusType
+//        let date = DateUtil.dateFrom(dateString: record.vaccinatedDate)!
+//        vaccinatedDateLabel.text = DateUtil.dateOnlyToString(date: date!, withFormat: "")
         vaccinatedDateLabel.text = DateUtil.dateOnlyToString(date: record.vaccinatedDate, withFormat: "")
         
-//        let mySub = (record.vaccinatedDate)?.prefix(10)
-//        let s2 = record.vaccinatedDate?.dropLast(8)
-//        let s3 = record.vaccinatedDate?.dropLast(8)
-//
-//        vaccinatedDateLabel.text = s3
-//        let str = String(mySub)
-//        vaccinatedDateLabel.text = mySub
+        
+        
         
     }
 

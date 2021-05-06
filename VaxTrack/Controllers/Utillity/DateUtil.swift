@@ -9,13 +9,9 @@ import Foundation
 
 class DateUtil {
     init() {}
-    static func dateToString(date: Date, withFormat format: String) -> String? {
+    static func dateToString(date: Date, withFormat format: String = "yyyy-MM-dd HH:mm:ss") -> String? {
         let formatter = DateFormatter()
-        if format == "" {
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        } else {
-            formatter.dateFormat = format
-        }
+        formatter.dateFormat = format
         
         return formatter.string(from: date)
     }
@@ -31,7 +27,18 @@ class DateUtil {
         return formatter.string(from: date)
     }
     
-    static func stringToDate(dateString: String) -> Date? {
+    static func timeOnlyToString(date: Date, withFormat format: String?) -> String? {
+        let formatter = DateFormatter()
+        if format == "" {
+            formatter.dateFormat = "hh:mm"
+        } else {
+            formatter.dateFormat = format
+        }
+        
+        return formatter.string(from: date)
+    }
+    
+    static func dateFrom(dateString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter.date(from: dateString)

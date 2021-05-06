@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6BD84266263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */; };
 		743064FE2643958C00950846 /* ST_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743064FD2643958C00950846 /* ST_User.swift */; };
+		743065072643F3D800950846 /* JLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743065062643F3D800950846 /* JLog.swift */; };
 		744FA301262759A900FA5B00 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744FA300262759A900FA5B00 /* Login.storyboard */; };
 		7486C09F2636E6F4002E9A92 /* addNewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C09E2636E6F4002E9A92 /* addNewCell.swift */; };
 		7486C0A22636E781002E9A92 /* recordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0A12636E781002E9A92 /* recordCell.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccineRecordAddNewViewController.swift; sourceTree = "<group>"; };
 		743064FD2643958C00950846 /* ST_User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ST_User.swift; sourceTree = "<group>"; };
+		743065062643F3D800950846 /* JLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLog.swift; sourceTree = "<group>"; };
 		744FA300262759A900FA5B00 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7486C09E2636E6F4002E9A92 /* addNewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addNewCell.swift; sourceTree = "<group>"; };
 		7486C0A12636E781002E9A92 /* recordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordCell.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				7486C0F1263B1FA6002E9A92 /* DateUtil.swift */,
 				C7229AC2263E2193005E3DDC /* DatabaseConnection.swift */,
 				74F5ED25263F86F200249830 /* JSONParser.swift */,
+				743065062643F3D800950846 /* JLog.swift */,
 			);
 			path = Utillity;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				C7229AC0263E2175005E3DDC /* LoginModel.swift in Sources */,
 				C7229AC3263E2193005E3DDC /* DatabaseConnection.swift in Sources */,
 				7486C0BE26394097002E9A92 /* AppointmentAvailableTimeCell.swift in Sources */,
+				743065072643F3D800950846 /* JLog.swift in Sources */,
 				C7B4054326110354005C4EA0 /* LoginViewController.swift in Sources */,
 				C7B4053A261101ED005C4EA0 /* NotificationsViewController.swift in Sources */,
 				8081AED82640C14F001538F6 /* Vaccine.swift in Sources */,

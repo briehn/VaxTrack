@@ -28,7 +28,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
         let (records, error) = database.fetchVaccinationRecordsForProvider(providerID: ST_User.shared.userID)
         if records != nil {
             self.records = records!
-            (self.provider, _) = database.fetchProvider(providerID: records![0].providerID)
+            (self.provider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
         
             // Get provider info
             var tempPatients: [Patient] = []
@@ -54,7 +54,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
