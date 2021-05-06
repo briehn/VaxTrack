@@ -32,10 +32,19 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     func createArray(){
-        let dbReturn = database.fetchNearbyProviderListOffer(service: "Covid-19")
-        guard let resultProvider:[Provider] = dbReturn.0 else {
-            return
-        }
+//        let dbReturn = database.fetchProvidersWhoOffer(virusType: "")
+//        print("asdasdasd")
+//        print(dbReturn.0 as Any)
+//        guard let resultProviders:[Provider] = dbReturn.0 else {
+//            return
+//        }
+//        let resultProviders: [Provider] = dbReturn.0!
+        
+        var tempProviders: [Provider]? = []
+        var error: MyError
+        (tempProviders, error) = database.fetchProvidersWhoOffer(virusType: "")
+        
+
         
 //        var providersTemp = resultProvider
 //
@@ -73,19 +82,10 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
 //            }
 //        }
 //
-//        providers = tempArrToReturn
+        providers = tempProviders!
         
-        providers = dbReturn.0!
+//        self.providers = resultProviders
     
-        
-//        // Test. Hard-cording.
-//        var tempProviders: [Provoder] = []
-//        let provider1 = Provider(uid: 0001, firstName: "Pradeep", lastName: "Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com", office:"office1", officeHourStart: "09:00", officeHourEnd: "17:00")
-//        let provider2 = Provider(uid: 0002, firstName: "Joeun", lastName: "Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com", office: "office2", officeHourStart: "10:00", officeHourEnd: "12:00")
-//        tempProviders.append(provider1)
-//        tempProviders.append(provider2)
-//        providers = tempProviders
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,7 +113,8 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "providerInfoCell", for: indexPath) as! providerInfoCell
         cell.setProvider(provider: provider)
         cell.makeAppointmentBtn.tag = indexPath.row
-        cell.distance.text = String(distances[indexPath.row]) // pass distance calculated
+        cell.distance.text = "calculating..."
+//        cell.distance.text = String(distances[indexPath.row]) // pass distance calculated
         
         return cell
     }

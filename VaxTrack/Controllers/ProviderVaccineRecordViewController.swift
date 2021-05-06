@@ -19,6 +19,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+//        tableView.register(providerRecordCell.self, forCellReuseIdentifier: "providerRecordCell")
         createArray()
     
     }

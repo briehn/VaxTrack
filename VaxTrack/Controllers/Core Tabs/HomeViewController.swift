@@ -20,6 +20,10 @@ class HomeViewController: UIViewController {
     var patient: Patient?
     var userType: ST_User.UserType = .PATIENT
     
+    @IBOutlet weak var findProviderTabBar: UIView!
+    @IBOutlet weak var vaccineFaqTabBar: UIView!
+    
+    
     override func viewDidLoad() {
 //        let (tmpPatient, _) = database.fetchPatient(patientID: ST_User.shared.userID)
 //        let (tmpProvider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
@@ -34,6 +38,11 @@ class HomeViewController: UIViewController {
         
         userType = ST_User.shared.userType
         print("userType=\(userType)")
+        
+        if userType == .PROVIDER {
+            findProviderTabBar.isHidden = true
+            vaccineFaqTabBar.isHidden = true
+        }
     }
     
     @IBAction func vaccineRecordTabTouched(_ sender: Any) {

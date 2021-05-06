@@ -511,6 +511,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Nq0-sM-QCk"/>
                     <connections>
+                        <outlet property="findProviderTabBar" destination="2HS-Ud-cuc" id="Evd-71-J3n"/>
+                        <outlet property="vaccineFaqTabBar" destination="BcS-s9-HuH" id="C5A-U1-yOl"/>
                         <segue destination="X3G-HG-YsY" kind="show" identifier="providerVaccineRecordSegue" id="QOz-d2-Tb4"/>
                         <segue destination="rvO-bj-rep" kind="show" identifier="patientVaccineRecordSegue" id="2px-bg-Ac6"/>
                         <segue destination="qE8-Tw-goY" kind="show" identifier="patientAppointmentViewSegue" id="dD1-2d-i0P"/>
@@ -684,7 +686,7 @@
             </objects>
             <point key="canvasLocation" x="3421.739130434783" y="-1638.6160714285713"/>
         </scene>
-        <!--Covid-19-->
+        <!--Vaccine Record Detail View Controller-->
         <scene sceneID="wD7-wT-C3H">
             <objects>
                 <viewController id="xbc-Vi-WT6" customClass="VaccineRecordDetailViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
@@ -823,7 +825,7 @@
                             <constraint firstItem="b4A-ci-Q7R" firstAttribute="trailing" secondItem="mXx-T6-ufc" secondAttribute="trailing" constant="24" id="zi4-zM-7HE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Covid-19" id="zvu-Yu-cCT"/>
+                    <navigationItem key="navigationItem" id="zvu-Yu-cCT"/>
                     <connections>
                         <outlet property="document" destination="h8q-qC-ODh" id="R4I-gb-0rz"/>
                         <outlet property="expireDate" destination="lMb-fB-fYk" id="In7-s1-0gt"/>

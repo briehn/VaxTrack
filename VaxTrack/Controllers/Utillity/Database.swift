@@ -99,7 +99,7 @@ class Database {
             "virustype": JSONParser.toString(virusType),
         ]
         if virusType == "" {
-            (obj, err) = DatabaseConnection.fetchData("p_listfilter", param)
+            (obj, err) = DatabaseConnection.fetchData("p_list", param) //p_listfilter
         } else {
             (obj, err) = DatabaseConnection.fetchData("p_list", nil)
         }

@@ -20,8 +20,10 @@ class providerAppointmentCell: UITableViewCell {
     
     
     func setAppointment(appointment: Appointment) {
-        date.text = appointment.dateToString()
-        time.text = appointment.timeToString()
+//        date.text = appointment.dateToString()
+        date.text = DateUtil.dateOnlyToString(date: appointment.date, withFormat: "")
+//        time.text = appointment.timeToString()
+        date.text = DateUtil.timeOnlyToString(date: appointment.date, withFormat: "")
         virusType.text = appointment.virusType
         daysRemaining.text = appointment.daysRemaining()
     }
