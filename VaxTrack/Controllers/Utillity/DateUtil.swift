@@ -12,7 +12,6 @@ class DateUtil {
     static func dateToString(date: Date, withFormat format: String = "yyyy-MM-dd HH:mm:ss") -> String? {
         let formatter = DateFormatter()
         formatter.dateFormat = format
-        
         return formatter.string(from: date)
     }
     

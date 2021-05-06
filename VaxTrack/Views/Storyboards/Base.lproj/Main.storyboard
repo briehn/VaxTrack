@@ -480,8 +480,6 @@
                         <color key="backgroundColor" red="0.96078723669999999" green="0.95685321089999997" blue="0.95685511830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="n6V-CJ-kGy" firstAttribute="top" secondItem="J9Q-Yo-OxT" secondAttribute="top" constant="16" id="6u3-xx-1Wy"/>
-                            <constraint firstItem="02S-PB-qMW" firstAttribute="width" secondItem="w7W-1X-dTy" secondAttribute="width" multiplier="0.405797" id="7Qy-1p-fCS"/>
-                            <constraint firstItem="02S-PB-qMW" firstAttribute="height" secondItem="w7W-1X-dTy" secondAttribute="height" multiplier="0.1875" id="BuE-ag-nEc"/>
                             <constraint firstItem="l9X-Dz-sOK" firstAttribute="leading" secondItem="0qJ-lG-KWB" secondAttribute="leading" id="C79-Pm-nWq"/>
                             <constraint firstItem="l9X-Dz-sOK" firstAttribute="width" secondItem="0qJ-lG-KWB" secondAttribute="width" id="CtA-qu-NP2"/>
                             <constraint firstItem="4ct-KC-0YI" firstAttribute="trailing" secondItem="n6V-CJ-kGy" secondAttribute="trailing" id="Ctc-KO-UHK"/>

@@ -27,7 +27,7 @@ class VaccineRecordDetailViewController: UIViewController {
             // Vaccine Record Exists (from VaccineRecordViewController)
             vaccine.text = record.vaccineName
 //            vaccinatedDate.text = record.vaccinatedDate
-            vaccinatedDate.text = DateUtil.dateToString(date: record.vaccinatedDate, withFormat: "")
+            vaccinatedDate.text = DateUtil.dateToString(date: record.vaccinatedDate)
             manufacturer.text = record.manufacturer
             providerName.text = provider!.firstName+" "+provider!.lastName
             organization.text = provider!.organizationName
