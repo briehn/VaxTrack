@@ -94,10 +94,15 @@ class Database {
 
     // Fetch Providers Info with the passed virusType
     func fetchProvidersWhoOffer(virusType: String) -> ([Provider]?, MyError) {
+        var err:MyError, obj:NSObject?
         let param = [
             "virustype": JSONParser.toString(virusType),
         ]
-        let (obj, err) = DatabaseConnection.fetchData("p_listfilter", param)
+        if virusType == "" {
+            (obj, err) = DatabaseConnection.fetchData("p_listfilter", param)
+        } else {
+            (obj, err) = DatabaseConnection.fetchData("p_list", nil)
+        }
         //return (obj as? Provider, err)
         if (obj != nil) {
             let pros = obj as! [Provider]

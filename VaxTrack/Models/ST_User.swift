@@ -8,9 +8,14 @@
 import Foundation
 
 class ST_User {
+    enum UserType {
+        case PATIENT
+        case PROVIDER
+    }
     static var shared = ST_User()
     
     var userID: Int = 1
+    var userType: UserType = .PATIENT
     
     private init() {
         
