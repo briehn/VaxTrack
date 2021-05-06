@@ -33,7 +33,29 @@ class Database {
             "uid": JSONParser.toString(patientID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("u_profile", param)
-        return (obj as? Patient, err)
+        //return (obj as? Patient, err)
+        if (obj != nil) {
+            let pat = obj as! Patient
+            let (recs, err2) = fetchVaccinationRecordsForPatient(patientID: patientID)
+            if (recs != nil) {
+                var arr = [Int]()
+                for rec in recs as! [Record] {
+                    arr.append(rec.recordID)
+                }
+                pat.recordIDs = arr
+            }
+            let (apps, err3) = fetchAppointmentListForPatient(patientID: patientID)
+            if (apps != nil) {
+                var arr = [Int]()
+                for app in apps as! [Appointment] {
+                    arr.append(app.appointmentID)
+                }
+                pat.appointmentIDs = arr
+            }
+            return (pat, err)
+        } else {
+            return (nil, err)
+        }
     }
 
     // Fetch Provider Info with the passed providerID
@@ -42,7 +64,32 @@ class Database {
             "pid": JSONParser.toString(providerID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("p_profile", param)
-        return (obj as? Provider, err)
+        //return (obj as? Provider, err)
+        if (obj != nil) {
+            let pro = obj as! Provider
+            pro.services = [String]()
+            let (vacs, err) = fetchVaccineListForProvider(providerID: providerID)
+            if (vacs != nil) {
+                var arr = [String]()
+                for vac in vacs as! [Vaccine] {
+                    arr.append(vac.virusType!)
+                }
+                pro.services += arr
+            }
+/*
+            let (tess, err) = fetchTestListForProvider(providerID)
+            if (tess != nil) {
+                var arr = [String]()
+                for tes in tess as! [Test] {
+                    arr.append(tes.virusType!)
+                }
+                pro.services += arr
+            }
+*/
+            return (pro, err)
+        } else {
+            return (nil, err)
+        }
     }
 
     // Fetch admin profile
@@ -196,6 +243,29 @@ class Database {
         return (nil, MyError())
     }
     
+    // Fetch all vaccines provided list
+    func fetchVaccineList() -> ([Vaccine]?, MyError) {
+        let param:[String:String] = [:]
+        let (obj, err) = DatabaseConnection.fetchData("v_list", param)
+        return (obj as? [Vaccine], err)
+    }
+
+    // Fetch all vaccines provided by a provider
+    func fetchVaccineListForProvider(providerID: Int) -> ([Vaccine]?, MyError) {
+        let param = [
+            "pid": JSONParser.toString(providerID),
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("pv_list", param)
+        return (obj as? [Vaccine], err)
+    }
+/* TBD
+    // Fetch all tests provided list
+    func fetchTestList() -> ([Test]?, MyError) {
+        let param = []
+        let (obj, err) = DatabaseConnection.fetchData("t_list", param)
+        return (obj as? [Test], err)
+    }
+*/
     // Fetch apointment list set to the passed patientID
     func fetchAppointmentListForPatient(patientID: Int) -> ([Appointment]?, MyError) {
         let param = [

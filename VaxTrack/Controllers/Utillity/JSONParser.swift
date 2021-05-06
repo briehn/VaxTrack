@@ -134,14 +134,14 @@ class JSONParser {
     
     static func parseVaccine(_ data:NSDictionary) -> Vaccine? {
         if let vaccineID = data["vid"] as? Int {
-            let providerID = data["providerID"] as! Int
-            let virusType = data["virusType"] as? String
-            let vaccineName = data["vaccineName"] as? String
-            let expireDate = data["expireDate"] as? String
-            let manufacturer = data["manufacturer"] as? String
-            let description = data["description"] as? String
-            //let document = data["document"] as? String
-            //let quantity = data["quantity"] as? Int
+            let providerID = data["pid"] as! Int
+            let virusType = data["virustype"] as? String
+            let vaccineName = data["name"] as? String
+            let expireDate = data["expiretime"] as? String
+            let manufacturer = data["manuf"] as? String
+            let description = data["desc"] as? String
+            //let document = data["docid"] as? Int
+            //let quantity = data["qty"] as? Int
             //let remain = data["remain"] as? Int
             let obj = Vaccine(vaccineID: vaccineID, providerID: providerID, virusType: virusType, vaccineName: vaccineName, expireDate: expireDate, manufacturer: manufacturer, description: description)
             //, quantity: quantity, remain: remain)
