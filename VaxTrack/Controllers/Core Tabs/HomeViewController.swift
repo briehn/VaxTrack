@@ -25,30 +25,30 @@ class HomeViewController: UIViewController {
         let (tmpProvider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
         
         if tmpPatient != nil {
-            print("patient.")
             userType = .PATIENT
         } else if tmpProvider != nil {
-            print("provider.")
             userType = .PROVIDER
         } else {
-            print("admin")
             userType = .ADMIN
         }
     }
     
     @IBAction func vaccineRecordTabTouched(_ sender: Any) {
-        if userType == .PROVIDER {
-            print("provider!")
-            performSegue(withIdentifier: "providerVaccineRecordSegue", sender: nil)
-        } else if userType == .PATIENT {
-            print("patient!")
+        if userType == .PATIENT {
             performSegue(withIdentifier: "patientVaccineRecordSegue", sender: nil)
-        } else {
-            print("admin!")
+        } else if userType == .PROVIDER {
+            performSegue(withIdentifier: "providerVaccineRecordSegue", sender: nil)
+        } else { // admin
         }
     }
     
     @IBAction func appointmentTabTouched(_ sender: Any) {
+        if userType == .PATIENT {
+            performSegue(withIdentifier: "patientAppointmentViewSegue", sender: nil)
+        } else if userType == .PROVIDER {
+            performSegue(withIdentifier: "providerAppointmentViewSegue", sender: nil)
+        } else { // admin
+        }
         
     }
     
