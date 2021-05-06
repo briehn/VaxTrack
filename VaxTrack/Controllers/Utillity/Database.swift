@@ -266,7 +266,7 @@ class Database {
         return (obj as? [Test], err)
     }
 */
-    // Fetch apointment list set to the passed patientID
+    // Fetch appointment list set to the passed patientID
     func fetchAppointmentListForPatient(patientID: Int) -> ([Appointment]?, MyError) {
         let param = [
             "uid": JSONParser.toString(patientID),
@@ -275,13 +275,31 @@ class Database {
         return (obj as? [Appointment], err)
     }
     
-    // Fetch apointment list set to the passed providerID
+    // Fetch appointment list set to the passed providerID
     func fetchAppointmentListForProvider(providerID: Int) -> ([Appointment]?, MyError) {
         let param = [
             "pid": JSONParser.toString(providerID),
         ]
         let (obj, err) = DatabaseConnection.fetchData("po_list", param)
         return (obj as? [Appointment], err)
+    }
+    
+    // Cancel appointment. releases open time slot
+    func cancelAppointment(appointmentID: Int) -> MyError {
+        let param = [
+            "oid": JSONParser.toString(appointmentID),
+        ]
+        let (_, err) = DatabaseConnection.fetchData("o_cancel", param)
+        return err
+    }
+    
+    // Delete appointment once it's done. do not release open time slot
+    func doneAppointment(appointmentID: Int) -> MyError {
+        let param = [
+            "oid": JSONParser.toString(appointmentID),
+        ]
+        let (_, err) = DatabaseConnection.fetchData("o_done", param)
+        return err
     }
     
     
