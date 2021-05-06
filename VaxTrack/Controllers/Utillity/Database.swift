@@ -92,6 +92,42 @@ class Database {
         }
     }
 
+    // Fetch Providers Info with the passed virusType
+    func fetchProvidersWhoOffer(virusType: String) -> ([Provider]?, MyError) {
+        let param = [
+            "virustype": JSONParser.toString(virusType),
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("p_listfilter", param)
+        //return (obj as? Provider, err)
+        if (obj != nil) {
+            let pros = obj as! [Provider]
+            for pro in pros {
+                pro.services = [String]()
+                let (vacs, err2) = fetchVaccineListForProvider(providerID: pro.uid)
+                if (vacs != nil) {
+                    var arr = [String]()
+                    for vac in vacs as! [Vaccine] {
+                        arr.append(vac.virusType!)
+                    }
+                    pro.services += arr
+                }
+/*
+                let (tess, err3) = fetchTestListForProvider(pro.providerID)
+                if (tess != nil) {
+                    var arr = [String]()
+                    for tes in tess as! [Test] {
+                        arr.append(tes.virusType!)
+                    }
+                    pro.services += arr
+                }
+*/
+            }
+            return (pros, err)
+        } else {
+            return (nil, err)
+        }
+    }
+
     // Fetch admin profile
     func fetchAdminInfo(adminID: Int) -> (Admin?, MyError) {
         let param = [
@@ -104,24 +140,25 @@ class Database {
     // Store patient information once signed up
     func regPatientInfo(withEmail email: String, password: String) -> MyError {
         var err:MyError, obj:NSObject?
-        let patient = Patient(tag: email, firstName: email)
-        var param = patient.toDict()
-        (_, err) = DatabaseConnection.fetchData("u_reg", param)
+
+        var param = [
+            "login": JSONParser.toString(email),
+            "password": JSONParser.toString(password),
+            //"targetid": JSONParser.toString(uid)
+        ]
+        (_, err) = DatabaseConnection.fetchData("u_newlogin", param)
         if err.code != 0 {return err}
-        
-        param = ["tag": email]
+
+        param = ["login": email]
         (obj, err) = DatabaseConnection.fetchData("u_query", param)
         if err.code != 0 {return err}
         if obj == nil {return MyError(1)}
-        let patient2 = obj as! Patient
-        let uid = patient2.uid
+        let login = obj as! LoginModel
+        let uid = login.uid
         
-        param = [
-            "login": JSONParser.toString(email),
-            "password": JSONParser.toString(password),
-            "targetid": JSONParser.toString(uid)
-        ]
-        (_, err) = DatabaseConnection.fetchData("u_newlogin", param)
+        let patient = Patient(uid: uid, firstName: email)
+        param = patient.toDict()
+        (_, err) = DatabaseConnection.fetchData("u_reg", param)
         return err
     }
     
@@ -135,24 +172,25 @@ class Database {
     // Store provider information once signed up
     func regProviderInfo(withEmail email: String, password: String, org: String) -> MyError {
         var err:MyError, obj:NSObject?
-        let provider = Provider(tag: email, firstName: email, organizationName: org)
-        var param = provider.toDict()
-        (_, err) = DatabaseConnection.fetchData("p_reg", param)
+        
+        var param = [
+            "login": JSONParser.toString(email),
+            "password": JSONParser.toString(password),
+            //"targetid": JSONParser.toString(uid)
+        ]
+        (_, err) = DatabaseConnection.fetchData("p_newlogin", param)
         if err.code != 0 {return err}
         
-        param = ["tag": email]
+        param = ["login": email]
         (obj, err) = DatabaseConnection.fetchData("p_query", param)
         if err.code != 0 {return err}
         if obj == nil {return MyError(1)}
-        let provider2 = obj as! Provider
-        let uid = provider2.uid
+        let login = obj as! LoginModel
+        let uid = login.uid
         
-        param = [
-            "login": JSONParser.toString(email),
-            "password": JSONParser.toString(password),
-            "targetid": JSONParser.toString(uid)
-        ]
-        (_, err) = DatabaseConnection.fetchData("p_newlogin", param)
+        let provider = Provider(uid: uid, firstName: email, organizationName: org)
+        param = provider.toDict()
+        (_, err) = DatabaseConnection.fetchData("p_reg", param)
         return err
     }
     

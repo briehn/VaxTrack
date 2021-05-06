@@ -54,7 +54,11 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
         let finalUrl = baseUrl + "&" + querystring
         print(finalUrl)
 
-        let url: URL = URL(string: finalUrl)!
+        let url = URL(string: finalUrl)
+        if url == nil {
+            print("URL is null")
+            return (nil, MyError(-2))
+        }
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         // here we use synchronous fetch
@@ -63,7 +67,7 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
         var error: Error?
         var obj: NSObject?
         var myerr: MyError = MyError(0)
-        (outdata, response, error) = defaultSession.synchronousDataTask(with: url)
+        (outdata, response, error) = defaultSession.synchronousDataTask(with: url!)
         if error != nil {
             print("Failed to fetch data")
             myerr.code = -1
@@ -101,6 +105,10 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     switch type {
                     
                     // user accounts
+                    case "u_query":
+                        fallthrough
+                    case "p_query":
+                        fallthrough
                     case "login":
                         obj = JSONParser.parseLogin(datas)
                     case "u_reg":
@@ -113,13 +121,9 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                         break
                     case "a_reg":
                         break
-                    case "u_query":
-                        fallthrough
                     case "u_profile":
                         arr = JSONParser.parsePatients(datas) as NSArray?
                         obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
-                    case "p_query":
-                        fallthrough
                     case "p_profile":
                         arr = JSONParser.parseProviders(datas) as NSArray?
                         obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
@@ -131,6 +135,8 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     
                     // vaccines
                     case "p_list":
+                        fallthrough
+                    case "p_listfilter":
                         obj = JSONParser.parseProviders(datas) as NSArray?
                     case "v_list":
                         obj = JSONParser.parseVaccines(datas) as NSArray?

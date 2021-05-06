@@ -40,7 +40,7 @@ class JSONParser {
             print(datas[0])
             if let data = datas[0] as? NSDictionary {
                 if let type = data["type"] as? String,
-                   let uid = data["targetid"] as? Int
+                   let uid = data["id"] as? Int
                 {
                     let obj = LoginModel(uid:uid, type:type)
                     return obj
@@ -62,13 +62,12 @@ class JSONParser {
     
     static func parsePatient(_ data:NSDictionary) -> Patient? {
         if let uid = data["uid"] as? Int {
-            let tag = data["tag"] as? String
             let firstName = data["firstname"] as? String
             let lastName = data["lastname"] as? String
             //let recordIDs = data["recordID"] as? [Int]
             //let appointmentIDs = data["appointmentID"] as? [Int]
             let dob = data["birthdate"] as? String
-            let obj = Patient(uid: uid, tag: tag, firstName: firstName, lastName: lastName, dob: dob)
+            let obj = Patient(uid: uid, firstName: firstName, lastName: lastName, dob: dob)
             return obj
         }
         return nil
@@ -86,7 +85,6 @@ class JSONParser {
     
     static func parseProvider(_ data:NSDictionary) -> Provider? {
         if let uid = data["pid"] as? Int {
-            let tag = data["tag"] as? String
             let firstName = data["firstname"] as? String
             let lastName = data["lastname"] as? String
             let organizationName = data["org"] as? String
@@ -96,7 +94,7 @@ class JSONParser {
             let website = data["website"] as? String
             let officeHourStart = data["officehourstart"] as? String
             let officeHourEnd = data["officehourend"] as? String
-            let obj = Provider(uid: uid, tag: tag, firstName: firstName, lastName: lastName, organizationName: organizationName, address: address, contactPhone: contactPhone, contactEmail: contactEmail, website: website, officeHourStart: officeHourStart, officeHourEnd: officeHourEnd)
+            let obj = Provider(uid: uid, firstName: firstName, lastName: lastName, organizationName: organizationName, address: address, contactPhone: contactPhone, contactEmail: contactEmail, website: website, officeHourStart: officeHourStart, officeHourEnd: officeHourEnd)
             return obj
         }
         return nil

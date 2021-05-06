@@ -9,7 +9,6 @@ import CoreLocation
 
 class Provider: NSObject {
     var uid: Int!
-    var tag: String?
     var firstName: String!
     var lastName: String!
     var organizationName: String?
@@ -22,15 +21,14 @@ class Provider: NSObject {
     var services: [String]!
     var coordinates: CLLocation?
 
-    init(tag: String?, firstName: String?, organizationName: String?) {
-        self.tag = tag
+    init(uid: Int, firstName: String?, organizationName: String?) {
+        self.uid = uid
         self.firstName = firstName
         self.organizationName = organizationName
     }
     
-    init(uid: Int, tag: String?, firstName: String?, lastName: String?, organizationName: String?, address: String?, contactPhone: String?, contactEmail: String?, website: String?, officeHour:String?, officeHourStart:String?, officeHourEnd:String?, coordinates: CLLocation) {
+    init(uid: Int, firstName: String?, lastName: String?, organizationName: String?, address: String?, contactPhone: String?, contactEmail: String?, website: String?, officeHour:String?, officeHourStart:String?, officeHourEnd:String?, coordinates: CLLocation) {
         self.uid = uid
-        self.tag = tag
         self.firstName = firstName
         self.lastName = lastName
         self.organizationName = organizationName
@@ -43,9 +41,8 @@ class Provider: NSObject {
         self.coordinates = coordinates
     }
     
-    init(uid: Int, tag: String?, firstName: String?, lastName: String?, organizationName: String?, address: String?, contactPhone: String?, contactEmail: String?, website: String?, officeHourStart:String?, officeHourEnd:String?) {
+    init(uid: Int, firstName: String?, lastName: String?, organizationName: String?, address: String?, contactPhone: String?, contactEmail: String?, website: String?, officeHourStart:String?, officeHourEnd:String?) {
         self.uid = uid
-        self.tag = tag
         self.firstName = firstName
         self.lastName = lastName
         self.organizationName = organizationName
@@ -60,7 +57,6 @@ class Provider: NSObject {
     func toDict() -> [String:String] {
         return [
             "pid": JSONParser.toString(uid),
-            "tag": JSONParser.toString(tag),
             "firstname": JSONParser.toString(firstName),
             "lastname": JSONParser.toString(lastName),
             "org": JSONParser.toString(organizationName),
