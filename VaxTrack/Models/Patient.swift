@@ -15,6 +15,7 @@ class Patient: NSObject {
     var recordIDs: [Int]?
     var appointmentIDs: [Int]?
     var dob: String!
+    var resultIDs: [Int]?
     
     
     //empty constructor
@@ -34,13 +35,14 @@ class Patient: NSObject {
         self.lastName = lastName
         self.dob = dob
     }
-    init(uid: Int, firstName: String?, lastName: String?, recordIDs: [Int]?, appointmentIDs: [Int]?, dob: String?) {
+    init(uid: Int, firstName: String?, lastName: String?, recordIDs: [Int]?, appointmentIDs: [Int]?, dob: String?, resultIDs: [Int]?) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
         self.recordIDs = recordIDs
         self.appointmentIDs = appointmentIDs
         self.dob = dob
+        self.resultIDs = resultIDs
     }
     
     

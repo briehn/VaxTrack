@@ -34,6 +34,17 @@ class JSONParser {
             return dateFormatter.string(from: d!)
         }
     }
+    static func toString(_ r: TestResult.Result?) -> String {
+        if r == nil {
+            return ""
+        } else {
+            switch r! {
+            case .POSITIVE: return "P"
+            case .NEGATIVE: return "N"
+            default: return ""
+            }
+        }
+    }
 
     static func parseLogin(_ datas:NSArray) -> LoginModel? {
         if datas.count > 0 {
@@ -215,6 +226,58 @@ class JSONParser {
             let time = data["time"] as? String
             let obj = Notification(id: id, title: title, content: content, time: time)
             return obj
+        }
+        return nil
+    }
+
+    static func parseTests(_ datas:NSArray) -> [Test]? {
+        var arr = [Test]()
+        for i in 0..<datas.count {
+            if let data = parseTest(datas[i] as! NSDictionary) {
+                arr.append(data)
+            }
+        }
+        return arr
+    }
+    
+    static func parseTest(_ data:NSDictionary) -> Test? {
+        if let testID = data["tid"] as? Int {
+            let providerID = data["pid"] as! Int
+            let virusType = data["virustype"] as? String
+            let testName = data["name"] as? String
+            let expireDate = data["expiretime"] as? Date
+            let description = data["desc"] as? String
+            //let document = data["docid"] as? Int
+            let obj = Test(testID: testID, providerID: providerID, virusType: virusType, testName: testName, expireDate: expireDate, description: description)
+            return obj
+        }
+        return nil
+    }
+
+    static func parseTestResults(_ datas:NSArray) -> [TestResult]? {
+        var arr = [TestResult]()
+        for i in 0..<datas.count {
+            if let data = parseTestResult(datas[i] as! NSDictionary) {
+                arr.append(data)
+            }
+        }
+        return arr
+    }
+    
+    static func parseTestResult(_ data:NSDictionary) -> TestResult? {
+        if let aaaDate = DateUtil.dateFrom(dateString: data["testtime"] as! String) {
+            if let resultID = data["utid"] as? Int {
+                let patientID = data["uid"] as! Int
+                let providerID = data["pid"] as! Int
+                let testID = data["tid"] as! Int
+                let virusType = data["virustype"] as! String
+                let testName = data["name"] as? String
+                let testDate = aaaDate
+                let reportDate = data["reporttime"] as? Date
+                let result = data["result"] as? String
+                let obj = TestResult(resultID: resultID, patientID: patientID, providerID: providerID, testID: testID, virusName: virusType, testName: testName, testDate: testDate, reportDate: reportDate, result: result)
+                return obj
+            }
         }
         return nil
     }

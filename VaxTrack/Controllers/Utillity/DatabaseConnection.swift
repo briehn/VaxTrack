@@ -133,11 +133,13 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     case "p_storecoord":
                         break
                     
-                    // vaccines
+                    // providers
                     case "p_list":
                         fallthrough
                     case "p_listfilter":
                         obj = JSONParser.parseProviders(datas) as NSArray?
+
+                    // vaccines
                     case "v_list":
                         obj = JSONParser.parseVaccines(datas) as NSArray?
                     case "pv_list":
@@ -147,6 +149,16 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     case "v_edit":
                         break
                     case "v_dec":
+                        break
+
+                    // tests
+                    case "t_list":
+                        obj = JSONParser.parseTests(datas) as NSArray?
+                    case "pt_list":
+                        obj = JSONParser.parseTests(datas) as NSArray?
+                    case "t_add":
+                        break
+                    case "t_edit":
                         break
 
                     // appointments
@@ -172,6 +184,17 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                         arr = JSONParser.parseRecords(datas) as NSArray?
                         obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
                     case "uv_done":
+                        break
+
+                    // test results
+                    case "ut_list":
+                        obj = JSONParser.parseTestResults(datas) as NSArray?
+                    case "put_list":
+                        obj = JSONParser.parseTestResults(datas) as NSArray?
+                    case "ut_detail":
+                        arr = JSONParser.parseTestResults(datas) as NSArray?
+                        obj = (arr != nil) && arr!.count > 0 ? arr![0] as? NSObject : nil
+                    case "ut_done":
                         break
 
                     // misc
