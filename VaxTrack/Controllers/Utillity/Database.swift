@@ -52,6 +52,14 @@ class Database {
                 }
                 pat.appointmentIDs = arr
             }
+            let (ress, err4) = fetchTestResultsForPatient(patientID: patientID)
+            if (ress != nil) {
+                var arr = [Int]()
+                for res in ress as! [TestResult] {
+                    arr.append(res.resultID)
+                }
+                pat.resultIDs = arr
+            }
             return (pat, err)
         } else {
             return (nil, err)
@@ -68,7 +76,7 @@ class Database {
         if (obj != nil) {
             let pro = obj as! Provider
             pro.services = [String]()
-            let (vacs, err) = fetchVaccineListForProvider(providerID: providerID)
+            let (vacs, err2) = fetchVaccineListForProvider(providerID: providerID)
             if (vacs != nil) {
                 var arr = [String]()
                 for vac in vacs as! [Vaccine] {
@@ -76,8 +84,7 @@ class Database {
                 }
                 pro.services += arr
             }
-/*
-            let (tess, err) = fetchTestListForProvider(providerID)
+            let (tess, err3) = fetchTestListForProvider(providerID: providerID)
             if (tess != nil) {
                 var arr = [String]()
                 for tes in tess as! [Test] {
@@ -85,7 +92,6 @@ class Database {
                 }
                 pro.services += arr
             }
-*/
             return (pro, err)
         } else {
             return (nil, err)
@@ -99,9 +105,9 @@ class Database {
             "virustype": JSONParser.toString(virusType),
         ]
         if virusType == "" {
-            (obj, err) = DatabaseConnection.fetchData("p_list", param) //p_listfilter
-        } else {
             (obj, err) = DatabaseConnection.fetchData("p_list", nil)
+        } else {
+            (obj, err) = DatabaseConnection.fetchData("p_listfilter", param)
         }
         //return (obj as? Provider, err)
         if (obj != nil) {
@@ -116,8 +122,7 @@ class Database {
                     }
                     pro.services += arr
                 }
-/*
-                let (tess, err3) = fetchTestListForProvider(pro.providerID)
+                let (tess, err3) = fetchTestListForProvider(providerID: pro.uid)
                 if (tess != nil) {
                     var arr = [String]()
                     for tes in tess as! [Test] {
@@ -125,7 +130,6 @@ class Database {
                     }
                     pro.services += arr
                 }
-*/
             }
             return (pros, err)
         } else {
@@ -301,14 +305,23 @@ class Database {
         let (obj, err) = DatabaseConnection.fetchData("pv_list", param)
         return (obj as? [Vaccine], err)
     }
-/* TBD
+
     // Fetch all tests provided list
-    func fetchTestList() -> ([Test]?, MyError) {
-        let param = []
+    func fetchVaccineList() -> ([Test]?, MyError) {
+        let param:[String:String] = [:]
         let (obj, err) = DatabaseConnection.fetchData("t_list", param)
         return (obj as? [Test], err)
     }
-*/
+
+    // Fetch all tests provided by a provider
+    func fetchTestListForProvider(providerID: Int) -> ([Test]?, MyError) {
+        let param = [
+            "pid": JSONParser.toString(providerID),
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("pt_list", param)
+        return (obj as? [Test], err)
+    }
+
     // Fetch appointment list set to the passed patientID
     func fetchAppointmentListForPatient(patientID: Int) -> ([Appointment]?, MyError) {
         let param = [
@@ -345,7 +358,34 @@ class Database {
         return err
     }
     
+    // Fetch Test Results for the passed patientID
+    func fetchTestResultsForPatient(patientID: Int) -> ([TestResult]?, MyError) {
+        let param = [
+            "uid": JSONParser.toString(patientID),
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("ut_list", param)
+        return (obj as? [TestResult], err)
+    }
     
+    // Fetch Test Results for the passed providerID (and all patients?)
+    func fetchTestResultsForProvider(providerID: Int) -> ([TestResult]?, MyError) {
+        let param = [
+            "pid": JSONParser.toString(providerID),
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("put_list", param)
+        return (obj as? [TestResult], err)
+    }
+    
+    // Fetch Test Result with Details
+    func fetchTestResultDetails(for resultID: Int) -> (TestResult?, MyError) {
+        let param = [
+            "utid": JSONParser.toString(resultID),
+        ]
+        let (obj, err) = DatabaseConnection.fetchData("ut_detail", param)
+        return (obj as? TestResult, err)
+    }
+    
+
     
     
 }
