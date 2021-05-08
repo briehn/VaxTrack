@@ -563,14 +563,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMt-iG-3QZ" id="X5L-8G-lrK">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImN-Nl-Ogj">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="linkColor"/>
                                                     <nil key="highlightedColor"/>
@@ -589,7 +589,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="67.5" width="366" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="68" width="366" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aad-PW-Mmt" id="yWh-kN-EV5">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="37.5"/>
@@ -1027,21 +1027,183 @@
             </objects>
             <point key="canvasLocation" x="1516" y="1668"/>
         </scene>
-        <!--Profile-->
+        <!--Account-->
         <scene sceneID="Hhn-8G-Mwk">
             <objects>
-                <viewController id="wLd-US-DF5" sceneMemberID="viewController">
+                <viewController title="Account" id="wLd-US-DF5" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vfr-kU-qk5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_VaxTrack" translatesAutoresizingMaskIntoConstraints="NO" id="hQw-ZV-Y6Y">
+                                <rect key="frame" x="5" y="31" width="141" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fT-37-af4" userLabel="Name Label">
+                                <rect key="frame" x="12" y="189" width="69" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Organization" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CE-ts-VBd" userLabel="Organization Label">
+                                <rect key="frame" x="12" y="452" width="142" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Website" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iV-dV-SpK" userLabel="Website Label">
+                                <rect key="frame" x="12" y="515" width="142" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hours of Operation" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKG-cd-OuJ" userLabel="Hours Label">
+                                <rect key="frame" x="12" y="573" width="258" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Vaccines Offered" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAR-TP-0VW" userLabel="Services Label">
+                                <rect key="frame" x="12" y="678" width="258" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Phone Number" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiY-Jq-3kf" userLabel="Number Label">
+                                <rect key="frame" x="12" y="246" width="141" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Email" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7Z-d7-IHE" userLabel="Email Label">
+                                <rect key="frame" x="12" y="300" width="141" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Address (Primary)" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13B-Xd-Z7o" userLabel="Address (Primary) Label">
+                                <rect key="frame" x="12" y="355" width="196" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="John Smith" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I3u-bw-lRg" userLabel="Name Field">
+                                <rect key="frame" x="21" y="215" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Sanpellegrino" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-nW-b3I" userLabel="Organization Name Field">
+                                <rect key="frame" x="21" y="481" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="www.google.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7xu-Cf-LKW" userLabel="Website Field">
+                                <rect key="frame" x="21" y="541" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-mh-Dmp" userLabel="Website Field">
+                                <rect key="frame" x="21" y="599" width="346" height="80.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Monday - Thursday: 9:00AM - 7:00PM
+Friday: 12:00AM - 7:00PM
+Saturday - Sunday: 1:00PM - 5:00 PM</string>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="COVID-19, Hepatitis, Smallpox, Poleo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Db1-qf-FsV" userLabel="Vaccines Offered Field">
+                                <rect key="frame" x="20" y="704" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="(800) 123 - 4567" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LkO-aM-k2O" userLabel="Number Field">
+                                <rect key="frame" x="21" y="272" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="johnsmith@aol.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zgm-iN-K7g" userLabel="Email Field">
+                                <rect key="frame" x="21" y="326" width="373" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="11 Bulberry Street" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-Xj-Nwk" userLabel="Address Field">
+                                <rect key="frame" x="20" y="381" width="373" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Contact Information" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZZ-68-Nhf" userLabel="Contact Information">
+                                <rect key="frame" x="95" y="158" width="225" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Account" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efe-7K-R0Z" userLabel="Account">
+                                <rect key="frame" x="126" y="60" width="240" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.18608285890000001" green="0.53239017720000004" blue="0.41714503539999997" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Provider Information" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOe-p5-bSg" userLabel="Provider Information">
+                                <rect key="frame" x="95" y="416" width="225" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnq-fG-u2f">
+                                <rect key="frame" x="177" y="768" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ET2-sp-IFn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="xQR-Ol-GqF"/>
+                    <tabBarItem key="tabBarItem" title="Account" id="xQR-Ol-GqF"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUl-39-BaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="2415"/>
+            <point key="canvasLocation" x="1515.9420289855075" y="2414.7321428571427"/>
         </scene>
         <!--Vaccine Record-->
         <scene sceneID="gw1-ng-dhR">
@@ -2566,12 +2728,16 @@
         <image name="calendar" width="128" height="128"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="folder.fill.badge.plus" catalog="system" width="128" height="91"/>
+        <image name="icon_VaxTrack" width="600" height="600"/>
         <image name="question" width="128" height="128"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
