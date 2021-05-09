@@ -12,7 +12,14 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
     let database = Database()
     var record : Record?
     var patient : Patient?
+    
     var provider : Provider?
+    
+    var isRecord = true
+    
+    var pendingPatient: Patient?
+    var pendingVaccineRecord: Appointment?
+    
     
     @IBOutlet weak var virusTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -27,27 +34,36 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        virusTypeLabel.text = record?.virusType
-//        dateLabel.text = record?.vaccinatedDate
-        dateLabel.text = DateUtil.dateOnlyToString(date: record!.vaccinatedDate, withFormat: "")
-        dobLabel.text = patient?.dob
         
-        if confirmBtn.isHidden {
+        if isRecord { // record history
+            virusTypeLabel.text = record?.virusType
+            dateLabel.text = DateUtil.dateOnlyToString(date: record!.vaccinatedDate, withFormat: "")
+            dobLabel.text = patient?.dob
+            confirmBtn.isHidden = true
             vaccineNameTextField.text = record?.vaccineName
             manufacturerTextField.text = record?.manufacturer
+        } else { // pending record
+            virusTypeLabel.text = pendingVaccineRecord?.virusType
+            dateLabel.text = DateUtil.dateOnlyToString(date: pendingVaccineRecord!.date, withFormat: "")
+            dobLabel.text = pendingPatient?.dob
+            confirmBtn.isHidden = false
         }
+        
     }
     
     @IBAction func ConfirmBtnTouched(_ sender: UIButton) {
         // Store record into DB
-        var vaccineName = vaccineNameTextField.text
-        var manufacturer = manufacturerTextField.text
+        var vaccineNameInput = vaccineNameTextField.text
+        var manufacturerInput = manufacturerTextField.text
         
-        database.storeRecord(record: record!)
+        record?.vaccineName = vaccineNameInput
+        record?.manufacturer = manufacturerInput
+        
+//        database.storeRecord(record: record!)
         
         confirmBtn.isHidden = true // enable to edit record for the next use
     }
-    
+
     /*
     // MARK: - Navigation
 

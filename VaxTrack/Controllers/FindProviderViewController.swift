@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class FindProviderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FindProviderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     private var database: Database = Database()
     var providers: [Provider] = []
@@ -21,17 +21,42 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
     var distances: [Int] = []
 //    var currentAddressInCoordinates: CLLocationCoordinate2D
     
+    var virusTypeSearched: String?
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        JLog("34343434:\(searchBar.text)")
+        JLog("56565656:\(searchText)")
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        JLog("78787878\(searchBar.text)")
+        if let txt = searchBar.text {
+            if  txt.count <= 0 { // no input -> search all providers
+                virusTypeSearched = ""
+                viewDidLoad()
+            } else { //input to search -> search providers who offer the vaccine for the input
+                // Possible input: Covid-19, Flu, Hepatitis A, MMR, Shingles
+                virusTypeSearched = txt
+                viewDidLoad()
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        createArray(virysTypeInput: "")
 //        createArray()
-        createArray()
         
     }
-    func createArray(){
+    func createArray(virysTypeInput: String){
 //        let dbReturn = database.fetchProvidersWhoOffer(virusType: "")
 //        print("asdasdasd")
 //        print(dbReturn.0 as Any)
@@ -126,6 +151,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
             if let vc = segue.destination as? MakeAppointmentViewController {
                 if let index = touchedCellindex {
                     vc.provider = providers[index]
+                    vc.virusTypeSearched = virusTypeSearched!
                     
                 }
             }

@@ -19,4 +19,10 @@ class providerRecordCell: UITableViewCell {
         dobLabel.text = patient.dob
     }
     
+    func setPendingRecord(pendingRecord: Appointment, patient: Patient) {
+        patientName.text = patient.lastName + ", " + patient.firstName
+        vaccinatedDateLabel.text = DateUtil.dateOnlyToString(date: pendingRecord.date, withFormat: "")
+        dobLabel.text = patient.dob
+    }
+    
 }
