@@ -74,7 +74,7 @@
 		7486C0BD26394097002E9A92 /* AppointmentAvailableTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentAvailableTimeCell.swift; sourceTree = "<group>"; };
 		7486C0C226395AB4002E9A92 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineRecordDetailViewController.swift; sourceTree = "<group>"; };
-		7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderVaccineRecordUploadViewController.swift; sourceTree = "<group>"; };
+		7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProviderVaccineRecordUploadViewController.swift; path = "Core Tabs/ProviderVaccineRecordUploadViewController.swift"; sourceTree = "<group>"; };
 		7486C0F1263B1FA6002E9A92 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		749ACAB6263F1FB000DD2F11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74F5ED0B263F224D00249830 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +207,7 @@
 				7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */,
 				6BD84265263B7C6A00CBAA12 /* VaccineRecordAddNewViewController.swift */,
 				7486C0AC263920B2002E9A92 /* ProviderVaccineRecordViewController.swift */,
+				7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */,
 				7486C0A826391F42002E9A92 /* providerRecordCell.swift */,
 				C7B4055226110412005C4EA0 /* FindProviderViewController.swift */,
 				7486C0B72639294E002E9A92 /* providerInfoCell.swift */,
@@ -240,7 +241,6 @@
 				C76CD90F2608F7A800D4DEEB /* HomeViewController.swift */,
 				C7B40539261101ED005C4EA0 /* NotificationsViewController.swift */,
 				C7B4053C26110200005C4EA0 /* SettingsViewController.swift */,
-				7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */,
 			);
 			path = "Core Tabs";
 			sourceTree = "<group>";

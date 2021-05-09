@@ -10,6 +10,7 @@ import UIKit
 class AppointmentConfirmationViewController: UIViewController {
 
     private var database: Database = Database()
+    var selectedVirusType: String = ""
     var appointment: Appointment?
     var provider: Provider?
     var tabbedTime: String = ""
@@ -29,13 +30,13 @@ class AppointmentConfirmationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        virusType.text = "Covid-19" // TODO:- get it from search bar input
+        virusType.text = selectedVirusType
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        date.text = formatter.string(from: selectedDate)
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        date.text = formatter.string(from: selectedDate)
         
-//        date.text = appointment?.dateToString()
+        date.text = DateUtil.dateOnlyToString(date: selectedDate, withFormat: "")
         
         time.text = tabbedTime
         address.text = provider?.address
@@ -44,8 +45,11 @@ class AppointmentConfirmationViewController: UIViewController {
         contactPhone.text = provider?.contactPhone
         contactEmail.text = provider?.contactEmail
         website.text = provider?.website
-
-        // Do any additional setup after loading the view.
+        
+        // Store appointment info into DB
+        
+        
+        
     }
 
 }

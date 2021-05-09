@@ -53,6 +53,16 @@ class Record: NSObject {
         self.document = document
     }
     
+//    init(patientID: Int, providerID: Int, vaccineID: Int, virusName: String, vaccineName: String?, vaccinatedDate: Date, manufacturer: String?) {
+//        self.patientID = patientID
+//        self.providerID = providerID
+//        self.vaccineID = vaccineID
+//        self.virusType = virusName
+//        self.vaccineName = vaccineName
+//        self.vaccinatedDate = vaccinatedDate
+//        self.manufacturer = manufacturer
+//    }
+    
     
     
     
