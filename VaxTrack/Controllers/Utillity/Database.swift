@@ -369,9 +369,15 @@ class Database {
         return (obj as? [Record], err)
     }
     
-    func fetchVaccinationRecordsForProviderWithCovid19(providerID: Int) -> ([Record]?, MyError) {
+    func fetchVaccinationRecordsForProviderWithCovid19(providerID: Int) -> [(Int, String)] {
         let (obj, err) = fetchVaccinationRecordsForProvider(providerID: providerID, virusType: "Covid-19")
-        return (obj, err)
+        var arr = [(Int, String)]()
+        if obj != nil {
+            for o in obj as! [Record] {
+                arr.append((o.patientID, o.providerAddress!))
+            }
+        }
+        return arr
     }
     
     // Fetch Vaccination Records for the passed providerID and patients with virusType
