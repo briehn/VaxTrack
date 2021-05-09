@@ -79,12 +79,16 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
         // TODO:- TEMP: vaccineID will be incremented from the last element in the list
         var newVaccineID: Int = 0
         let vaccines: [Vaccine]?
-        (vaccines, _) = database.fetchVaccineList()
+        (vaccines, _) = database.fetchVaccineListForProvider(providerID: pendingVaccineRecord!.providerID)
         if let vaccineList = vaccines {
+            newVaccineID = vaccineList.last!.vaccineID
             for vaccine in vaccineList {
                 print(vaccine)
+                if vaccine.virusType == pendingVaccineRecord!.virusType {
+                    newVaccineID = vaccine.vaccineID
+                    break
+                }
             }
-            newVaccineID = vaccineList.last!.vaccineID + 1
             print("newVaccineID=\(newVaccineID)")
         }
         

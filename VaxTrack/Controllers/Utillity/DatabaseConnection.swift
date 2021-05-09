@@ -142,6 +142,12 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                         fallthrough
                     case "p_listfilter":
                         obj = JSONParser.parseProviders(datas) as NSArray?
+                    case "u_list":
+                        fallthrough
+                    case "u_listfilterapp":
+                        fallthrough
+                    case "u_listfilterrec":
+                        obj = JSONParser.parsePatients(datas) as NSArray?
 
                     // vaccines
                     case "v_list":
@@ -183,6 +189,8 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     case "uv_list":
                         obj = JSONParser.parseRecords(datas) as NSArray?
                     case "puv_list":
+                        fallthrough
+                    case "puv_listfilter":
                         obj = JSONParser.parseRecords(datas) as NSArray?
                     case "uv_detail":
                         arr = JSONParser.parseRecords(datas) as NSArray?

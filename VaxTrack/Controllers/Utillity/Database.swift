@@ -422,7 +422,7 @@ class Database {
     }
 
     // Fetch all tests provided list
-    func fetchVaccineList() -> ([Test]?, MyError) {
+    func fetchTestList() -> ([Test]?, MyError) {
         let param:[String:String] = [:]
         let (obj, err) = DatabaseConnection.fetchData("t_list", param)
         return (obj as? [Test], err)
