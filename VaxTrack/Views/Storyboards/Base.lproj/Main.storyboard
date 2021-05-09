@@ -552,25 +552,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="qhc-yw-yJc">
-                                <rect key="frame" x="24" y="108" width="366" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="hjZ-tT-9Tc"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Uq-m6-WZQ">
-                                <rect key="frame" x="24" y="164" width="366" height="649"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMt-iG-3QZ" id="X5L-8G-lrK">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImN-Nl-Ogj">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="linkColor"/>
                                                     <nil key="highlightedColor"/>
@@ -589,14 +589,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="68" width="366" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="67.5" width="414" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aad-PW-Mmt" id="yWh-kN-EV5">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="37.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BW2-4B-s2C" userLabel="View-delete">
-                                                    <rect key="frame" x="313" y="0.0" width="53" height="37.5"/>
+                                                    <rect key="frame" x="361" y="0.0" width="53" height="37.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfM-KA-I5s">
                                                             <rect key="frame" x="8" y="0.0" width="37" height="37.5"/>
@@ -614,16 +614,16 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUj-fn-a1O" userLabel="View-content">
-                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="37.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covid-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxr-AJ-10V">
-                                                            <rect key="frame" x="15" y="8" width="228.5" height="21.5"/>
+                                                            <rect key="frame" x="15" y="8" width="276.5" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09-03-2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWH-RR-ghS">
-                                                            <rect key="frame" x="251.5" y="8" width="99.5" height="21.5"/>
+                                                            <rect key="frame" x="299.5" y="8" width="99.5" height="21.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="CWH-RR-ghS" secondAttribute="height" multiplier="97:21" id="qAa-OD-UQe"/>
                                                             </constraints>
@@ -669,10 +669,10 @@
                         <color key="backgroundColor" red="0.96078723669999999" green="0.95685321089999997" blue="0.95685511830000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="txR-4W-vwa" firstAttribute="bottom" secondItem="4Uq-m6-WZQ" secondAttribute="bottom" id="A9V-XY-kdU"/>
-                            <constraint firstItem="txR-4W-vwa" firstAttribute="trailing" secondItem="qhc-yw-yJc" secondAttribute="trailing" constant="24" id="CVD-sE-lMR"/>
+                            <constraint firstItem="txR-4W-vwa" firstAttribute="trailing" secondItem="qhc-yw-yJc" secondAttribute="trailing" id="CVD-sE-lMR"/>
                             <constraint firstItem="4Uq-m6-WZQ" firstAttribute="leading" secondItem="qhc-yw-yJc" secondAttribute="leading" id="Ksp-e6-qki"/>
-                            <constraint firstItem="qhc-yw-yJc" firstAttribute="top" secondItem="txR-4W-vwa" secondAttribute="top" constant="20" id="ZpD-ds-d7v"/>
-                            <constraint firstItem="qhc-yw-yJc" firstAttribute="leading" secondItem="txR-4W-vwa" secondAttribute="leading" constant="24" id="m0Z-SB-pbo"/>
+                            <constraint firstItem="qhc-yw-yJc" firstAttribute="top" secondItem="txR-4W-vwa" secondAttribute="top" id="ZpD-ds-d7v"/>
+                            <constraint firstItem="qhc-yw-yJc" firstAttribute="leading" secondItem="txR-4W-vwa" secondAttribute="leading" id="m0Z-SB-pbo"/>
                             <constraint firstItem="4Uq-m6-WZQ" firstAttribute="trailing" secondItem="qhc-yw-yJc" secondAttribute="trailing" id="tFY-ai-OiW"/>
                             <constraint firstItem="4Uq-m6-WZQ" firstAttribute="top" secondItem="qhc-yw-yJc" secondAttribute="bottom" id="xWh-Uf-kbM"/>
                         </constraints>
@@ -849,17 +849,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Covid-19" translatesAutoresizingMaskIntoConstraints="NO" id="3iY-ky-Sw0">
-                                <rect key="frame" x="24" y="104" width="366" height="51"/>
+                                <rect key="frame" x="24" y="88" width="366" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covid-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bea-hw-n7x">
-                                <rect key="frame" x="24" y="171" width="366" height="21"/>
+                                <rect key="frame" x="24" y="155" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmd-2z-BzN">
-                                <rect key="frame" x="24" y="208" width="366" height="21"/>
+                                <rect key="frame" x="24" y="192" width="366" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="jnY-LU-H4u"/>
                                 </constraints>
@@ -868,38 +868,38 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manufactorer: (Optional) " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXG-4Z-nGn">
-                                <rect key="frame" x="24" y="455" width="366" height="21"/>
+                                <rect key="frame" x="24" y="439" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider: (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOO-w0-B6d">
-                                <rect key="frame" x="24" y="530" width="366" height="21"/>
+                                <rect key="frame" x="24" y="514" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization: (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZw-O6-rEc">
-                                <rect key="frame" x="24" y="605" width="366" height="21"/>
+                                <rect key="frame" x="24" y="589" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-3m-2Qr">
-                                <rect key="frame" x="24" y="229" width="366" height="216"/>
+                                <rect key="frame" x="24" y="213" width="366" height="216"/>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IDv-8e-YD1">
-                                <rect key="frame" x="24" y="481" width="366" height="34"/>
+                                <rect key="frame" x="24" y="465" width="366" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GrX-Sc-E3b">
-                                <rect key="frame" x="24" y="556" width="366" height="34"/>
+                                <rect key="frame" x="24" y="540" width="366" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Es5-0P-2Ky">
-                                <rect key="frame" x="24" y="631" width="366" height="34"/>
+                                <rect key="frame" x="24" y="615" width="366" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -918,13 +918,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document: (Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pc-X1-Jcj">
-                                <rect key="frame" x="24" y="680" width="366" height="21"/>
+                                <rect key="frame" x="24" y="664" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2S-CT-KxV">
-                                <rect key="frame" x="24" y="701" width="123" height="30"/>
+                                <rect key="frame" x="24" y="685" width="123" height="30"/>
                                 <state key="normal" title="Upload document"/>
                                 <connections>
                                     <action selector="documentUploadBtn:" destination="MUm-ZV-MdU" eventType="touchUpInside" id="UHb-Lt-7f9"/>
@@ -946,7 +946,7 @@
                             <constraint firstItem="GrX-Sc-E3b" firstAttribute="leading" secondItem="Bea-hw-n7x" secondAttribute="leading" id="NOz-m7-MbG"/>
                             <constraint firstItem="IDv-8e-YD1" firstAttribute="top" secondItem="KXG-4Z-nGn" secondAttribute="bottom" constant="5" id="Oau-ux-dlW"/>
                             <constraint firstItem="U7z-3m-2Qr" firstAttribute="leading" secondItem="Wmd-2z-BzN" secondAttribute="leading" id="Pfe-8h-gaC"/>
-                            <constraint firstItem="3iY-ky-Sw0" firstAttribute="top" secondItem="OdG-ra-hVb" secondAttribute="top" constant="16" id="Qyq-jV-nCS"/>
+                            <constraint firstItem="3iY-ky-Sw0" firstAttribute="top" secondItem="OdG-ra-hVb" secondAttribute="top" id="Qyq-jV-nCS"/>
                             <constraint firstItem="kOO-w0-B6d" firstAttribute="top" secondItem="IDv-8e-YD1" secondAttribute="bottom" constant="15" id="TKp-J4-n11"/>
                             <constraint firstItem="Es5-0P-2Ky" firstAttribute="leading" secondItem="Bea-hw-n7x" secondAttribute="leading" id="TiW-hy-VQA"/>
                             <constraint firstItem="U7z-3m-2Qr" firstAttribute="trailing" secondItem="Wmd-2z-BzN" secondAttribute="trailing" id="VV7-rI-XSb"/>
@@ -1213,25 +1213,19 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="9FY-zQ-1mH">
-                                <rect key="frame" x="24" y="64" width="366" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-Yx-ACP">
-                                <rect key="frame" x="24" y="120" width="366" height="742"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PhJ-Yx-ACP">
+                                <rect key="frame" x="0.0" y="139" width="414" height="757"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="providerRecordCell" id="E78-hL-rt8" customClass="providerRecordCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="53"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E78-hL-rt8" id="UwS-xm-Wwk">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-OW-CTl" userLabel="View-confirm">
-                                                    <rect key="frame" x="260" y="0.0" width="53" height="53"/>
+                                                    <rect key="frame" x="308" y="0.0" width="53" height="53"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-rX-gu9">
                                                             <rect key="frame" x="2" y="0.0" width="49" height="53"/>
@@ -1251,7 +1245,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsO-bp-DT3" userLabel="View-reject">
-                                                    <rect key="frame" x="313" y="0.0" width="53" height="53"/>
+                                                    <rect key="frame" x="361" y="0.0" width="53" height="53"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl4-ZK-4s0">
                                                             <rect key="frame" x="2" y="0.0" width="49" height="53"/>
@@ -1271,22 +1265,22 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wb-JM-nPf" userLabel="View-content-container">
-                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="53"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlP-nK-vFn" userLabel="View-content">
-                                                            <rect key="frame" x="15" y="8" width="336" height="37"/>
+                                                            <rect key="frame" x="15" y="8" width="384" height="37"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asM-Xi-0cq" userLabel="View-name-date">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="22"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smith, James" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhG-7R-BTe">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="232" height="22"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="280" height="22"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04-19-2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tU-9f-oJv">
-                                                                            <rect key="frame" x="240" y="0.0" width="96" height="22"/>
+                                                                            <rect key="frame" x="288" y="0.0" width="96" height="22"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="0tU-9f-oJv" secondAttribute="height" multiplier="92:21" id="kHX-wZ-hap"/>
                                                                             </constraints>
@@ -1308,7 +1302,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icR-je-Qun" userLabel="View-dob">
-                                                                    <rect key="frame" x="0.0" y="22" width="336" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="22" width="384" height="15"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOB: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ha6-Rc-9o1">
                                                                             <rect key="frame" x="0.0" y="0.0" width="32.5" height="15"/>
@@ -1320,7 +1314,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05-19-1994" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frw-oV-Xuc">
-                                                                            <rect key="frame" x="32.5" y="0.0" width="303.5" height="15"/>
+                                                                            <rect key="frame" x="32.5" y="0.0" width="351.5" height="15"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -1383,9 +1377,22 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" text="" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="9FY-zQ-1mH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Hz-SM-dB0"/>
                         <color key="backgroundColor" red="0.92148786780000003" green="0.92162030939999995" blue="0.92145889999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Hz-SM-dB0" firstAttribute="trailing" secondItem="PhJ-Yx-ACP" secondAttribute="trailing" id="0u3-uM-A3M"/>
+                            <constraint firstItem="9FY-zQ-1mH" firstAttribute="leading" secondItem="6Hz-SM-dB0" secondAttribute="leading" id="2GY-IK-HZL"/>
+                            <constraint firstAttribute="bottom" secondItem="PhJ-Yx-ACP" secondAttribute="bottom" id="mwc-mZ-p4b"/>
+                            <constraint firstItem="PhJ-Yx-ACP" firstAttribute="leading" secondItem="6Hz-SM-dB0" secondAttribute="leading" id="p6L-58-WAC"/>
+                            <constraint firstItem="9FY-zQ-1mH" firstAttribute="top" secondItem="6Hz-SM-dB0" secondAttribute="top" id="sR2-yX-FD7"/>
+                            <constraint firstItem="PhJ-Yx-ACP" firstAttribute="top" secondItem="9FY-zQ-1mH" secondAttribute="bottom" id="uxT-bl-TKI"/>
+                            <constraint firstItem="6Hz-SM-dB0" firstAttribute="trailing" secondItem="9FY-zQ-1mH" secondAttribute="trailing" id="zS4-Ia-xjt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Vaccine Record" id="RYz-Qx-WmF"/>
                     <connections>
@@ -1553,30 +1560,30 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OWT-xM-qit">
-                                <rect key="frame" x="24" y="88" width="366" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentCell" id="CcB-PF-69n" customClass="appointmentCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="207"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CcB-PF-69n" id="EUh-1o-6Ww">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="207"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L4W-kC-85R" userLabel="View-content-container">
-                                                    <rect key="frame" x="15" y="0.0" width="336" height="207"/>
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="207"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDM-8d-iTq" userLabel="View-name-date">
-                                                            <rect key="frame" x="0.0" y="0.0" width="336" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="36"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaccine for: Covid-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jV4-Sh-MTP">
-                                                                    <rect key="frame" x="0.0" y="10" width="259" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="307" height="21"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomorrow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyx-8b-FgE">
-                                                                    <rect key="frame" x="259" y="10" width="77" height="21"/>
+                                                                    <rect key="frame" x="307" y="10" width="77" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="gyx-8b-FgE" secondAttribute="height" multiplier="11:3" id="sJD-cI-DWG"/>
                                                                     </constraints>
@@ -1597,7 +1604,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9qx-Bg-Buu" userLabel="View-detail">
-                                                            <rect key="frame" x="0.0" y="36" width="336" height="171"/>
+                                                            <rect key="frame" x="0.0" y="36" width="384" height="171"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ql8-Af-VAo">
                                                                     <rect key="frame" x="0.0" y="0.0" width="33.5" height="15"/>
@@ -1609,7 +1616,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05-01-2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbG-V8-r7L">
-                                                                    <rect key="frame" x="33.5" y="0.0" width="302.5" height="15"/>
+                                                                    <rect key="frame" x="33.5" y="0.0" width="350.5" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1624,7 +1631,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyz-CM-SEq">
-                                                                    <rect key="frame" x="35.5" y="15" width="300.5" height="15"/>
+                                                                    <rect key="frame" x="35.5" y="15" width="348.5" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1639,7 +1646,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1400 Washington Ave, NY 12222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12T-4t-kag">
-                                                                    <rect key="frame" x="53.5" y="30" width="282.5" height="15"/>
+                                                                    <rect key="frame" x="53.5" y="30" width="330.5" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1654,7 +1661,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UAlbany" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOd-Wu-2Tr">
-                                                                    <rect key="frame" x="79" y="45" width="257" height="15"/>
+                                                                    <rect key="frame" x="79" y="45" width="305" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1669,7 +1676,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Atrey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIh-F8-KYI">
-                                                                    <rect key="frame" x="55" y="60.5" width="281" height="14.5"/>
+                                                                    <rect key="frame" x="55" y="60.5" width="329" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1684,7 +1691,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1(646)-777-7777 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aX-sW-Zda">
-                                                                    <rect key="frame" x="91" y="75.5" width="245" height="15"/>
+                                                                    <rect key="frame" x="91" y="75.5" width="293" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1699,13 +1706,13 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.ualbany.edu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mq-eo-He1">
-                                                                    <rect key="frame" x="53" y="105.5" width="283" height="15"/>
+                                                                    <rect key="frame" x="53" y="105.5" width="331" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvl-pA-zG7">
-                                                                    <rect key="frame" x="85" y="130.5" width="166" height="30.5"/>
+                                                                    <rect key="frame" x="109" y="130.5" width="166" height="30.5"/>
                                                                     <color key="backgroundColor" red="0.1192584708" green="0.29485169049999999" blue="0.49021834139999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Zvl-pA-zG7" secondAttribute="height" multiplier="82:15" id="Gnb-vD-6YZ"/>
@@ -1826,9 +1833,9 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <viewLayoutGuide key="safeArea" id="C10-7v-LJL"/>
                         <color key="backgroundColor" red="0.92148786780000003" green="0.92162030939999995" blue="0.92145889999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OWT-xM-qit" firstAttribute="leading" secondItem="C10-7v-LJL" secondAttribute="leading" constant="24" id="0uV-Zf-cir"/>
+                            <constraint firstItem="OWT-xM-qit" firstAttribute="leading" secondItem="C10-7v-LJL" secondAttribute="leading" id="0uV-Zf-cir"/>
                             <constraint firstItem="OWT-xM-qit" firstAttribute="top" secondItem="C10-7v-LJL" secondAttribute="top" id="RLJ-5h-Yap"/>
-                            <constraint firstItem="C10-7v-LJL" firstAttribute="trailing" secondItem="OWT-xM-qit" secondAttribute="trailing" constant="24" id="WxZ-Fx-cLn"/>
+                            <constraint firstItem="C10-7v-LJL" firstAttribute="trailing" secondItem="OWT-xM-qit" secondAttribute="trailing" id="WxZ-Fx-cLn"/>
                             <constraint firstItem="C10-7v-LJL" firstAttribute="bottom" secondItem="OWT-xM-qit" secondAttribute="bottom" id="xdP-an-PDD"/>
                         </constraints>
                     </view>
@@ -1850,30 +1857,30 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Icb-hg-Ui7">
-                                <rect key="frame" x="24" y="139" width="366" height="674"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="providerInfoCell" id="77Z-yH-Eij" customClass="providerInfoCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="160.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="160.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="77Z-yH-Eij" id="ZQA-Id-Fkm">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="160.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="160.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa6-c0-XG4" userLabel="View-content-container">
-                                                    <rect key="frame" x="15" y="0.0" width="336" height="160.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="160.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-7O-AN2" userLabel="View-name-date">
-                                                            <rect key="frame" x="0.0" y="0.0" width="336" height="48"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="48"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Atrey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRp-gF-RUu">
-                                                                    <rect key="frame" x="0.0" y="10" width="259" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="307" height="21"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.2 miles" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-fb-uwr">
-                                                                    <rect key="frame" x="259" y="10" width="77" height="21"/>
+                                                                    <rect key="frame" x="307" y="10" width="77" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Qwf-fb-uwr" secondAttribute="height" multiplier="11:3" id="tgX-d4-hRB"/>
                                                                     </constraints>
@@ -1882,7 +1889,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1400 Washington Ave, NY 12222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPS-YW-yLa">
-                                                                    <rect key="frame" x="0.0" y="33" width="336" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="33" width="384" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1903,10 +1910,10 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPZ-n8-uMr" userLabel="View-detail">
-                                                            <rect key="frame" x="0.0" y="52" width="336" height="108.5"/>
+                                                            <rect key="frame" x="0.0" y="52" width="384" height="108.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2q-iT-LpJ" userLabel="line">
-                                                                    <rect key="frame" x="0.0" y="4" width="336" height="1"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="384" height="1"/>
                                                                     <color key="backgroundColor" red="0.1192584708" green="0.29485169049999999" blue="0.49021834139999998" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="N3e-F4-62j"/>
@@ -1922,7 +1929,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZU-A5-hKH">
-                                                                    <rect key="frame" x="78.5" y="68" width="179" height="30.5"/>
+                                                                    <rect key="frame" x="102.5" y="68" width="179" height="30.5"/>
                                                                     <color key="backgroundColor" red="0.1192584708" green="0.29485169049999999" blue="0.49021834139999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="OZU-A5-hKH" secondAttribute="height" multiplier="183:31" id="hIU-ta-lWJ"/>
@@ -1946,13 +1953,13 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1(646)-777-7777 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CE-bX-VTO">
-                                                                    <rect key="frame" x="91" y="9" width="245" height="15"/>
+                                                                    <rect key="frame" x="91" y="9" width="293" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.ualbany.edu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwx-lZ-Eox">
-                                                                    <rect key="frame" x="53" y="43" width="283" height="15"/>
+                                                                    <rect key="frame" x="53" y="43" width="331" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2042,11 +2049,11 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <color key="backgroundColor" red="0.92148786780000003" green="0.92162030939999995" blue="0.92145889999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="d9e-ah-EZZ" firstAttribute="leading" secondItem="t8Y-jP-kKU" secondAttribute="leading" constant="24" id="8e5-3l-fz5"/>
-                            <constraint firstItem="t8Y-jP-kKU" firstAttribute="trailing" secondItem="Icb-hg-Ui7" secondAttribute="trailing" constant="24" id="Fl4-0o-Bcb"/>
+                            <constraint firstItem="t8Y-jP-kKU" firstAttribute="trailing" secondItem="Icb-hg-Ui7" secondAttribute="trailing" id="Fl4-0o-Bcb"/>
                             <constraint firstItem="d9e-ah-EZZ" firstAttribute="top" secondItem="t8Y-jP-kKU" secondAttribute="top" id="IKG-o7-l7r"/>
                             <constraint firstItem="Icb-hg-Ui7" firstAttribute="top" secondItem="d9e-ah-EZZ" secondAttribute="bottom" id="SiG-B2-Tgs"/>
                             <constraint firstItem="t8Y-jP-kKU" firstAttribute="trailing" secondItem="d9e-ah-EZZ" secondAttribute="trailing" constant="24" id="mlk-1Z-ILZ"/>
-                            <constraint firstItem="Icb-hg-Ui7" firstAttribute="leading" secondItem="t8Y-jP-kKU" secondAttribute="leading" constant="24" id="qJf-K2-hM3"/>
+                            <constraint firstItem="Icb-hg-Ui7" firstAttribute="leading" secondItem="t8Y-jP-kKU" secondAttribute="leading" id="qJf-K2-hM3"/>
                             <constraint firstItem="t8Y-jP-kKU" firstAttribute="bottom" secondItem="Icb-hg-Ui7" secondAttribute="bottom" id="zFN-ZT-awh"/>
                         </constraints>
                     </view>
@@ -2522,30 +2529,30 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wLE-WS-ECG">
-                                <rect key="frame" x="24" y="88" width="366" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="providerAppointmentCell" id="nVP-ok-k1H" userLabel="providerAppointmentCell" customClass="providerAppointmentCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="146.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="146.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVP-ok-k1H" id="6Ff-1s-t9B">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="146.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="146.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P38-Te-Wf8" userLabel="View-content-container">
-                                                    <rect key="frame" x="15" y="0.0" width="336" height="146.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="146.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pho-Cb-9Hh" userLabel="View-name-date">
-                                                            <rect key="frame" x="0.0" y="0.0" width="336" height="36"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="36"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh3-0b-MgV">
-                                                                    <rect key="frame" x="0.0" y="10" width="259" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="307" height="21"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomorrow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhJ-ex-Kb5">
-                                                                    <rect key="frame" x="259" y="10" width="77" height="21"/>
+                                                                    <rect key="frame" x="307" y="10" width="77" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="AhJ-ex-Kb5" secondAttribute="height" multiplier="11:3" id="Xrr-EV-b3x"/>
                                                                     </constraints>
@@ -2566,7 +2573,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1tZ-v9-5rK" userLabel="View-detail">
-                                                            <rect key="frame" x="0.0" y="36" width="336" height="110.5"/>
+                                                            <rect key="frame" x="0.0" y="36" width="384" height="110.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-5n-sMh">
                                                                     <rect key="frame" x="0.0" y="0.0" width="33.5" height="15"/>
@@ -2578,7 +2585,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05-01-2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMQ-Ea-r9V">
-                                                                    <rect key="frame" x="33.5" y="0.0" width="302.5" height="15"/>
+                                                                    <rect key="frame" x="33.5" y="0.0" width="350.5" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2593,7 +2600,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiT-wK-kHN">
-                                                                    <rect key="frame" x="35.5" y="15" width="300.5" height="15"/>
+                                                                    <rect key="frame" x="35.5" y="15" width="348.5" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2608,7 +2615,7 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1997-03-20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47c-ah-e9J">
-                                                                    <rect key="frame" x="33" y="30" width="303" height="15"/>
+                                                                    <rect key="frame" x="33" y="30" width="351" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2623,13 +2630,13 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covid-19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZS-3f-R7V">
-                                                                    <rect key="frame" x="71" y="45" width="265" height="15"/>
+                                                                    <rect key="frame" x="71" y="45" width="313" height="15"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z43-sf-Sh6">
-                                                                    <rect key="frame" x="85" y="70" width="166" height="30.5"/>
+                                                                    <rect key="frame" x="109" y="70" width="166" height="30.5"/>
                                                                     <color key="backgroundColor" red="0.1192584708" green="0.29485169049999999" blue="0.49021834139999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Z43-sf-Sh6" secondAttribute="height" multiplier="82:15" id="jV3-sx-MZO"/>
@@ -2707,8 +2714,8 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                         <constraints>
                             <constraint firstItem="HZN-aR-kiN" firstAttribute="bottom" secondItem="wLE-WS-ECG" secondAttribute="bottom" id="0CY-9F-iar"/>
                             <constraint firstItem="wLE-WS-ECG" firstAttribute="top" secondItem="HZN-aR-kiN" secondAttribute="top" id="4UZ-xh-t9x"/>
-                            <constraint firstItem="HZN-aR-kiN" firstAttribute="trailing" secondItem="wLE-WS-ECG" secondAttribute="trailing" constant="24" id="OxK-Ve-u4K"/>
-                            <constraint firstItem="wLE-WS-ECG" firstAttribute="leading" secondItem="HZN-aR-kiN" secondAttribute="leading" constant="24" id="fbB-kN-uIx"/>
+                            <constraint firstItem="HZN-aR-kiN" firstAttribute="trailing" secondItem="wLE-WS-ECG" secondAttribute="trailing" id="OxK-Ve-u4K"/>
+                            <constraint firstItem="wLE-WS-ECG" firstAttribute="leading" secondItem="HZN-aR-kiN" secondAttribute="leading" id="fbB-kN-uIx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Appointment" id="vFS-bG-3hH"/>
