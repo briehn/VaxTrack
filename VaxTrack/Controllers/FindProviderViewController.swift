@@ -53,13 +53,6 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     func createArray(virusTypeInput: String){
-//        let dbReturn = database.fetchProvidersWhoOffer(virusType: "")
-//        print("asdasdasd")
-//        print(dbReturn.0 as Any)
-//        guard let resultProviders:[Provider] = dbReturn.0 else {
-//            return
-//        }
-//        let resultProviders: [Provider] = dbReturn.0!
         
         var tempProviders: [Provider]? = []
         var error: MyError
