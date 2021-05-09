@@ -11,6 +11,7 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
 
     @IBOutlet weak var tableView: UITableView!
     var database: Database = Database()
+//    var appointment: [Appointment] = []
     var records: [Record] = []
     var patients: [Patient] = []
     var provider: Provider?
@@ -19,7 +20,6 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(providerRecordCell.self, forCellReuseIdentifier: "providerRecordCell")
         createArray()
     
     }
@@ -28,7 +28,6 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
         // From DB
         let (records, error) = database.fetchVaccinationRecordsForProvider(providerID: ST_User.shared.userID)
         if records != nil {
-            print("asdasdasd")
             self.records = records!
             (self.provider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
         

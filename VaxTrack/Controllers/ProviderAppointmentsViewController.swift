@@ -22,7 +22,6 @@ class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate,
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(providerAppointmentCell.self, forCellReuseIdentifier: "providerAppointmentCell")
         
         
         createArray() // Array of appointments and corresponding providers

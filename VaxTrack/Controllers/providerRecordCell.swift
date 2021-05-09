@@ -15,8 +15,6 @@ class providerRecordCell: UITableViewCell {
     
     func setRecord(record: Record, patient: Patient) {
         patientName.text = patient.lastName + ", " + patient.firstName
-//        vaccinatedDateLabel.text = record.vaccinatedDate
-//        vaccinatedDateLabel.text = "test"
         vaccinatedDateLabel.text = DateUtil.dateOnlyToString(date: record.vaccinatedDate, withFormat: "")
         dobLabel.text = patient.dob
     }
