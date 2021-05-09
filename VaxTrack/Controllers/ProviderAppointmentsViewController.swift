@@ -48,6 +48,12 @@ class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate,
     // Cancel appointment
     @IBAction func cancelBtnTouched(_ sender: UIButton) {
         touchedCellBtnTag = sender.tag
+        if let indexOfAppt = touchedCellBtnTag {
+            database.cancelAppointment(appointmentID: appointments[indexOfAppt].appointmentID)
+        }
+        
+        // TODO:- Reload the tableview or delete the cell
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

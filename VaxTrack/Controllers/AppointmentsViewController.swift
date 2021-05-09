@@ -55,7 +55,7 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         // TODO:- Reload the tableview or delete the cell
-//        tableView.cellForRow(at: touchedCellBtnTag)?.delete(<#T##sender: Any?##Any?#>)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
