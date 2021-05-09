@@ -47,7 +47,11 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
         var querystring: String = ""
         if data != nil {
             for (key,value) in data! {
-                querystring +=  "\(key)=\(value)&"
+                // replace a white space with unicode space character %20
+                // Web API should handle the unicode characters before passing values to the database
+                let urlParam = value.replacingOccurrences(of: " ", with: "%20")
+//                JLog("[\(key) : \(value)  -->  \(key) : \(urlParam)]")
+                querystring +=  "\(key)=\(urlParam)&"
             }
             querystring = String(querystring.dropLast())
         }
