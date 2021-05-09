@@ -24,8 +24,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         checkUserInfo()
-        emailTextField.text = "robin"
-        passwordTextField.text = "robin"
+        emailTextField.text = "shaun" //    will     shaun
+        passwordTextField.text = "shaun" // will     shaun
         loginButtonTapped(loginBtn)
     }
     

@@ -24,21 +24,18 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
     var virusTypeSearched: String?
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        JLog("34343434:\(searchBar.text)")
-        JLog("56565656:\(searchText)")
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        JLog("78787878\(searchBar.text)")
         if let txt = searchBar.text {
             if  txt.count <= 0 { // no input -> search all providers
                 virusTypeSearched = ""
-                viewDidLoad()
             } else { //input to search -> search providers who offer the vaccine for the input
                 // Possible input: Covid-19, Flu, Hepatitis A, MMR, Shingles
                 virusTypeSearched = txt
-                viewDidLoad()
             }
+            createArray(virusTypeInput: virusTypeSearched!)
+            tableView.reloadData()
         }
     }
     
@@ -52,11 +49,10 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-        createArray(virysTypeInput: "")
-//        createArray()
+        createArray(virusTypeInput: "")
         
     }
-    func createArray(virysTypeInput: String){
+    func createArray(virusTypeInput: String){
 //        let dbReturn = database.fetchProvidersWhoOffer(virusType: "")
 //        print("asdasdasd")
 //        print(dbReturn.0 as Any)
@@ -67,7 +63,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         
         var tempProviders: [Provider]? = []
         var error: MyError
-        (tempProviders, error) = database.fetchProvidersWhoOffer(virusType: "")
+        (tempProviders, error) = database.fetchProvidersWhoOffer(virusType: virusTypeInput)
         
 
         
@@ -110,7 +106,6 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         providers = tempProviders!
         
 //        self.providers = resultProviders
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,6 +115,7 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
     // Make an appointment
     @IBAction func makeAppointmentBtnTouched(_ sender: UIButton) {
         touchedCellindex = sender.tag
+        print("touchedCellindex=\(touchedCellindex)")
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -41,8 +41,7 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
         // Get provider info
         var tempProviders: [Provider] = []
         for appointment in appointments {
-            let (provider, error) = database.fetchProvider(providerID: appointment.providerID)
-            print("-------------appointID=\(appointment.appointmentID) : pid=\(appointment.providerID)-----------")
+            let (provider, _) = database.fetchProvider(providerID: appointment.providerID)
             tempProviders.append(provider!)
         }
         self.providers = tempProviders
@@ -51,6 +50,12 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
     // Cancel appointment
     @IBAction func cancelBtnTouched(_ sender: UIButton) {
         touchedCellBtnTag = sender.tag
+        if let indexOfAppt = touchedCellBtnTag {
+            database.cancelAppointment(appointmentID: appointments[indexOfAppt].appointmentID)
+        }
+        
+        // TODO:- Reload the tableview or delete the cell
+//        tableView.cellForRow(at: touchedCellBtnTag)?.delete(<#T##sender: Any?##Any?#>)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

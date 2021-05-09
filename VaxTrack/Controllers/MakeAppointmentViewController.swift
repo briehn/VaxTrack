@@ -10,7 +10,7 @@ import UIKit
 class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var database: Database = Database()
-    var provider : Provider?
+    var provider : Provider!
     var appointment: Appointment?
     var virusTypeSearched: String = ""
     
@@ -31,24 +31,20 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let provider = provider {
-            name.text = provider.firstName + " " + provider.lastName
-            addressLabel.text = provider.address
-            contactPhoneLabel.text = provider.contactPhone
-            contactEmailLabel.text = provider.contactEmail
-            websiteLabel.text = provider.website
-        }
+        name.text = provider.firstName + " " + provider.lastName
+        addressLabel.text = provider.address
+        contactPhoneLabel.text = provider.contactPhone
+        contactEmailLabel.text = provider.contactEmail
+        websiteLabel.text = provider.website
+
 
         // Fetch slots for today by default
-//        fetchAvailableTimeSlotsFor(date: Date())
-        
         availableTimes = loadAvailableTimesByDefault()
 
         timeTableView.delegate = self
         timeTableView.dataSource = self
         
         datePicker.datePickerMode = .date
-        
 
     }
     
@@ -60,7 +56,7 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     // loadXXX = load data to in-app objects or etc...
     // fetchXXX = fetch data from DB or External Data Source
     func fetchAvailableTimeSlotsFor(date: Date) {
-        let (dates, err) = database.fetchOpenTimeSlotsFor(providerID: (provider?.uid)!, date: date)
+        let (dates, err) = database.fetchOpenTimeSlotsFor(providerID: provider.uid, date: date)
         if dates != nil {
             for date in dates! {
                 if let dateStr = DateUtil.dateToString(date: date, withFormat: "hh:MM") {
@@ -72,12 +68,37 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     @IBAction func makeAppointmentBtnTouched(_ sender: UIButton) {
-        // Store input data into DB(appointment)
-        print("makeAppointmentBtnTouched")
-        // Store appointment data into DB
-        appointment?.date = datePicker.date
+        // Combine selected date(yyyy-MM-dd) and time(HH:mm) to (yyyy-MM-dd hh:mm:ss)
+        var appointmentDate: Date = Date()
         
-        appointment?.providerID = provider?.uid
+        if let dateOnlyToString = DateUtil.dateOnlyToString(date: datePicker.date, withFormat: "") {
+            let dateOnly = dateOnlyToString
+            
+            if let selectedTime = tabbedTime {
+                let timeOnly = selectedTime + ":00" // hh:mm:00
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let combDate = dateOnly + " " + timeOnly
+                if let finalDate = DateUtil.dateFrom(dateString: combDate) {
+                    appointmentDate = finalDate // store finalDate into Appointment info
+                }
+            }
+        }
+        
+
+        appointment = Appointment.init(appointmentID: 0, virusType: virusTypeSearched, date: appointmentDate, patientID: ST_User.shared.userID, providerID: provider.uid)
+
+        
+        
+        // Store input data(appointment) into DB
+        if let appt = appointment {
+            print("appointment=\(appt.virusType),\(appt.date),\(appt.patientID),\(appt.providerID)")
+            print("result==")
+            database.storeAppointment(appointment: appt)
+//            print(database.storeAppointment(appointment: appt))
+        }
+        
+        
     }
     
     // Test. Hard-coding.

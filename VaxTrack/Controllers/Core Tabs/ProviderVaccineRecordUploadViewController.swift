@@ -38,14 +38,32 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
         if isRecord { // record history
             virusTypeLabel.text = record?.virusType
             dateLabel.text = DateUtil.dateOnlyToString(date: record!.vaccinatedDate, withFormat: "")
-            dobLabel.text = patient?.dob
+            
+            if let pat = patient {
+                if let dob = pat.dob {
+                    if let dobStr = DateUtil.dateFrom(dateString: dob) {
+                        let dobDateOnly = DateUtil.dateOnlyToString(date: dobStr, withFormat: "")
+                        dobLabel.text = dobDateOnly
+                    }
+                }
+            }
+            
             confirmBtn.isHidden = true
             vaccineNameTextField.text = record?.vaccineName
             manufacturerTextField.text = record?.manufacturer
         } else { // pending record
             virusTypeLabel.text = pendingVaccineRecord?.virusType
             dateLabel.text = DateUtil.dateOnlyToString(date: pendingVaccineRecord!.date, withFormat: "")
-            dobLabel.text = pendingPatient?.dob
+            
+            if let pat = pendingPatient {
+                if let dob = pat.dob {
+                    if let dobStr = DateUtil.dateFrom(dateString: dob) {
+                        let dobDateOnly = DateUtil.dateOnlyToString(date: dobStr, withFormat: "")
+                        dobLabel.text = dobDateOnly
+                    }
+                }
+            }
+            
             confirmBtn.isHidden = false
         }
         
@@ -56,10 +74,35 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
         var vaccineNameInput = vaccineNameTextField.text
         var manufacturerInput = manufacturerTextField.text
         
-        record?.vaccineName = vaccineNameInput
-        record?.manufacturer = manufacturerInput
+    
+        // Fetch vaccine id for the given virusType
+        // TODO:- TEMP: vaccineID will be incremented from the last element in the list
+        var newVaccineID: Int = 0
+        let vaccines: [Vaccine]?
+        (vaccines, _) = database.fetchVaccineList()
+        if let vaccineList = vaccines {
+            for vaccine in vaccineList {
+                print(vaccine)
+            }
+            newVaccineID = vaccineList.last!.vaccineID + 1
+            print("newVaccineID=\(newVaccineID)")
+        }
         
-//        database.storeRecord(record: record!)
+        
+        if let rec = pendingVaccineRecord {
+            if let pat = pendingPatient {
+                
+                let newRecord = Record.init(recordID: 0, patientID: pat.uid, providerID: rec.providerID, vaccineID: newVaccineID, virusName: rec.virusType, vaccineName: vaccineNameInput, vaccinatedDate: rec.date, manufacturer: manufacturerInput)
+                
+                print("newRecord=\(newRecord.patientID), \(newRecord.providerID), \(newRecord.vaccineID), \(newRecord.virusType), \(String(describing: newRecord.vaccineName)), \(newRecord.vaccinatedDate), \(String(describing: newRecord.manufacturer))")
+                
+                
+                // Store record into DB - NOT WORKED.
+                database.storeRecord(record: newRecord)
+                // Delete from appointment - WORKED
+//                database.doneAppointment(appointmentID: (pendingVaccineRecord?.appointmentID)!)
+            }
+        }
         
         confirmBtn.isHidden = true // enable to edit record for the next use
     }

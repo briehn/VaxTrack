@@ -16,13 +16,25 @@ class providerRecordCell: UITableViewCell {
     func setRecord(record: Record, patient: Patient) {
         patientName.text = patient.lastName + ", " + patient.firstName
         vaccinatedDateLabel.text = DateUtil.dateOnlyToString(date: record.vaccinatedDate, withFormat: "")
-        dobLabel.text = patient.dob
+        
+        if let dob = patient.dob {
+            if let dobStr = DateUtil.dateFrom(dateString: dob) {
+                let dobDateOnly = DateUtil.dateOnlyToString(date: dobStr, withFormat: "")
+                dobLabel.text = dobDateOnly
+            }
+        }
     }
     
     func setPendingRecord(pendingRecord: Appointment, patient: Patient) {
         patientName.text = patient.lastName + ", " + patient.firstName
         vaccinatedDateLabel.text = DateUtil.dateOnlyToString(date: pendingRecord.date, withFormat: "")
-        dobLabel.text = patient.dob
+        
+        if let dob = patient.dob {
+            if let dobStr = DateUtil.dateFrom(dateString: dob) {
+                let dobDateOnly = DateUtil.dateOnlyToString(date: dobStr, withFormat: "")
+                dobLabel.text = dobDateOnly
+            }
+        }
     }
     
 }
