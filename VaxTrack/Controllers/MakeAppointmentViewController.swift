@@ -10,8 +10,9 @@ import UIKit
 class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var database: Database = Database()
-    var provider : Provider?
+    var provider : Provider!
     var appointment: Appointment?
+    var virusTypeSearched: String = ""
     
     @IBOutlet weak var timeTableView: UITableView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -30,24 +31,20 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let provider = provider {
-            name.text = provider.firstName + " " + provider.lastName
-            addressLabel.text = provider.address
-            contactPhoneLabel.text = provider.contactPhone
-            contactEmailLabel.text = provider.contactEmail
-            websiteLabel.text = provider.website
-        }
+        name.text = provider.firstName + " " + provider.lastName
+        addressLabel.text = provider.address
+        contactPhoneLabel.text = provider.contactPhone
+        contactEmailLabel.text = provider.contactEmail
+        websiteLabel.text = provider.website
+
 
         // Fetch slots for today by default
-//        fetchAvailableTimeSlotsFor(date: Date())
-        
         availableTimes = loadAvailableTimesByDefault()
 
         timeTableView.delegate = self
         timeTableView.dataSource = self
         
         datePicker.datePickerMode = .date
-        
 
     }
     
@@ -59,7 +56,7 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     // loadXXX = load data to in-app objects or etc...
     // fetchXXX = fetch data from DB or External Data Source
     func fetchAvailableTimeSlotsFor(date: Date) {
-        let (dates, err) = database.fetchOpenTimeSlotsFor(providerID: (provider?.uid)!, date: date)
+        let (dates, err) = database.fetchOpenTimeSlotsFor(providerID: provider.uid, date: date)
         if dates != nil {
             for date in dates! {
                 if let dateStr = DateUtil.dateToString(date: date, withFormat: "hh:MM") {
@@ -71,29 +68,65 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     @IBAction func makeAppointmentBtnTouched(_ sender: UIButton) {
-        // Store input data into DB(appointment)
-        print("makeAppointmentBtnTouched")
-        // Store appointment data into DB
-        appointment?.date = datePicker.date
+        // Combine selected date(yyyy-MM-dd) and time(HH:mm) to (yyyy-MM-dd hh:mm:ss)
+        var appointmentDate: Date = Date()
         
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        let strTest = formatter.string(from: (appointment?.date)!) // WHY RUNTIME ERROR- NIL???
-//        print("aaaaaaaaaaaaa\n\n\n\n\n")
-//        print(strTest)
+        if let dateOnlyToString = DateUtil.dateOnlyToString(date: datePicker.date, withFormat: "") {
+            let dateOnly = dateOnlyToString
+            
+            if let selectedTime = tabbedTime {
+                let timeOnly = selectedTime + ":00" // hh:mm:00
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let combDate = dateOnly + " " + timeOnly
+                if let finalDate = DateUtil.dateFrom(dateString: combDate) {
+                    appointmentDate = finalDate // store finalDate into Appointment info
+                }
+            }
+        }
         
-        appointment?.providerID = provider?.uid
-//        appointment?.patientID = 001
-//        appointment?.appointmentID = 1
+
+        appointment = Appointment.init(appointmentID: 0, virusType: virusTypeSearched, date: appointmentDate, patientID: ST_User.shared.userID, providerID: provider.uid)
+
+        
+        
+        // Store input data(appointment) into DB
+        if let appt = appointment {
+            print("appointment=\(appt.virusType),\(appt.date),\(appt.patientID),\(appt.providerID)")
+            print("result==")
+            database.storeAppointment(appointment: appt)
+//            print(database.storeAppointment(appointment: appt))
+        }
+        
+        
     }
     
     // Test. Hard-coding.
     func loadAvailableTimesByDefault() -> [String] {
         var times = [String]()
-        times.append("10:00")
-        times.append("11:00")
-        times.append("13:00")
-        times.append("16:00")
+
+        // split into hour block from officeHourStart to officeHourEnd
+        if let hourSlot = provider?.officeHourStart {
+            print(hourSlot)
+            if let hourEnd = provider?.officeHourEnd {
+                print(hourEnd)
+                var nextSlot = hourSlot
+                var hourBlock: [String]
+                var slotInInt = 0
+                while true {
+                    times.append(nextSlot)
+                    if nextSlot == hourEnd { // stop increment
+                        break
+                    } else {
+                        hourBlock = nextSlot.components(separatedBy: ":") // [0] : hh , [1] : MM
+                        slotInInt = Int(hourBlock[0])!// convert to int to increment by 1
+                        slotInInt = slotInInt + 1 // increment by 1
+                        nextSlot = "\(slotInInt):00" // hh:00
+                    }
+                }
+            }
+        }
+        
         return times
     }
 
@@ -127,6 +160,7 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
         // Preparing transition to Vaccine Detail Page
         if segue.identifier == "appointmentConfirmationSegue" {
             if let vc = segue.destination as? AppointmentConfirmationViewController {
+                vc.selectedVirusType = virusTypeSearched
                 vc.provider = provider
                 vc.appointment = appointment
                 vc.tabbedTime = tabbedTime!

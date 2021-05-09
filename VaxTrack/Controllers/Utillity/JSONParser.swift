@@ -179,7 +179,8 @@ class JSONParser {
                 let vaccineName = data["name"] as? String
                 let vaccinatedDate = aaaDate
                 let manufacturer = data["manuf"] as? String
-                let obj = Record(recordID: recordID, patientID: patientID, providerID: providerID, vaccineID: vaccineID, virusName: virusType, vaccineName: vaccineName, vaccinatedDate: vaccinatedDate, manufacturer: manufacturer)
+                let providerAddress = data["address"] as? String
+                let obj = Record(recordID: recordID, patientID: patientID, providerID: providerID, vaccineID: vaccineID, virusName: virusType, vaccineName: vaccineName, vaccinatedDate: vaccinatedDate, manufacturer: manufacturer, providerAddress: providerAddress)
                 return obj
             }
         }

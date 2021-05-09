@@ -47,7 +47,11 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
         var querystring: String = ""
         if data != nil {
             for (key,value) in data! {
-                querystring +=  "\(key)=\(value)&"
+                // replace a white space with unicode space character %20
+                // Web API should handle the unicode characters before passing values to the database
+                let urlParam = value.replacingOccurrences(of: " ", with: "%20")
+//                JLog("[\(key) : \(value)  -->  \(key) : \(urlParam)]")
+                querystring +=  "\(key)=\(urlParam)&"
             }
             querystring = String(querystring.dropLast())
         }
@@ -138,6 +142,12 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                         fallthrough
                     case "p_listfilter":
                         obj = JSONParser.parseProviders(datas) as NSArray?
+                    case "u_list":
+                        fallthrough
+                    case "u_listfilterapp":
+                        fallthrough
+                    case "u_listfilterrec":
+                        obj = JSONParser.parsePatients(datas) as NSArray?
 
                     // vaccines
                     case "v_list":
@@ -179,6 +189,8 @@ class DatabaseConnection: NSObject, URLSessionDataDelegate {
                     case "uv_list":
                         obj = JSONParser.parseRecords(datas) as NSArray?
                     case "puv_list":
+                        fallthrough
+                    case "puv_listfilter":
                         obj = JSONParser.parseRecords(datas) as NSArray?
                     case "uv_detail":
                         arr = JSONParser.parseRecords(datas) as NSArray?

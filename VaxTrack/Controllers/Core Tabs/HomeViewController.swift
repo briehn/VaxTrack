@@ -25,16 +25,6 @@ class HomeViewController: UIViewController {
     
     
     override func viewDidLoad() {
-//        let (tmpPatient, _) = database.fetchPatient(patientID: ST_User.shared.userID)
-//        let (tmpProvider, _) = database.fetchProvider(providerID: ST_User.shared.userID)
-//
-//        if tmpPatient != nil {
-//            userType = .PATIENT
-//        } else if tmpProvider != nil {
-//            userType = .PROVIDER
-//        } else {
-//            userType = .ADMIN
-//        }
         
         userType = ST_User.shared.userType
         print("userType=\(userType)")
