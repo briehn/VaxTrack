@@ -184,7 +184,9 @@
                             <constraint firstItem="Ozo-kB-emU" firstAttribute="trailing" secondItem="3dl-HD-fCf" secondAttribute="trailing" id="yCu-1t-ePU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Data" id="P74-YM-mze"/>
+                    <tabBarItem key="tabBarItem" title="Data" image="network" catalog="system" selectedImage="network" id="P74-YM-mze">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="cityNameLabel" destination="EMi-iT-wyc" id="yNs-Mx-PX8"/>
                         <outlet property="pieChartView" destination="vyC-uB-gA1" id="Qhm-pF-vDU"/>
@@ -226,7 +228,7 @@
         <scene sceneID="1Kh-bO-x5x">
             <objects>
                 <navigationController id="85y-h2-0xd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="aD0-4P-Jim"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="aD0-4P-Jim"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8n8-nC-ID9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -563,14 +565,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMt-iG-3QZ" id="X5L-8G-lrK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImN-Nl-Ogj">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="linkColor"/>
                                                     <nil key="highlightedColor"/>
@@ -589,7 +591,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="67.5" width="414" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="68" width="414" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aad-PW-Mmt" id="yWh-kN-EV5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
@@ -998,7 +1000,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="85y-h2-0xd" kind="relationship" relationship="viewControllers" id="xNk-O8-Ab5"/>
@@ -1021,7 +1028,9 @@
                         <viewLayoutGuide key="safeArea" id="ElT-aj-5hb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notification" id="TGM-qN-orh" userLabel="Notification"/>
+                    <tabBarItem key="tabBarItem" title="Notification" image="bell.fill" catalog="system" selectedImage="bell.fill" id="TGM-qN-orh" userLabel="Notification">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zK-9z-ioh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1030,7 +1039,7 @@
         <!--Account-->
         <scene sceneID="Hhn-8G-Mwk">
             <objects>
-                <viewController title="Account" id="wLd-US-DF5" sceneMemberID="viewController">
+                <viewController title="Account" id="wLd-US-DF5" customClass="SettingsViewController" customModule="VaxTrack" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vfr-kU-qk5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1047,8 +1056,16 @@
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Date of Birth" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fV7-tc-5W7" userLabel="Name Label">
+                                <rect key="frame" x="12" y="253" width="293" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Organization" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CE-ts-VBd" userLabel="Organization Label">
-                                <rect key="frame" x="12" y="452" width="142" height="40"/>
+                                <rect key="frame" x="12" y="475" width="142" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1056,7 +1073,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Website" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iV-dV-SpK" userLabel="Website Label">
-                                <rect key="frame" x="12" y="515" width="142" height="40"/>
+                                <rect key="frame" x="12" y="538" width="142" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1065,7 +1082,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hours of Operation" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKG-cd-OuJ" userLabel="Hours Label">
-                                <rect key="frame" x="12" y="573" width="258" height="40"/>
+                                <rect key="frame" x="12" y="596" width="258" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1074,7 +1091,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Vaccines Offered" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAR-TP-0VW" userLabel="Services Label">
-                                <rect key="frame" x="12" y="678" width="258" height="40"/>
+                                <rect key="frame" x="12" y="649" width="258" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1083,7 +1100,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Phone Number" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiY-Jq-3kf" userLabel="Number Label">
-                                <rect key="frame" x="12" y="246" width="141" height="40"/>
+                                <rect key="frame" x="12" y="313" width="141" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1091,7 +1108,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Email" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7Z-d7-IHE" userLabel="Email Label">
-                                <rect key="frame" x="12" y="300" width="141" height="40"/>
+                                <rect key="frame" x="12" y="368" width="141" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -1099,78 +1116,60 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Address (Primary)" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13B-Xd-Z7o" userLabel="Address (Primary) Label">
-                                <rect key="frame" x="12" y="355" width="196" height="40"/>
+                                <rect key="frame" x="12" y="419" width="196" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="John Smith" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I3u-bw-lRg" userLabel="Name Field">
-                                <rect key="frame" x="21" y="215" width="346" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Sanpellegrino" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zo1-nW-b3I" userLabel="Organization Name Field">
-                                <rect key="frame" x="21" y="481" width="346" height="40"/>
+                                <rect key="frame" x="21" y="504" width="346" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="www.google.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7xu-Cf-LKW" userLabel="Website Field">
-                                <rect key="frame" x="21" y="541" width="346" height="40"/>
+                                <rect key="frame" x="21" y="564" width="346" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-mh-Dmp" userLabel="Website Field">
-                                <rect key="frame" x="21" y="599" width="346" height="80.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="00:00 - 00:00" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-mh-Dmp" userLabel="Website Field">
+                                <rect key="frame" x="21" y="622" width="346" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Monday - Thursday: 9:00AM - 7:00PM
-Friday: 12:00AM - 7:00PM
-Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="COVID-19, Hepatitis, Smallpox, Poleo" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Db1-qf-FsV" userLabel="Vaccines Offered Field">
-                                <rect key="frame" x="20" y="704" width="346" height="40"/>
+                                <rect key="frame" x="20" y="675" width="346" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="(800) 123 - 4567" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LkO-aM-k2O" userLabel="Number Field">
-                                <rect key="frame" x="21" y="272" width="346" height="40"/>
+                                <rect key="frame" x="21" y="338" width="346" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="johnsmith@aol.com" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zgm-iN-K7g" userLabel="Email Field">
-                                <rect key="frame" x="21" y="326" width="373" height="40"/>
+                                <rect key="frame" x="21" y="392" width="373" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="11 Bulberry Street" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-Xj-Nwk" userLabel="Address Field">
-                                <rect key="frame" x="20" y="381" width="373" height="40"/>
+                                <rect key="frame" x="20" y="445" width="373" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Contact Information" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZZ-68-Nhf" userLabel="Contact Information">
-                                <rect key="frame" x="95" y="158" width="225" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Account" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efe-7K-R0Z" userLabel="Account">
@@ -1181,25 +1180,55 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Provider Information" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOe-p5-bSg" userLabel="Provider Information">
-                                <rect key="frame" x="95" y="416" width="225" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" red="0.0" green="0.47450980390000003" blue="0.39607843139999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnq-fG-u2f">
                                 <rect key="frame" x="177" y="768" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOut:" destination="wLd-US-DF5" eventType="touchUpInside" id="t4B-hz-vzg"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="John Smith" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I3u-bw-lRg" userLabel="Name Field">
+                                <rect key="frame" x="21" y="219" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="00/00/0000" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WbN-Qd-GjD" userLabel="Name Field">
+                                <rect key="frame" x="20" y="283" width="346" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ET2-sp-IFn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Account" id="xQR-Ol-GqF"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" selectedImage="person.fill" id="xQR-Ol-GqF">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="address" destination="Wfg-Xj-Nwk" id="f3V-Ze-Qk9"/>
+                        <outlet property="addresslabel" destination="13B-Xd-Z7o" id="b53-cR-Np0"/>
+                        <outlet property="dob" destination="WbN-Qd-GjD" id="LCf-8s-Hq9"/>
+                        <outlet property="email" destination="zgm-iN-K7g" id="x7b-am-bT4"/>
+                        <outlet property="emailLabel" destination="k7Z-d7-IHE" id="ArO-Ip-n2d"/>
+                        <outlet property="name" destination="I3u-bw-lRg" id="SZN-01-lNC"/>
+                        <outlet property="number" destination="LkO-aM-k2O" id="otK-L2-yfp"/>
+                        <outlet property="numberLabel" destination="UiY-Jq-3kf" id="omU-td-zki"/>
+                        <outlet property="operationTime" destination="yMo-mh-Dmp" id="pNO-Ku-6dw"/>
+                        <outlet property="organization" destination="Zo1-nW-b3I" id="M15-PO-axI"/>
+                        <outlet property="organizationLabel" destination="1CE-ts-VBd" id="Cei-Zi-4yz"/>
+                        <outlet property="serviceLabel" destination="TAR-TP-0VW" id="YSU-Eb-etf"/>
+                        <outlet property="services" destination="Db1-qf-FsV" id="G5W-Ex-LG7"/>
+                        <outlet property="signOut" destination="Jnq-fG-u2f" id="TeF-xd-ev1"/>
+                        <outlet property="timeLabel" destination="hKG-cd-OuJ" id="Kiu-PS-IDE"/>
+                        <outlet property="website" destination="7xu-Cf-LKW" id="cEz-Mm-5u7"/>
+                        <outlet property="websiteLabel" destination="5iV-dV-SpK" id="GeN-Z9-MeG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUl-39-BaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2152,14 +2181,14 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentAvailableTimeCell" id="QWg-J2-ysL" customClass="AppointmentAvailableTimeCell" customModule="VaxTrack" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="366" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWg-J2-ysL" id="Ybl-WF-04T">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-NT-bFJ">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2735,10 +2764,14 @@ Saturday - Sunday: 1:00PM - 5:00 PM</string>
         <image name="FindProvider" width="128" height="128"/>
         <image name="Records" width="64" height="64"/>
         <image name="Test" width="128" height="128"/>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="calendar" width="128" height="128"/>
         <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="112"/>
         <image name="folder.fill.badge.plus" catalog="system" width="128" height="91"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="icon_VaxTrack" width="600" height="600"/>
+        <image name="network" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="question" width="128" height="128"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
