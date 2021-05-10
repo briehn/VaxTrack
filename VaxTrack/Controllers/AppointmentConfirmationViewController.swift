@@ -32,10 +32,6 @@ class AppointmentConfirmationViewController: UIViewController {
         
         virusType.text = selectedVirusType
         
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        date.text = formatter.string(from: selectedDate)
-        
         date.text = DateUtil.dateOnlyToString(date: selectedDate, withFormat: "")
         
         time.text = tabbedTime
@@ -45,11 +41,7 @@ class AppointmentConfirmationViewController: UIViewController {
         contactPhone.text = provider?.contactPhone
         contactEmail.text = provider?.contactEmail
         website.text = provider?.website
-        
-        // Store appointment info into DB
-        
-        
-        
+
     }
 
 }

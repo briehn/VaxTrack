@@ -74,9 +74,8 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
         var vaccineNameInput = vaccineNameTextField.text
         var manufacturerInput = manufacturerTextField.text
         
-    
         // Fetch vaccine id for the given virusType
-        // TODO:- TEMP: vaccineID will be incremented from the last element in the list
+        // vaccineID will be incremented from the last element in the list
         var newVaccineID: Int = 0
         let vaccines: [Vaccine]?
         (vaccines, _) = database.fetchVaccineListForProvider(providerID: pendingVaccineRecord!.providerID)
@@ -89,36 +88,21 @@ class ProviderVaccineRecordUploadViewController: UIViewController {
                     break
                 }
             }
-            print("newVaccineID=\(newVaccineID)")
         }
-        
         
         if let rec = pendingVaccineRecord {
             if let pat = pendingPatient {
                 
                 let newRecord = Record.init(recordID: 0, patientID: pat.uid, providerID: rec.providerID, vaccineID: newVaccineID, virusName: rec.virusType, vaccineName: vaccineNameInput, vaccinatedDate: rec.date, manufacturer: manufacturerInput)
                 
-                print("newRecord=\(newRecord.patientID), \(newRecord.providerID), \(newRecord.vaccineID), \(newRecord.virusType), \(String(describing: newRecord.vaccineName)), \(newRecord.vaccinatedDate), \(String(describing: newRecord.manufacturer))")
-                
-                
                 // Store record into DB - NOT WORKED.
                 database.storeRecord(record: newRecord)
                 // Delete from appointment - WORKED
-//                database.doneAppointment(appointmentID: (pendingVaccineRecord?.appointmentID)!)
+                database.doneAppointment(appointmentID: (pendingVaccineRecord?.appointmentID)!)
+                
             }
         }
         
         confirmBtn.isHidden = true // enable to edit record for the next use
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

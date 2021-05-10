@@ -31,11 +31,6 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
         var tempAppointmemnts: [Appointment]? = []
         var error: MyError
         (tempAppointmemnts, error) = database.fetchAppointmentListForPatient(patientID: ST_User.shared.userID)
-
-        
-//        // Test. Hard coding ver.
-//        let appointment = Appointment(appointmentID: 0001, virusType: "Covid-19", date: "2021-05-01", providerName: "Dr. Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
-//        tempAppointmemnts.append(appointment)
         
         self.appointments = tempAppointmemnts!
         // Get provider info
@@ -54,7 +49,7 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
             database.cancelAppointment(appointmentID: appointments[indexOfAppt].appointmentID)
         }
         
-        // TODO:- Reload the tableview or delete the cell
+        // Reload the tableview or delete the cell
         tableView.reloadData()
     }
     
@@ -78,8 +73,5 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
         
         return cell
     }
-    
-
-
 
 }
