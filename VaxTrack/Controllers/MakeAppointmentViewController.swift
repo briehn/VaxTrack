@@ -92,16 +92,12 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
         
         // Store input data(appointment) into DB
         if let appt = appointment {
-            print("appointment=\(appt.virusType),\(appt.date),\(appt.patientID),\(appt.providerID)")
-            print("result==")
             database.storeAppointment(appointment: appt)
-//            print(database.storeAppointment(appointment: appt))
         }
         
         
     }
     
-    // Test. Hard-coding.
     func loadAvailableTimesByDefault() -> [String] {
         var times = [String]()
 

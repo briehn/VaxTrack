@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class FindProviderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class FindProviderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, CLLocationManagerDelegate {
 
     private var database: Database = Database()
     var providers: [Provider] = []
@@ -17,12 +17,29 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
 
     var touchedCellindex: Int?
-    var currentAddressInCoordinates: CLLocation = CLLocation(latitude: 0.0, longitude: 0.0) // TODO:- fix
     var distances: [Int] = []
-//    var currentAddressInCoordinates: CLLocationCoordinate2D
     
     var virusTypeSearched: String?
-
+    
+    let locationManager = CLLocationManager()
+    var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var currentAddressInCoordinates: CLLocation = CLLocation()
+    
+    // indicates if location should be updated
+    var updateLocation : Bool = false
+    
+    var providerDistance: [Int : Int] = [:]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        getCurrentLocation()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        createArray(virusTypeInput: "")
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     }
     
@@ -43,77 +60,83 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         searchBar.resignFirstResponder()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        createArray(virusTypeInput: "")
-        
-    }
     func createArray(virusTypeInput: String){
+        self.distances.removeAll()
         
         var tempProviders: [Provider]? = []
-        var error: MyError
-        (tempProviders, error) = database.fetchProvidersWhoOffer(virusType: virusTypeInput)
+        (tempProviders, _) = database.fetchProvidersWhoOffer(virusType: virusTypeInput)
         
+        if let tempProviderList = tempProviders {
+            self.distances.removeAll()
+            for provider in tempProviderList {
+                var providerAddressInCoordinates: CLLocation = CLLocation()
 
+                if updateLocation == true {
+                    getPlacemark(addressString: provider.address, callback: { [self] (location) in
+                        providerAddressInCoordinates = location
+                        
+                        var tempDistance = self.currentAddressInCoordinates.distance(from: providerAddressInCoordinates)*0.000621371 // distance in miles
+                        
+                        var newDistance: Int = Int(Double(tempDistance).rounded())
+                        
+                        JLog("providerDistance[provider.uid]=\(providerDistance[provider.uid])")
+                        
+                        if self.providerDistance[provider.uid] == nil || self.updateLocation == true {
+                            self.providerDistance[provider.uid] = newDistance
+                        }
+                        
+                        
+                        if provider == tempProviderList.last {
+                            self.updateLocation = false
+                        }
+                    } )
+                }
+            }
+        }
         
-//        var providersTemp = resultProvider
-//
-//        var dictionary = Dictionary<Int, Array<Provider>>() // Key: distance, Value: array of Provider
-//        // Filter providers by distance. Provider with more than 100 miles away will be excluded from the array.
-//        for index in 0..<providersTemp.count {
-//            // Calculate distance by using coordinates
-//            var tempDistance = currentAddressInCoordinates.distance(from: providersTemp[index].coordinates!)*0.000621371 // distance in miles
-//            let distance = Int(Double(tempDistance).rounded()) // convert to Integer
-//            distances.append(distance)
-//            if(distance > 100) { // remove provider from the array
-//                // TODO: Possible index related error
-//                providersTemp.remove(at: index)
-//                distances.remove(at: index)
-//            } else { // There might be multiple providers with same distance
-//                if dictionary[distance] != nil {
-//                    // Same key with different value
-//                    dictionary[distance]!.append(providers[index])
-//                } else {
-//                    // First time key appears
-//                    dictionary[distance] = [providers[index]]
-//                }
-//            }
-//        }
-//
-//        let keysSorted = Array(dictionary.keys).sorted(by: <) // sort by distance in ascending order
-//        distances.sort(by: <)
-//        var tempArrToReturn: [Provider] = []
-//
-//        for key in keysSorted { // assign all members of
-//            if let providerValue = dictionary[key] {
-//                for provider in providerValue {
-//                    tempArrToReturn.append(provider)
-//                }
-//            }
-//        }
-//
         providers = tempProviders!
-        
-//        self.providers = resultProviders
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-
+    func getCurrentLocation() {
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    // Update current location
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        let coordinates = CLLocationCoordinate2D.init(latitude: locValue.latitude, longitude: locValue.longitude)
+        currentAddressInCoordinates = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        self.updateLocation = true
+        createArray(virusTypeInput: "")
+    }
+    
+    func getPlacemark( addressString : String, callback: @escaping (CLLocation) -> Void) {
+        var coord: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    coord = location.coordinate // coordinates
+                    callback(CLLocation(latitude: coord.latitude, longitude: coord.longitude))
+                }
+            }
+        }
     }
     
     // Make an appointment
     @IBAction func makeAppointmentBtnTouched(_ sender: UIButton) {
         touchedCellindex = sender.tag
-        print("touchedCellindex=\(touchedCellindex)")
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("You tapped me!")
 
     }
     
@@ -141,7 +164,6 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
                 if let index = touchedCellindex {
                     vc.provider = providers[index]
                     vc.virusTypeSearched = virusTypeSearched!
-                    
                 }
             }
         }
