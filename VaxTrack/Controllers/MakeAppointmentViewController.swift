@@ -37,7 +37,6 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
         contactEmailLabel.text = provider.contactEmail
         websiteLabel.text = provider.website
 
-
         // Fetch slots for today by default
         availableTimes = loadAvailableTimesByDefault()
 
@@ -85,17 +84,12 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
             }
         }
         
-
         appointment = Appointment.init(appointmentID: 0, virusType: virusTypeSearched, date: appointmentDate, patientID: ST_User.shared.userID, providerID: provider.uid)
 
-        
-        
         // Store input data(appointment) into DB
         if let appt = appointment {
             database.storeAppointment(appointment: appt)
         }
-        
-        
     }
     
     func loadAvailableTimesByDefault() -> [String] {
@@ -129,7 +123,6 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("You tapped me!")
         let selectedCell: UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectedCell.contentView.backgroundColor = UIColor(red: 0, green: 117, blue: 102, alpha: 1)
         tabbedTime = availableTimes[indexPath.row]

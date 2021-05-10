@@ -23,7 +23,6 @@ class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate,
         tableView.delegate = self
         tableView.dataSource = self
         
-        
         createArray() // Array of appointments and corresponding providers
     }
     
@@ -52,7 +51,7 @@ class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate,
             database.cancelAppointment(appointmentID: appointments[indexOfAppt].appointmentID)
         }
         
-        // TODO:- Reload the tableview or delete the cell
+        // Reload the tableview or delete the cell
         tableView.reloadData()
     }
     
@@ -77,6 +76,4 @@ class ProviderAppointmentsViewController: UIViewController, UITableViewDelegate,
         
         return cell
     }
-    
-
 }

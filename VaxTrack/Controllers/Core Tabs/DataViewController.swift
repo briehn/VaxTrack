@@ -33,8 +33,6 @@ class DataViewController: UIViewController, CLLocationManagerDelegate {
         cityNameLabel.text = cityName
         createArray()
         
-        getPlacemark(addressString: "1400 Washington Ave, Albany, NY 12222")
-        
     }
     
     func createArray() {
@@ -49,16 +47,13 @@ class DataViewController: UIViewController, CLLocationManagerDelegate {
         
         if let providerList = allProviders.0 {
             for provider in providerList {
-                JLog("providers.count=\(providerList.count)")
                 // get provider's city name
                 if let cn = getPlacemark(addressString: provider.address) {
                     let cityNameForProvider: String = cn
                     
                     // count covid-19 vaccinated patients by provider
                     let vaccinatedPatients = database.fetchVaccinationRecordsForProviderWithCovid19(providerID: provider.uid)
-                    print("vaccinatedPatients=\(vaccinatedPatients)")
                     if vaccinatedPatients != nil {
-                        JLog("vaccinatedPatients.count=\(vaccinatedPatients.count)")
                         for pat in vaccinatedPatients {
                             vaccinatedPatientIDs.append(pat.0) // patient id
                         }
@@ -92,15 +87,9 @@ class DataViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-        print("populationByProviderLocation=\(populationByProviderLocation)")
-        print("vaccinatedPopulationByProviderLocation=\(vaccinatedPopulationByProviderLocation)")
-        
         // sort dictionary by value in descending order
         let sortedOne = populationByProviderLocation.sorted { (first, second) -> Bool in return first.value > second.value
         }
-        print("sortedOne=\(sortedOne)")
-        
-        
         
     }
     
@@ -155,16 +144,5 @@ class DataViewController: UIViewController, CLLocationManagerDelegate {
         }
         return cn
     }
-    
-    
-    
-    
-    // TODO:- For later use in other VC
-//    func getCoordinates(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> CLLocationCoordinate2D {
-//            guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return CLLocationCoordinate2D() }
-//            print("locations = \(locValue.latitude) \(locValue.longitude)")
-//        return CLLocationCoordinate2D.init(latitude: locValue.latitude, longitude: locValue.longitude)
-//        }
-
 
 }
