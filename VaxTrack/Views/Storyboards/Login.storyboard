@@ -57,7 +57,7 @@
                                 <rect key="frame" x="22.5" y="54" width="369" height="314.5"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBp-2X-klK">
-                                <rect key="frame" x="85.5" y="641" width="243" height="21"/>
+                                <rect key="frame" x="85.5" y="691" width="243" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVa-v1-xsr">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="21"/>
@@ -105,7 +105,7 @@
                             <constraint firstItem="O3S-xy-YLV" firstAttribute="height" secondItem="Ggj-zT-e3F" secondAttribute="height" multiplier="0.351004" id="Qbh-CU-H89"/>
                             <constraint firstItem="O3S-xy-YLV" firstAttribute="top" secondItem="03K-qZ-WN6" secondAttribute="top" constant="10" id="aCB-KO-HJg"/>
                             <constraint firstItem="MBp-2X-klK" firstAttribute="centerX" secondItem="03K-qZ-WN6" secondAttribute="centerX" id="fNy-nX-cKE"/>
-                            <constraint firstItem="03K-qZ-WN6" firstAttribute="bottom" secondItem="MBp-2X-klK" secondAttribute="bottom" constant="200" id="fs1-Hh-EEI"/>
+                            <constraint firstItem="03K-qZ-WN6" firstAttribute="bottom" secondItem="MBp-2X-klK" secondAttribute="bottom" constant="150" id="fs1-Hh-EEI"/>
                             <constraint firstItem="WPb-PV-eBT" firstAttribute="centerX" secondItem="4cC-mR-x0I" secondAttribute="centerX" id="gLI-Ja-ZXY"/>
                             <constraint firstItem="O3S-xy-YLV" firstAttribute="centerX" secondItem="NSQ-7n-Ycu" secondAttribute="centerX" id="gVK-gP-v7C"/>
                             <constraint firstItem="O3S-xy-YLV" firstAttribute="width" secondItem="Ggj-zT-e3F" secondAttribute="width" multiplier="0.891304" id="lqM-17-kFe"/>
@@ -171,7 +171,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKe-cn-cTo">
-                                <rect key="frame" x="85.5" y="641" width="243" height="21"/>
+                                <rect key="frame" x="85.5" y="691" width="243" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnq-2f-Ujt">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="21"/>
@@ -211,7 +211,7 @@
                         <constraints>
                             <constraint firstItem="US5-W1-1D5" firstAttribute="centerX" secondItem="Cya-FO-6xc" secondAttribute="centerX" id="2jM-XC-6Nb"/>
                             <constraint firstItem="ife-Qc-Due" firstAttribute="centerX" secondItem="Cya-FO-6xc" secondAttribute="centerX" id="8CI-hs-a0S"/>
-                            <constraint firstItem="Cya-FO-6xc" firstAttribute="bottom" secondItem="RKe-cn-cTo" secondAttribute="bottom" constant="200" id="Flq-Ly-9c6"/>
+                            <constraint firstItem="Cya-FO-6xc" firstAttribute="bottom" secondItem="RKe-cn-cTo" secondAttribute="bottom" constant="150" id="Flq-Ly-9c6"/>
                             <constraint firstItem="gU3-Nd-8U3" firstAttribute="centerX" secondItem="Cya-FO-6xc" secondAttribute="centerX" id="G5b-zl-SXO"/>
                             <constraint firstItem="yyy-YC-t1s" firstAttribute="top" secondItem="gU3-Nd-8U3" secondAttribute="bottom" constant="20" id="Jnv-0T-C07"/>
                             <constraint firstItem="ife-Qc-Due" firstAttribute="top" secondItem="US5-W1-1D5" secondAttribute="bottom" constant="70" id="MUL-zf-qga"/>
